@@ -11,3 +11,78 @@
  *= require_self
  *= require_tree .
  */
+
+html
+{
+	background: #ddf
+}
+
+body
+{
+	border-radius: 5px;
+	margin: 10px !important;
+}
+
+footer div a:visited, footer div a:hover
+{
+	background: transparent !important;
+	color: #005588 !important;
+}
+
+header
+{
+	padding: 15px;
+}
+
+header h1, header h4
+{
+	width: 500px;
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+}
+
+header h1 {
+	letter-spacing: 1px;
+}
+
+a.head { color: black !important; background: transparent !important }
+
+header h4
+{
+	font-family: 'Sansita One', cursive;
+	padding: 5px 0;
+	color: #222;
+}
+
+footer
+{
+	margin: 15px 30px 60px 30px;
+	overflow: auto;
+}
+
+footer div
+{
+	margin: 35px 0px;
+}
+
+.info
+{
+	float: left;
+}
+
+.auth
+{
+	float: right;
+}
+
+.main
+{
+	clear: both;
+}
+
+.btn-primary:visited
+{
+	color: white;
+}
+

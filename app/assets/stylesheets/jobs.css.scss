@@ -1,0 +1,190 @@
+// Place all the styles related to the Jobs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$gray-top: #ccc;
+$gray-bottom: #ddd;
+$gray-link: #222;
+$gray-link-hover: #111;
+$cell-bg: #f2f2ff;
+
+.filters
+{
+	border: {
+		top: 1px solid $gray-top;
+		bottom: 1px solid darken($gray-bottom, 15%);
+	}
+	a
+	{
+		float: right;
+		margin: 8px 35px;
+	}
+	padding-left: 10px;
+	overflow: auto;
+}
+
+.filter
+{
+	float: left;
+	width: 380px;
+	label, input
+	{
+		float: left;
+	}
+	.btn-group {
+		margin: 8px 0 0 25px;
+	}
+	label
+	{
+		margin: 13px 10px 8px 25px;
+		cursor: pointer;
+	}
+	input[type=checkbox]
+	{
+		margin: 17px 0 0 6px;
+	}
+	input[type=radio]
+	{
+		margin-top: 16px;
+	}
+}
+
+.main
+{
+	table
+	{
+		width: 100%;
+	}
+	tr:hover {
+		background: $cell-bg;
+	}
+	td
+	{
+		padding: 0 35px;
+		border-bottom: 1px solid darken($cell-bg, 10%);
+	}
+}
+
+.btn-inverse:visited
+{
+	color: white;
+}
+
+.job-title
+{
+	color: $gray-link !important;
+}
+
+.job-title:hover
+{
+	color: $gray-link-hover;
+	background: none;
+}
+
+.form .badge {
+	position: relative; top: -4px; left: 10px;
+}
+
+.form, .job
+{
+	width: 820px;
+	margin: 10px auto;
+	border-top: 1px solid $gray-top;
+	border-left: 1px solid $gray-top;
+	border-right: 1px solid $gray-bottom;
+	border-bottom: 1px solid $gray-bottom;
+	border-radius: 10px;
+	box-shadow: 2px 3px 2px darken($gray-top, 25%);
+	padding: 15px;
+	h3
+	{
+		margin: 10px 35px 15px 35px;
+	}
+}
+
+.field
+{
+	margin: 2px 10px 2px 35px;
+	label {
+		clear: left;
+		float: left;
+		width: 150px;
+		padding: 4px 15px;
+		text-align: right;
+	}
+	span {
+		text-align: right;
+		width: 165px;
+		padding: 4px 15px 0 0;
+		float: left;
+		clear: left;
+		font-size: 10px;
+		color: darken($gray-bottom,40%);
+		a:hover { color: black !important; background: transparent !important }
+	}
+	input {
+		width: 350px;
+	}
+	textarea.description {
+		width: 350px;
+		height: 150px;
+	}
+	textarea.application {
+		width: 350px;
+		height: 80px;
+	}
+	input[type=checkbox] {
+		height: 22px;
+	}
+}
+.tall
+{
+	height: 60px;
+}
+.actions {
+	.btn {
+		width: 200px;
+		margin-left: 250px;
+	}
+}
+
+.job
+{
+	h3 { margin: 0 }
+	padding: 4px 0 30px 0;
+	div
+	{
+		padding: 15px 35px 15px 35px;
+	}
+	.company {
+		border: {
+			top: 1px solid $gray-top;
+			bottom: 1px solid darken($gray-bottom, 20%);
+		}
+		padding: 0 35px;
+		background: #afc;
+	}
+	.description {
+		a:hover { color: #005588 !important; background: transparent !important }
+	}
+	.mention {
+		margin-top: 10px;
+		border-top: 1px solid $gray-bottom;
+		font-size: 12px;
+		padding: 20px 35px 10px 35px;
+		color: darken($gray-bottom,60%);
+	}
+}
+
+.notice {
+	width: 550px;
+	margin: 0 auto;
+	border-radius: 3px;
+	box-shadow: 1px 1px 1px #152;
+	background: #2a4;
+	color: white;
+	font-weight: bold;
+	line-height: 32px;
+	text-align: center;
+	font-size: 16px;
+}
+

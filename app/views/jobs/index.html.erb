@@ -1,0 +1,39 @@
+<div class="filters">
+	<div class="filter">
+		<div class="btn-group">
+			<button id="All" class="billing-filter btn">All</button>
+			<button id="Hourly" class="billing-filter btn">Hourly</button>
+			<button id="Fixed price" class="billing-filter btn">Fixed price</button>
+		</div>
+	</div>
+	<div class="filter">
+		<label for="remote">Remote:</label>
+		<%= check_box_tag 'remote', '1', @remote %>
+	</div>
+	<%= link_to 'Post A New Job', new_job_path, :class => 'btn btn-inverse' %>
+</div>
+
+<table>
+<% @jobs.each do |job| %>
+  <tr class="<%= cycle("odd", "even") %>">
+    <td>
+			<h4><%= link_to job.title, job, :class => 'job-title' %></h4>
+			<h6><%= job.company %></h6>
+		</td>
+    <td>
+			<h6><%= job.remote ? 'Remote' : '' %> <%= (job.remote && job.location != '') ? '(' : '' %><%= job.location %><%= (job.remote && job.location != '') ? ')' : '' %></h6>
+			<h6><%= job.billing %></h6>
+		</td>
+    <td><%= job.created_at.strftime("%d %b") %></td>
+<% if is_admin? %>
+		<td><%= job.approved ? 'Approved' : 'Pending' %><br>
+		<%= link_to 'Edit', edit_job_path(job) %> | 
+		<%= link_to 'Destroy', job, confirm: 'Are you sure?', method: :delete %></td></td>
+<% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+

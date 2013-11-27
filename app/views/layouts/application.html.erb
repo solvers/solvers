@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Scisolvers</title>
+	<title>
+		<%= (yield(:title) + " - " unless yield(:title).blank?).to_s + "Games Freelancers, Freelance Game Jobs" %>
+	</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+	<meta name="description" content="Games Freelancers - a simple and effective place to post and find freelance jobs in the games industry." />
+	<link href="/css/bootstrap.css" media="all" rel="stylesheet" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=Sansita+One' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/js/jobs.js"></script>
 </head>
 <body>
 
-<%= yield %>
+<header>
+	<h1><%= link_to 'Games Freelancers', :jobs, :class => 'head' %></h1>
+	<h4>For the best global freelance talent</h4>
+</header>
 
+<div class="main">
+	<%= yield %>
+</div>
+<footer>
+	<div class="info"><strong>Games Freelancers</strong> is a <a href="http://redskyforge.com">Red Sky Forge</a> project by <a href="http://www.dave78.com">Dave Clayton</a>.<br>
+	Ideas? Suggestions? <a href="mailto:davedx@gmail.com">Get in touch.</a></div>
+	<div class="auth">
+	<% if user_signed_in? %>
+		Signed in as <%= current_user.email %>
+	<% else %>
+		<%= link_to 'Admin login', '/auth/facebook/' %>
+	<% end %>
+	</div>
+</footer>
 </body>
 </html>
