@@ -14,7 +14,7 @@
 
 html
 {
-	background: #ddf
+	background: #eee;
 }
 
 body
@@ -50,7 +50,6 @@ a.head { color: black !important; background: transparent !important }
 
 header h4
 {
-	font-family: 'Sansita One', cursive;
 	padding: 5px 0;
 	color: #222;
 }
