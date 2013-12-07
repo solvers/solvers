@@ -1,0 +1,62 @@
+<head>
+	<title>
+		Solvers: Find development resources for your science project
+	</title>
+	<meta name="description" content="Solvers - Find development resources for your science project">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="offset1 span10">
+				<header>
+					<h1>Solvers</h1>
+					<h4>Find development resources for your science project</h4>
+					{{loginButtons}}
+				</header>
+			</div>
+		</div>
+		<div class="row">
+			<div class="offset1 span10">
+					{{> router}}
+				<footer>
+				</footer>
+			</div>
+		</div>
+	</div>
+</body>
+
+<template name="router">
+	{{#if pageIs "home"}}
+    {{> home}}
+  {{/if}}
+  {{#if pageIs "newJob"}}
+  	{{> newJob}}
+  {{/if}}
+</template>
+
+<template name="home">
+	<button class="btn btn-primary" id="newJob">Post new job - free</button>
+	<ul class="jobs">
+	{{#each jobs}}
+		<li><a class="showJob" data-id="{{_id}}">{{name}} <span class="role">{{role}}</span></a> {{#if isMine}}<button id="deleteJob">Remove</button>{{/if}}</li>
+	{{/each}}
+	</ul>
+</template>
+
+<template name="newJob">
+	<form>
+		<fieldset>
+			<legend>Add new job</legend>
+			<label>Job name</label>
+			<input type="text" id="name" placeholder="Protein folding program">
+			<label>Role</label>
+			<input type="text" id="role" placeholder="Software developer">
+			<label>Description</label>
+			<textarea id="description" placeholder="This job involves working with the Department of Biochemistry at MIT"></textarea>
+			<label></label>
+			<button class="btn btn-primary" id="addNewJob">Add new job</button>
+			<button class="btn btn-info back">Back</button>
+		</fieldset>
+	</form>
+</template>
