@@ -1,4 +1,4 @@
-solvers
+Solvers
 =======
 
 Solvers - connecting problems with solvers
