@@ -11,8 +11,9 @@ Meteor.methods({
 			throw new Meteor.Error(403, "Please log in to post a new job.");
 		Jobs.insert({
 			name: job.name,
-			description: job.description,
+			postedDate: new Date(),
 			role: job.role,
+			description: job.description,
 			owner: this.userId
 		});
 		return true;

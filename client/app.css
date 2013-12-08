@@ -28,3 +28,11 @@ form textarea, form input {
 textarea {
 	height: 220px;
 }
+.job h2 {
+	margin-top: 30px;
+	margin-bottom: 0;
+}
+.job h5 {
+	margin: 0;
+	color: grey;
+}

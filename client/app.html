@@ -33,15 +33,30 @@
   {{#if pageIs "newJob"}}
   	{{> newJob}}
   {{/if}}
+  {{#if pageIs "showJob"}}
+  	{{> showJob}}
+  {{/if}}
 </template>
 
 <template name="home">
 	<button class="btn btn-primary" id="newJob">Post new job - free</button>
 	<ul class="jobs">
 	{{#each jobs}}
-		<li><a class="showJob" data-id="{{_id}}">{{name}} <span class="role">{{role}}</span></a> {{#if isMine}}<button id="deleteJob">Remove</button>{{/if}}</li>
+		<li><a class="showJob" data-id="{{_id}}">{{name}} - {{role}}</a>
+			{{#if isMine}}<button class="btn deleteJob">Remove</button>{{/if}}
+		</li>
 	{{/each}}
 	</ul>
+</template>
+
+<template name="showJob">
+	<div class="job">
+		<h2>{{getJob.role}}</h2>
+		<h5>POSTED {{formatDate getJob.postedDate}}</h5>
+		<h3>{{getJob.name}}</h3>
+		<p>{{#markdown}}{{getJob.description}}{{/markdown}}</p>
+		<button class="btn btn-info back">Back</button>
+	</div>
 </template>
 
 <template name="newJob">
@@ -52,7 +67,8 @@
 			<input type="text" id="name" placeholder="Protein folding program">
 			<label>Role</label>
 			<input type="text" id="role" placeholder="Software developer">
-			<label>Description</label>
+			<label></label>
+			<span class="help-block">Describe the job. <strong>Don't forget to include how to contact you.</strong> You may use <a href="http://daringfireball.net/projects/markdown/basics">Markdown</a> to format your post.</span>
 			<textarea id="description" placeholder="This job involves working with the Department of Biochemistry at MIT"></textarea>
 			<label></label>
 			<button class="btn btn-primary" id="addNewJob">Add new job</button>

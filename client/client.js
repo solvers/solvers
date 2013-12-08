@@ -11,30 +11,44 @@ Template.home.isMine = function() {
 	return this.owner === Meteor.userId();
 };
 
+Template.showJob.getJob = function() {
+	return Session.get('job');
+};
+
+Template.showJob.formatDate = function(date) {
+	return date.getDate() + '-' + date.getMonth() + '-' + date.getFullYear();
+};
+
 Template.home.events({
 	'click #newJob': function(e) {
 		Session.set('page', 'newJob');
-		e.preventDefault();
 	},
-	'click #deleteJob': function(e) {
+	'click .deleteJob': function(e) {
 		Meteor.call('deleteJob', this._id);
-		e.preventDefault();
+	},
+	'click .showJob': function(e) {
+		var id = e.target.getAttribute('data-id');
+		Session.set('page', 'showJob');
+		Session.set('job', Jobs.findOne({_id: id}));
+	}
+});
+Template.showJob.events({
+	'click .back': function(e) {
+		Session.set('page', 'home');
 	}
 });
 
 Template.newJob.events({
 	'click .back': function(e) {
 		Session.set('page', 'home');
-		e.preventDefault();
 	},
 	'click #addNewJob': function(e) {
 		Meteor.call('addJob', {
 			name: $('#name').val(),
 			role: $('#role').val(),
-			description: $('description').text()
+			description: $('#description').val()
 		});
 		Session.set('page', 'home');
-		e.preventDefault();
 	}
 });
 
