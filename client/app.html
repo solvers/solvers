@@ -35,7 +35,7 @@
 	<ul class="jobs">
 	{{#each jobs}}
 		<li><a class="showJob" data-id="{{_id}}">{{name}} - {{role}}</a>
-			{{#if isMine}}<button class="btn deleteJob">Remove</button>{{/if}}
+			{{#if mayRemove}}<button class="btn deleteJob">Remove</button>{{/if}}
 		</li>
 	{{/each}}
 	</ul>

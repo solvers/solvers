@@ -3,12 +3,23 @@ Meteor.subscribe('jobs', function() {
 
 Session.set('page', 'home');
 
+// really want to make this better, but we don't seem to have stored email addresses in the user document
+var admins = [
+	"Y7Mpvx8CKHk987mov", /* Dave Clayton: solvers.meteor.com */
+	"soR3Bmi3knaLFpB2a", /* Dave Clayton: Dave localhost */
+];
+
+var isAdmin = function() {
+	//console.log("user: ", Meteor.user());
+	return _.find(admins, function(id) { return Meteor.userId() === id });
+};
+
 Template.home.jobs = function () {
 	return Jobs.find({});
 };
 
-Template.home.isMine = function() {
-	return this.owner === Meteor.userId();
+Template.home.mayRemove = function() {
+	return isAdmin() || this.owner === Meteor.userId();
 };
 
 Template.showJob.getJob = function() {
