@@ -7,8 +7,8 @@
 </head>
 <body>
 	<div class="container">
-          {{> header}}
-		<div class="row">
+    {{> header}}
+		<div class="row main-row">
 			<div class="offset1 span10">
 					{{> router}}
 				<footer>
@@ -48,6 +48,11 @@
 		<h3>{{getJob.name}}</h3>
 		<p>{{#markdown}}{{getJob.description}}{{/markdown}}</p>
 		<button class="btn btn-info back">Back</button>
+		<h4>Comments and questions</h4>
+		{{#each comments}}
+		<p><strong>{{user}}</strong>: {{body}}</p>
+		{{/each}}
+		<button class="btn btn-info newComment">Post comment or question</button>
 	</div>
 </template>
 

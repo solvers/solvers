@@ -1,5 +1,7 @@
 Meteor.subscribe('jobs', function() {
 });
+Meteor.subscribe('comments', function() {
+});
 
 Session.set('page', 'home');
 
@@ -40,9 +42,17 @@ Template.home.events({
 	'click .showJob': function(e) {
 		var id = e.target.getAttribute('data-id');
 		Session.set('page', 'showJob');
-		Session.set('job', Jobs.findOne({_id: id}));
+		var job = Jobs.findOne({_id: id});
+		Session.set('job', job);
 	}
 });
+
+Template.showJob.comments = function() {
+	var job = Session.get('job');
+	var comments = Comments.find({parent: job._id});
+	return comments;
+};
+
 Template.showJob.events({
 	'click .back': function(e) {
 		Session.set('page', 'home');
