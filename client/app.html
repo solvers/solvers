@@ -52,7 +52,16 @@
 		{{#each comments}}
 		<p><strong>{{user}}</strong>: {{body}}</p>
 		{{/each}}
-		<button class="btn btn-info newComment">Post comment or question</button>
+		<form>
+			<fieldset>
+				<legend>Post a comment or question</legend>
+				<label></label>
+				<span class="help-block">Post your comment. You may use <a href="http://daringfireball.net/projects/markdown/basics">Markdown</a> to format it.</span>
+				<textarea id="comment_body" placeholder=""></textarea>
+				<label></label>
+				<button class="btn btn-primary" id="addNewComment">Post comment</button>
+			</fieldset>
+		</form>
 	</div>
 </template>
 

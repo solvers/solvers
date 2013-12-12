@@ -28,6 +28,9 @@ form textarea, form input {
 textarea {
 	height: 220px;
 }
+#comment_body {
+	height: 120px;
+}
 .job h2 {
 	margin-top: 30px;
 	margin-bottom: 0;

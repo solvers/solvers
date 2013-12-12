@@ -8,10 +8,12 @@ Meteor.methods({
 		//check(job.name, String);
 		if(!this.userId)
 			throw new Meteor.Error(403, "Please log in to post a new comment.");
+		var username = Meteor.user().profile.name;
 		Comments.insert({
 			body: comment.body,
 			parent: jobId,
-			owner: this.userId
+			owner: this.userId,
+			user: username
 		});
 		return true;
 	},

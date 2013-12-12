@@ -56,6 +56,13 @@ Template.showJob.comments = function() {
 Template.showJob.events({
 	'click .back': function(e) {
 		Session.set('page', 'home');
+	},
+	'click #addNewComment': function(e) {
+		e.preventDefault();
+		Meteor.call('addComment',
+			Session.get('job')._id,	{
+				body: $('#comment_body').val()
+			});
 	}
 });
 
