@@ -14,7 +14,7 @@ ul {
 	font-weight: bold;
 	cursor: pointer;
 	padding: 20px 0;
-	border-bottom: 1px solid grey;
+	border-bottom: 1px solid #ccc;
 }
 .jobs li a {
 	text-decoration: none;

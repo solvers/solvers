@@ -2,13 +2,19 @@
   "meteor": {},
   "dependencies": {
     "basePackages": {
-      "page-js": {}
+      "page-js": {},
+      "spin": {}
     },
     "packages": {
       "page-js": {
         "git": "https://github.com/tmeasday/meteor-page-js.git",
         "tag": "v1.3.5",
         "commit": "c652f795a86498aa4609ab637a694710421cb218"
+      },
+      "spin": {
+        "git": "https://github.com/SachaG/meteor-spin.git",
+        "tag": "v0.2.0",
+        "commit": "fd3a2871a69442848b4b4e74f5e1ae28fa4a95a4"
       }
     }
   }

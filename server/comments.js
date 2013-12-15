@@ -17,7 +17,19 @@ Meteor.methods({
 		});
 		return true;
 	},
+	updateComment: function(comment) {
+		if(!this.userId)
+			throw new Meteor.Error(403, "Please log in to post a new comment.");
+		Comments.update({_id: comment._id},
+			{ $set: {
+				body: comment.body
+			}
+		});
+		return true;
+	},
 	deleteComment: function(id) {
+		if(!this.userId)
+			throw new Meteor.Error(403, "Please log in to post a new comment.");
 		//TODO: check is owner!!!
 		Comments.remove({_id: id});
 		return true;

@@ -1,4 +1,4 @@
-Meteor.subscribe('jobs', function() {
+var jobsHandle = Meteor.subscribe('jobs', function() {
 });
 Meteor.subscribe('comments', function() {
 });
@@ -22,6 +22,10 @@ Template.home.jobs = function () {
 
 Template.home.mayRemove = function() {
 	return isAdmin() || this.owner === Meteor.userId();
+};
+
+Template.home.loading = function () {
+  return !jobsHandle.ready();
 };
 
 Template.showJob.getJob = function() {
@@ -53,6 +57,10 @@ Template.showJob.comments = function() {
 	return comments;
 };
 
+Template.showJob.isOwner = function() {
+	return this.owner === Meteor.userId();
+};
+
 Template.showJob.events({
 	'click .back': function(e) {
 		Session.set('page', 'home');
@@ -63,6 +71,11 @@ Template.showJob.events({
 			Session.get('job')._id,	{
 				body: $('#comment_body').val()
 			});
+	},
+	'click .editComment': function(e) {
+		e.preventDefault();
+		console.log("editing "+this._id);
+		$('#comment_body_' + this._id).show();
 	}
 });
 
