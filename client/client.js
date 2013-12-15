@@ -75,7 +75,19 @@ Template.showJob.events({
 	'click .editComment': function(e) {
 		e.preventDefault();
 		console.log("editing "+this._id);
-		$('#comment_body_' + this._id).show();
+		$('#comment_' + this._id).hide();
+		$('#edit_comment_' + this._id).show();
+	},
+	'click .cancelEditComment': function(e) {
+		e.preventDefault();
+		$('#comment_' + this._id).show();
+		$('#edit_comment_' + this._id).hide();
+	},
+	'click .saveComment': function(e) {
+		e.preventDefault();
+		this.body = $('#comment_body_' + this._id).val();
+		Meteor.call('updateComment', 
+			this);
 	}
 });
 
