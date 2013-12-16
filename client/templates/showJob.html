@@ -1,9 +1,9 @@
-<template name="showJob">
-    <div class="job">
-        <h2>{{getJob.role}}</h2>
-        <h5>POSTED {{formatDate getJob.postedDate}}</h5>
-        <h3>{{getJob.name}}</h3>
-        <p>{{#markdown}}{{getJob.description}}{{/markdown}}</p>
+<template name="showProject">
+    <div class="project">
+        <h2>{{getProject.role}}</h2>
+        <h5>POSTED {{formatDate getProject.postedDate}}</h5>
+        <h3>{{getProject.name}}</h3>
+        <p>{{#markdown}}{{getProject.description}}{{/markdown}}</p>
         <button class="btn btn-info back">Back</button>
         <h4>Comments and questions</h4>
         {{#each comments}}

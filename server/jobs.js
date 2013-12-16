@@ -1,26 +1,26 @@
-Meteor.publish('jobs', function() {
-	return Jobs.find({});
+Meteor.publish('projects', function() {
+	return Projects.find({});
 });
 
 Meteor.methods({
-	addJob: function(job) {
-		check(job.name, String);
-		check(job.role, String);
-		check(job.description, String);
+	addProject: function(project) {
+		check(project.name, String);
+		check(project.role, String);
+		check(project.description, String);
 		if(!this.userId)
-			throw new Meteor.Error(403, "Please log in to post a new job.");
-		Jobs.insert({
-			name: job.name,
+			throw new Meteor.Error(403, "Please log in to post a new project.");
+		Projects.insert({
+			name: project.name,
 			postedDate: new Date(),
-			role: job.role,
-			description: job.description,
+			role: project.role,
+			description: project.description,
 			owner: this.userId
 		});
 		return true;
 	},
-	deleteJob: function(id) {
+	deleteProject: function(id) {
 		//TODO: check is owner!!!
-		Jobs.remove({_id: id});
+		Projects.remove({_id: id});
 		return true;
 	}
 });

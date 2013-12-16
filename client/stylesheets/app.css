@@ -2,21 +2,21 @@ ul {
 	list-style-type: none;
 	margin: 0;
 }
-#newJob {
+#newProject {
 	float: right;
 	margin-top: -30px; /* yea yea */
 }
-.jobs {
+.projects {
 	margin-top: 30px;
 }
-.jobs li {
+.projects li {
 	font-size: 1.3em;
 	font-weight: bold;
 	cursor: pointer;
 	padding: 20px 0;
 	border-bottom: 1px solid #ccc;
 }
-.jobs li a {
+.projects li a {
 	text-decoration: none;
 }
 fieldset {
@@ -31,11 +31,11 @@ textarea {
 #comment_body {
 	height: 120px;
 }
-.job h2 {
+.project h2 {
 	margin-top: 30px;
 	margin-bottom: 0;
 }
-.job h5 {
+.project h5 {
 	margin: 0;
 	color: grey;
 }

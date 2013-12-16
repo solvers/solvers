@@ -1,2 +1,2 @@
-Jobs = new Meteor.Collection('jobs');
+Projects = new Meteor.Collection('projects');
 Comments = new Meteor.Collection('comments');

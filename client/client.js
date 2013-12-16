@@ -1,4 +1,4 @@
-var jobsHandle = Meteor.subscribe('jobs', function() {
+var projectsHandle = Meteor.subscribe('projects', function() {
 });
 Meteor.subscribe('comments', function() {
 });
@@ -16,8 +16,8 @@ var isAdmin = function() {
 	return _.find(admins, function(id) { return Meteor.userId() === id });
 };
 
-Template.home.jobs = function () {
-	return Jobs.find({});
+Template.home.projects = function () {
+	return Projects.find({});
 };
 
 Template.home.mayRemove = function() {
@@ -25,50 +25,50 @@ Template.home.mayRemove = function() {
 };
 
 Template.home.loading = function () {
-  return !jobsHandle.ready();
+  return !projectsHandle.ready();
 };
 
-Template.showJob.getJob = function() {
-	return Session.get('job');
+Template.showProject.getProject = function() {
+	return Session.get('project');
 };
 
-Template.showJob.formatDate = function(date) {
+Template.showProject.formatDate = function(date) {
 	return date.getDate() + '-' + date.getMonth() + '-' + date.getFullYear();
 };
 
 Template.home.events({
-	'click #newJob': function(e) {
-		Session.set('page', 'newJob');
+	'click #newProject': function(e) {
+		Session.set('page', 'newProject');
 	},
-	'click .deleteJob': function(e) {
-		Meteor.call('deleteJob', this._id);
+	'click .deleteProject': function(e) {
+		Meteor.call('deleteProject', this._id);
 	},
-	'click .showJob': function(e) {
+	'click .showProject': function(e) {
 		var id = e.target.getAttribute('data-id');
-		Session.set('page', 'showJob');
-		var job = Jobs.findOne({_id: id});
-		Session.set('job', job);
+		Session.set('page', 'showProject');
+		var project = Projects.findOne({_id: id});
+		Session.set('project', project);
 	}
 });
 
-Template.showJob.comments = function() {
-	var job = Session.get('job');
-	var comments = Comments.find({parent: job._id});
+Template.showProject.comments = function() {
+	var project = Session.get('project');
+	var comments = Comments.find({parent: project._id});
 	return comments;
 };
 
-Template.showJob.isOwner = function() {
+Template.showProject.isOwner = function() {
 	return this.owner === Meteor.userId();
 };
 
-Template.showJob.events({
+Template.showProject.events({
 	'click .back': function(e) {
 		Session.set('page', 'home');
 	},
 	'click #addNewComment': function(e) {
 		e.preventDefault();
 		Meteor.call('addComment',
-			Session.get('job')._id,	{
+			Session.get('project')._id,	{
 				body: $('#comment_body').val()
 			});
 	},
@@ -91,12 +91,12 @@ Template.showJob.events({
 	}
 });
 
-Template.newJob.events({
+Template.newProject.events({
 	'click .back': function(e) {
 		Session.set('page', 'home');
 	},
-	'click #addNewJob': function(e) {
-		Meteor.call('addJob', {
+	'click #addNewProject': function(e) {
+		Meteor.call('addProject', {
 			name: $('#name').val(),
 			role: $('#role').val(),
 			description: $('#description').val()

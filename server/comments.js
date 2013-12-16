@@ -3,15 +3,15 @@ Meteor.publish('comments', function() {
 });
 
 Meteor.methods({
-	addComment: function(jobId, comment) {
+	addComment: function(projectId, comment) {
 		//TODO: validate comment
-		//check(job.name, String);
+		//check(project.name, String);
 		if(!this.userId)
 			throw new Meteor.Error(403, "Please log in to post a new comment.");
 		var username = Meteor.user().profile.name;
 		Comments.insert({
 			body: comment.body,
-			parent: jobId,
+			parent: projectId,
 			owner: this.userId,
 			user: username
 		});
