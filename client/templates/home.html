@@ -1,14 +1,26 @@
 <template name="home">
-    <button class="btn btn-primary" id="newProject">Post new project - free</button>
+    <div class="row">
+        <div class=".col-md-3 .col-md-offset-3">
+            <button class="btn btn-primary" id="newProject">
+                Post new project - free
+            </button>
+        </div>
+    </div>
     {{#if loading}}
       {{>spinner}}
     {{else}}
+    <div class="row">
         <ul class="projects">
         {{#each projects}}
             <li><a class="showProject" data-id="{{_id}}">{{name}} - {{role}}</a>
-                {{#if mayRemove}}<button class="btn btn-xs deleteProject">Remove</button>{{/if}}
+                {{#if mayRemove}}
+                <button class="btn btn-xs white pull-right deleteProject">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
+                {{/if}}
             </li>
         {{/each}}
         </ul>
+    </div>
     {{/if}}
 </template>

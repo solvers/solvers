@@ -10,7 +10,9 @@
         <div class="comment">
             <div id="comment_{{_id}}"><strong>{{user}}</strong>: {{body}}
                 {{#if isOwner}}
-                <button class="btn btn-xs editComment">Edit</button>
+                <button class="btn btn-xs white pull-right editComment">
+                    <span class="glyphicon glyphicon-edit"></span>
+                </button>
                 {{/if}}
             </div>
             {{#if isOwner}}
@@ -25,8 +27,6 @@
         {{/each}}
         <form>
             <fieldset>
-                <legend>Post a comment or question</legend>
-                <label></label>
                 <span class="help-block">Post your comment. You may use <a href="http://daringfireball.net/projects/markdown/basics">Markdown</a> to format it.</span>
                 <textarea id="comment_body" placeholder=""></textarea>
                 <label></label>
