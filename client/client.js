@@ -109,4 +109,9 @@ Template.router.pageIs = function (page) {
   return Session.get('page') === page;
 };
 
-
+Accounts.ui.config({
+  requestPermissions: {
+    github: ['user', 'repo']
+  },
+  passwordSignupFields: 'USERNAME_AND_EMAIL'
+});
