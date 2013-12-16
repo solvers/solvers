@@ -1,102 +1,20 @@
 <head>
-	<title>
-		Solvers: Find development resources for your science project
-	</title>
-	<meta name="description" content="Solvers - Find development resources for your science project">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Solvers: Find development resources for your science project
+    </title>
+    <meta name="description" content="Solvers - Find development resources for your science project">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<div class="container">
+    <div class="container">
     {{> header}}
-		<div class="row main-row">
-			<div class="offset1 span10">
-					{{> router}}
-				<footer>
-				</footer>
-			</div>
-		</div>
-	</div>
+        <div class="row main-row">
+            <div class="offset1 span10">
+                    {{> router}}
+                <footer>
+                </footer>
+            </div>
+        </div>
+    </div>
 </body>
-
-<template name="router">
-	{{#if pageIs "home"}}
-    {{> home}}
-  {{/if}}
-  {{#if pageIs "newJob"}}
-  	{{> newJob}}
-  {{/if}}
-  {{#if pageIs "showJob"}}
-  	{{> showJob}}
-  {{/if}}
-</template>
-
-<template name="home">
-	<button class="btn btn-primary" id="newJob">Post new job - free</button>
-	{{#if loading}}
-	  {{>spinner}}
-	{{else}}
-		<ul class="jobs">
-		{{#each jobs}}
-			<li><a class="showJob" data-id="{{_id}}">{{name}} - {{role}}</a>
-				{{#if mayRemove}}<button class="btn deleteJob">Remove</button>{{/if}}
-			</li>
-		{{/each}}
-		</ul>
-	{{/if}}
-</template>
-
-<template name="showJob">
-	<div class="job">
-		<h2>{{getJob.role}}</h2>
-		<h5>POSTED {{formatDate getJob.postedDate}}</h5>
-		<h3>{{getJob.name}}</h3>
-		<p>{{#markdown}}{{getJob.description}}{{/markdown}}</p>
-		<button class="btn btn-info back">Back</button>
-		<h4>Comments and questions</h4>
-		{{#each comments}}
-		<div class="comment">
-			<div id="comment_{{_id}}"><strong>{{user}}</strong>: {{body}}
-				{{#if isOwner}}
-				<button class="btn editComment">Edit</button>
-				{{/if}}
-			</div>
-			{{#if isOwner}}
-			<div class="edit-comment" id="edit_comment_{{_id}}">
-				<textarea id="comment_body_{{_id}}">{{body}}</textarea>
-				<label></label>
-				<button class="btn saveComment">Save</button>
-				<button class="btn cancelEditComment">Cancel</button>
-			</div>
-			{{/if}}
-		</div>
-		{{/each}}
-		<form>
-			<fieldset>
-				<legend>Post a comment or question</legend>
-				<label></label>
-				<span class="help-block">Post your comment. You may use <a href="http://daringfireball.net/projects/markdown/basics">Markdown</a> to format it.</span>
-				<textarea id="comment_body" placeholder=""></textarea>
-				<label></label>
-				<button class="btn btn-primary" id="addNewComment">Post comment</button>
-			</fieldset>
-		</form>
-	</div>
-</template>
-
-<template name="newJob">
-	<form>
-		<fieldset>
-			<legend>Add new job</legend>
-			<label>Job name</label>
-			<input type="text" id="name" placeholder="Protein folding program">
-			<label>Role</label>
-			<input type="text" id="role" placeholder="Software developer">
-			<label></label>
-			<span class="help-block">Describe the job. <strong>Don't forget to include how to contact you.</strong> You may use <a href="http://daringfireball.net/projects/markdown/basics">Markdown</a> to format your post.</span>
-			<textarea id="description" placeholder="This job involves working with the Department of Biochemistry at MIT"></textarea>
-			<label></label>
-			<button class="btn btn-primary" id="addNewJob">Add new job</button>
-			<button class="btn btn-info back">Back</button>
-		</fieldset>
-	</form>
-</template>

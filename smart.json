@@ -1,6 +1,8 @@
 {
   "packages": {
     "page-js": {},
-    "spin": {}
+    "spin": {},
+    "accounts-ui-bootstrap-3": {},
+    "bootstrap-3": {}
   }
 }

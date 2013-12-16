@@ -7,9 +7,9 @@ standard-app-packages
 insecure
 preserve-inputs
 accounts-github
-accounts-ui
-bootstrap
 page-js
 showdown
 less
 spin
+accounts-ui-bootstrap-3
+bootstrap-3

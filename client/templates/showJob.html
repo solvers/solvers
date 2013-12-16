@@ -1,0 +1,37 @@
+<template name="showJob">
+    <div class="job">
+        <h2>{{getJob.role}}</h2>
+        <h5>POSTED {{formatDate getJob.postedDate}}</h5>
+        <h3>{{getJob.name}}</h3>
+        <p>{{#markdown}}{{getJob.description}}{{/markdown}}</p>
+        <button class="btn btn-info back">Back</button>
+        <h4>Comments and questions</h4>
+        {{#each comments}}
+        <div class="comment">
+            <div id="comment_{{_id}}"><strong>{{user}}</strong>: {{body}}
+                {{#if isOwner}}
+                <button class="btn btn-xs editComment">Edit</button>
+                {{/if}}
+            </div>
+            {{#if isOwner}}
+            <div class="edit-comment" id="edit_comment_{{_id}}">
+                <textarea id="comment_body_{{_id}}">{{body}}</textarea>
+                <label></label>
+                <button class="btn btn-sm saveComment">Save</button>
+                <button class="btn btn-sm cancelEditComment">Cancel</button>
+            </div>
+            {{/if}}
+        </div>
+        {{/each}}
+        <form>
+            <fieldset>
+                <legend>Post a comment or question</legend>
+                <label></label>
+                <span class="help-block">Post your comment. You may use <a href="http://daringfireball.net/projects/markdown/basics">Markdown</a> to format it.</span>
+                <textarea id="comment_body" placeholder=""></textarea>
+                <label></label>
+                <button class="btn btn-primary" id="addNewComment">Post comment</button>
+            </fieldset>
+        </form>
+    </div>
+</template>

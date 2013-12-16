@@ -1,0 +1,22 @@
+<template name="newJob">
+    <div class="col-md-6 col-md-offset-3">
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="bold-label" for="name">Job name</label>
+                <input type="text" class="form-control" id="name" placeholder="e.g. Help speed up protein folding software to tackle cancer">
+            </div>
+            <div class="form-group">
+                <label class="bold-label" for="role">Role</label>
+                <input type="text" class="form-control" id="role" placeholder="e.g. Someone with algorithms expertise">
+            </div>
+            <div class="form-group">
+                <label class="bold-label" for="description">Description</label>
+                <span class="help-block">Describe the job. <strong>Don't forget to include how to contact you.</strong> You may use <a href="http://daringfireball.net/projects/markdown/basics">Markdown</a> to format your post.</span>
+                <textarea class="form-control" rows="5" id="description" placeholder="e.g. This job involves working with the Department of Biochemistry at MIT to improve the speed with which proteins can be screened for cancer-causing misfolding potential. The ability to identify these proteins computationally could enable the development of rapid early-stage screening for cancers, potentially saving or improving many lives. Email us: <fakeresearch@mit.edu>!"></textarea>
+            </div>
+                <button class="btn btn-primary pull-left" id="addNewJob">Add new job</button>
+                <button class="btn btn-info back pull-right">Cancel</button>
+            </fieldset>
+        </form>
+    </div>
+</template>
