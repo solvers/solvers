@@ -5,15 +5,13 @@ Meteor.subscribe('comments', function() {
 
 Session.set('page', 'home');
 
-// really want to make this better, but we don't seem to have stored email addresses in the user document
 var admins = [
-	"Y7Mpvx8CKHk987mov", /* Dave Clayton: solvers.meteor.com */
-	"soR3Bmi3knaLFpB2a", /* Dave Clayton: Dave localhost */
+	"richardsmith404@gmail.com", /* Richard Smith */
+	"davedx@gmail.com", /* Dave Clayton */
 ];
 
 var isAdmin = function() {
-	//console.log("user: ", Meteor.user());
-	return _.find(admins, function(id) { return Meteor.userId() === id });
+	return Meteor.user().emails[0].verified && _.find(admins, function(email) { return Meteor.user().emails[0].address === email });
 };
 
 Template.home.projects = function () {
@@ -115,4 +113,3 @@ Accounts.ui.config({
   },
   passwordSignupFields: 'USERNAME_AND_EMAIL'
 });
-
