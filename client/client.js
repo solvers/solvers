@@ -111,7 +111,8 @@ Template.router.pageIs = function (page) {
 
 Accounts.ui.config({
   requestPermissions: {
-    github: ['user', 'repo']
+    github: ['user:email']
   },
   passwordSignupFields: 'USERNAME_AND_EMAIL'
 });
+
