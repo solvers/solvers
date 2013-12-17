@@ -32,7 +32,13 @@ Accounts.onCreateUser(function (options, user) {
             var existingGoogleUser = Meteor.users.findOne({'services.google.email': email});
             var doesntExist = !existingGitHubUser && !existingGoogleUser;
             if (doesntExist) {
-                // return the user as it came, because there he doesn't exist in the DB yet
+                // add the email to profile and return the user
+                // because there he doesn't exist in the DB yet
+                user.emails = [];
+                user.emails[0] = {
+					address: email,
+					verified: true
+                };
                 return user;
             } else {
                 existingUser = existingGitHubUser || existingGoogleUser;
