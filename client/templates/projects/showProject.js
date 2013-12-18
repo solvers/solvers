@@ -7,6 +7,11 @@ Template.showProject.helpers({
 			return '';
 		return moment(date).format('MMM Do YYYY');
 	},
+	formatLongDate: function(date) {
+		if(!date)
+			return '';
+		return moment(date).format('MMM Do YYYY HH:mm');
+	},
 	comments: function() {
 		var project = Session.get('project');
 		if(!project)

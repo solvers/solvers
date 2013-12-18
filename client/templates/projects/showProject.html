@@ -9,7 +9,7 @@
         {{#each comments}}
         <div class="comment">
             <div id="comment_{{_id}}">
-                <strong>{{user}}</strong>: {{#markdown}}{{body}}{{/markdown}}
+                <strong>{{user}}</strong> <h5 class="date">{{formatLongDate postedDate}}</h5>{{#markdown}}{{body}}{{/markdown}}
             </div>
             {{#if isOwner}}
             <button class="btn btn-xs white pull-right editComment">
