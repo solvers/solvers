@@ -5,6 +5,17 @@
 		</a>
 		<ul class="nav navbar-nav navbar-right">
 			{{loginButtons}}
+			{{#if currentUser}}
+			<li>
+				<a href="#" rel="tooltip" data-placement="bottom" title="edit profile">
+					<span class="icon-bar glyphicon white glyphicon-user"></span>
+				</a>
+			</li>
+			<li>
+				<a href="#" id="logout" rel="tooltip" data-placement="bottom" title="sign out">
+					<span class="icon-bar glyphicon white glyphicon-log-out"></span>
+				</a>
+			{{/if}}
 		</ul>
 	</div>
 </template>
