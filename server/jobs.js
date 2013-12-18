@@ -1,5 +1,5 @@
 Meteor.publish('projects', function() {
-	return Projects.find({});
+	return Projects.find({}, {sort: [["postedDate", "desc"]]})
 });
 
 Meteor.methods({

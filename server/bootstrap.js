@@ -5,7 +5,7 @@ Meteor.startup(function () {
 		  service: "github"
 		});
 	}
-  if(true) {
+  if(false) {
     Projects.remove({});
     Comments.remove({});
   }
@@ -24,18 +24,21 @@ Meteor.startup(function () {
       body: "What does this project involve? I don't have a lot of time, and I *really* hate long projects.",
       owner: user._id,
       user: user.profile.name,
+      postedDate: new Date(),
       parent: projectId
     });
     Comments.insert({
       body: "Am I talking to myself here? Just trying to help out and nobody will reply.",
       owner: user._id,
       user: user.profile.name,
+      postedDate: new Date(),
       parent: projectId
     });
     Comments.insert({
       body: "Screw this, I'm gonna go contribute to Meteor instead.",
       owner: user._id,
       user: user.profile.name,
+      postedDate: new Date(),
       parent: projectId
     });
   }

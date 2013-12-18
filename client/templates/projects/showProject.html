@@ -1,7 +1,7 @@
 <template name="showProject">
     <div class="project">
         <h2>{{getProject.role}}</h2>
-        <h5>POSTED {{formatDate getProject.postedDate}}</h5>
+        <h5 class="date">Posted on {{formatDate getProject.postedDate}}</h5>
         <h3>{{getProject.name}}</h3>
         <p>{{#markdown}}{{getProject.description}}{{/markdown}}</p>
         <a href="/"><button class="btn btn-info">Back</button></a>
@@ -9,7 +9,7 @@
         {{#each comments}}
         <div class="comment">
             <div id="comment_{{_id}}">
-                <strong>{{user}}</strong>: {{#markdown}}{{body}}{{/markdown}}
+                <strong>{{user}}</strong> <h5 class="date">{{formatLongDate postedDate}}</h5>{{#markdown}}{{body}}{{/markdown}}
             </div>
             {{#if isOwner}}
             <button class="btn btn-xs white pull-right editComment">
@@ -18,9 +18,7 @@
             <div class="edit-comment" id="edit_comment_{{_id}}">
                 <div class="form">
                     <div class="form-group">
-                        <textarea class="form-control" rows="3" id="comment_body_{{_id}}">
-                            {{body}}
-                        </textarea>
+                        <textarea class="form-control" rows="3" id="comment_body_{{_id}}">{{body}}</textarea>
                     </div>
                 </div>
                 <button class="btn btn-sm saveComment">Save</button>

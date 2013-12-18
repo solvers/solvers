@@ -9,7 +9,10 @@ var admins = [
 ];
 
 var isAdmin = function() {
-	return Meteor.user() && Meteor.user().emails[0].verified && _.find(admins, function(email) { return Meteor.user().emails[0].address === email });
+	if(Meteor.user() && Meteor.user().emails) {
+		return Meteor.user().emails[0].verified && _.find(admins, function(email) { return Meteor.user().emails[0].address === email });
+	}
+	return false;
 };
 
 Template.header.rendered = function() {
@@ -34,6 +37,11 @@ Template.home.helpers({
 	},
 	noUser: function() {
 		return !Meteor.user();
+	},
+	formatDate: function(date) {
+		if(!date)
+			return '';
+		return moment(date).format('MMM Do YYYY');
 	}
 });
 
