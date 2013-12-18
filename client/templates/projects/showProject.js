@@ -16,9 +16,6 @@ Template.showProject.helpers({
 });
 
 Template.showProject.events({
-	'click .back': function(e) {
-		Session.set('page', 'home');
-	},
 	'click #addNewComment': function(e) {
 		e.preventDefault();
 		Meteor.call('addComment',
