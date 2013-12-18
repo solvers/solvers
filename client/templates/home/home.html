@@ -1,13 +1,9 @@
 <template name="home">
-    <div class="row">
-        <div class=".col-md-3 .col-md-offset-3">
-            <button class="btn btn-primary" id="newProject">
-                Post new project - free
-            </button>
-        </div>
-    </div>
+    {{#if noUser}}
+        {{> callToAction}}
+    {{/if}}
     {{#if loading}}
-      {{>spinner}}
+        {{>spinner}}
     {{else}}
     <div class="row">
         <ul class="projects">
