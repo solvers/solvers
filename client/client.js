@@ -22,17 +22,20 @@ Template.home.mayRemove = function() {
 	return isAdmin() || this.owner === Meteor.userId();
 };
 
-Template.home.loading = function () {
+Template.home.helpers({
+	projects: function() {
+		return Projects.find({});
+	},
+	mayRemove: function() {
+		return isAdmin() || this.owner === Meteor.userId();
+	},
+	loading: function() {
   return !projectsHandle.ready();
-};
-
-Template.showProject.getProject = function() {
-	return Session.get('project');
-};
-
-Template.showProject.formatDate = function(date) {
-	return date.getDate() + '-' + date.getMonth() + '-' + date.getFullYear();
-};
+	},
+	noUser: function() {
+		return !Meteor.user();
+	}
+});
 
 Template.home.events({
 	'click #newProject': function(e) {
@@ -49,15 +52,22 @@ Template.home.events({
 	}
 });
 
-Template.showProject.comments = function() {
+Template.showProject.helpers({
+	getProject: function() {
+		return Session.get('project');
+	},
+	formatDate: function(date) {
+		return date.getDate() + '-' + date.getMonth() + '-' + date.getFullYear();
+	},
+	comments: function() {
 	var project = Session.get('project');
 	var comments = Comments.find({parent: project._id});
 	return comments;
-};
-
-Template.showProject.isOwner = function() {
+	},
+	isOwner: function() {
 	return this.owner === Meteor.userId();
-};
+	}
+});
 
 Template.showProject.events({
 	'click .back': function(e) {
