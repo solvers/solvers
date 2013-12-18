@@ -3,9 +3,9 @@ Template.showProject.helpers({
 		return Session.get('project');
 	},
 	formatDate: function(date) {
-		if(date)
-			return date.getDate() + '-' + (date.getMonth()+1) + '-' + date.getFullYear();
-		return '';
+		if(!date)
+			return '';
+		return moment(date).format('MMM Do YYYY');
 	},
 	comments: function() {
 		var project = Session.get('project');
