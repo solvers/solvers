@@ -1,7 +1,5 @@
 <template name="home">
-    {{#if noUser}}
-        {{> callToAction}}
-    {{/if}}
+    {{> callToAction}}
     {{#if loading}}
         {{>spinner}}
     {{else}}
