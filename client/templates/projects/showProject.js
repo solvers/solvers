@@ -3,10 +3,14 @@ Template.showProject.helpers({
 		return Session.get('project');
 	},
 	formatDate: function(date) {
-		return date.getDate() + '-' + (date.getMonth()+1) + '-' + date.getFullYear();
+		if(date)
+			return date.getDate() + '-' + (date.getMonth()+1) + '-' + date.getFullYear();
+		return '';
 	},
 	comments: function() {
 		var project = Session.get('project');
+		if(!project)
+			return [];
 		var comments = Comments.find({parent: project._id});
 		return comments;
 	},
