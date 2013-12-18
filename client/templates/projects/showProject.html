@@ -4,7 +4,7 @@
         <h5>POSTED {{formatDate getProject.postedDate}}</h5>
         <h3>{{getProject.name}}</h3>
         <p>{{#markdown}}{{getProject.description}}{{/markdown}}</p>
-        <button class="btn btn-info back">Back</button>
+        <a href="/"><button class="btn btn-info">Back</button></a>
         <h4>Comments and questions</h4>
         {{#each comments}}
         <div class="comment">

@@ -3,8 +3,6 @@ var projectsHandle = Meteor.subscribe('projects', function() {
 Meteor.subscribe('comments', function() {
 });
 
-Session.set('page', 'home');
-
 var admins = [
 	"richardsmith404@gmail.com", /* Richard Smith */
 	"davedx@gmail.com", /* Dave Clayton */
@@ -38,24 +36,11 @@ Template.home.helpers({
 });
 
 Template.home.events({
-	'click #newProject': function(e) {
-		Session.set('page', 'newProject');
-	},
 	'click .deleteProject': function(e) {
 		Meteor.call('deleteProject', this._id);
-	},
-	'click .showProject': function(e) {
-		var id = e.target.getAttribute('data-id');
-		Session.set('page', 'showProject');
-		var project = Projects.findOne({_id: id});
-		Session.set('project', project);
 	}
 });
 
-
-Template.router.pageIs = function (page) {
-  return Session.get('page') === page;
-};
 
 Accounts.ui.config({
   requestPermissions: {
