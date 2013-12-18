@@ -3,7 +3,7 @@ Template.showProject.helpers({
 		return Session.get('project');
 	},
 	formatDate: function(date) {
-		return date.getDate() + '-' + date.getMonth() + '-' + date.getFullYear();
+		return date.getDate() + '-' + (date.getMonth()+1) + '-' + date.getFullYear();
 	},
 	comments: function() {
 		var project = Session.get('project');
@@ -23,8 +23,9 @@ Template.showProject.events({
 		e.preventDefault();
 		Meteor.call('addComment',
 			Session.get('project')._id,	{
-			                           	body: $('#comment_body').val()
+				body: $('#comment_body').val()
 			});
+		$('#comment_body').val('');
 	},
 	'click .editComment': function(e) {
 		e.preventDefault();
