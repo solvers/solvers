@@ -4,10 +4,9 @@ Meteor.publish('comments', function() {
 
 Meteor.methods({
 	addComment: function(projectId, comment) {
-		//TODO: validate comment
-		//check(project.name, String);
 		if(!this.userId)
 			throw new Meteor.Error(403, "Please log in to post a new comment.");
+		check(comment.body, String);
 		var username = Meteor.user().profile.name;
 		Comments.insert({
 			body: comment.body,
@@ -17,12 +16,16 @@ Meteor.methods({
 		});
 		return true;
 	},
-	updateComment: function(comment) {
+	updateComment: function(id, body) {
 		if(!this.userId)
 			throw new Meteor.Error(403, "Please log in to post a new comment.");
-		Comments.update({_id: comment._id},
+		var comment = Comments.findOne({_id: id});
+		if(this.userId !== comment.owner)
+			throw new Meteor.Error(403, "You are not the owner of this comment.");
+		check(body, String);
+		Comments.update(id,
 			{ $set: {
-				body: comment.body
+				body: body
 			}
 		});
 		return true;

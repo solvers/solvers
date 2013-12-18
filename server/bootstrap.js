@@ -5,7 +5,7 @@ Meteor.startup(function () {
 		  service: "github"
 		});
 	}
-  if(true) {
+  if(false) {
     Projects.remove({});
     Comments.remove({});
   }

@@ -30,7 +30,6 @@ Template.showProject.events({
 	},
 	'click .editComment': function(e) {
 		e.preventDefault();
-		console.log("editing "+this._id);
 		$('#comment_' + this._id).hide();
 		$('#edit_comment_' + this._id).show();
 	},
@@ -41,8 +40,12 @@ Template.showProject.events({
 	},
 	'click .saveComment': function(e) {
 		e.preventDefault();
-		this.body = $('#comment_body_' + this._id).val();
+		var body = $('#comment_body_' + this._id).val();
 		Meteor.call('updateComment', 
-			this);
+			this._id, body, function(err) {
+				if(err) alert(err.reason);
+			});
+		$('#comment_' + this._id).show();
+		$('#edit_comment_' + this._id).hide();
 	}
 });
