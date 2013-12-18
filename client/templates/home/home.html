@@ -6,7 +6,7 @@
         {{>spinner}}
     {{else}}
     <div class="row">
-        <ul class="projects">
+        <ul class="projects" id="projectList">
         {{#each projects}}
             <li><a class="showProject" data-id="{{_id}}" href="projects/{{_id}}">{{name}} - {{role}}</a>
                 {{#if mayRemove}}
