@@ -16,4 +16,6 @@ bootstrap-3
 accounts-google
 accounts-password
 email
-router
+gravatar
+iron-router
+autopublish

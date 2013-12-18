@@ -1,0 +1,56 @@
+<template name='profile'>
+  <div id="profile">
+    <div class="container">
+      <div class="row">
+        <div class="col col-lg-6">
+          <h2>Edit Profile</h2>
+          <div class="form-group">
+            <label>Email</label>
+            <input class="form-control" type="email" id="email" placeholder="Email" value="{{email}}"></input>
+            <span class='errors'></span>
+          </div>
+          <div class="form-group">
+            <label>First name</label>
+            <input class="form-control" type="text" id="firstName" placeholder="First Name" value="{{firstName}}"></input>
+            <span class='errors'></span>
+          </div>
+          <div class="form-group">
+            <label>Last name</label>
+            <input class="form-control" type="text" id="lastName" placeholder="Last Name" value="{{lastName}}"></input>
+            <span class='errors'></span>
+          </div>
+          <div class="form-group">
+            <label>Organisation</label>
+            <input class="form-control" type="text" id="organisation" placeholder="Organisation (optional)" value="{{organisation}}"></input>
+          </div>
+          <div class="form-group">
+            <label>Location</label>
+            <input class="form-control" type="text" id="location" placeholder="Location (optional)" value="{{location}}"></input>
+          </div>
+          <div class="form-group">
+            <label>Bio</label>
+            <textarea class="form-control" type="text" id="bio" placeholder="Bio (optional)">{{bio}}</textarea>
+          </div>
+          <div class="form-group">
+            <label>URL</label>
+            <input class="form-control" type="text" id="url" placeholder="URL (optional)" value="{{url}}"></input>
+          </div>
+          <div class="form-group">
+            <label>Google+ URL</label>
+            <input class="form-control" type="text" id="googlePlusUrl" placeholder="Google Plus URL (optional)" value="{{googlePlusUrl}}"></input>
+          </div>
+          <div class="form-group">
+            <label>Twitter handle</label>
+            <input class="form-control" type="text" id="twitterHandle" placeholder="Twitter Handle (optional)" value="{{twitterHandle}}"></input>
+          </div>
+          <a class='btn btn-primary done'><i class='icon-ok'></i> done</a>
+        </div>
+
+        <div class="col col-lg-6">
+          <h2>Preview Profile</h2>
+          {{> userCard }}
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

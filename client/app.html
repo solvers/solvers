@@ -1,16 +1,16 @@
-<head>
-    <title>
-        Solvers: improve our world
-    </title>
-    <meta name="description" content="Solvers - Find development resources for your science project">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-</head>
-<body>
-	{{> header}}
-	<div class="container">
-		{{renderPage}}
-		<footer>
-		</footer>
-	</div>
-</body>
+<template name="app">
+	<head>
+		<title>
+			Solvers: improve our world
+		</title>
+		<meta name="description" content="Solvers - Find development resources for your science project">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+		{{> header}}
+		<div class="container">
+			{{yield}}
+		</div>
+	</body>
+</template>

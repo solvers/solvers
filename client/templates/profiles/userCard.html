@@ -1,0 +1,11 @@
+<template name='userCard'>
+  <div class='well'>
+    <h3>{{name}}</h3>
+    <img src="{{photo}}" alt="..." class="img-thumbnail">
+    <h4>{{subhead}}</h4>
+    <p>{{#markdown}}{{bio}}{{/markdown}}</p>
+    <p><a href='{{url}}'>{{url}}</a></p>
+    <p>Google Plus: <a href='{{googlePlusUrl}}'>{{googlePlusUrl}}</a></p>
+    <p><a href='http://twitter.com/{{twitterHandle}}'>@{{twitterHandle}}</a></p>
+  </div>
+</template>

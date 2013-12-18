@@ -5,6 +5,10 @@ spin
 /spin
 /bootstrap-3
 /accounts-ui-bootstrap-3
+/gravatar
+/crypto-md5
+/crypto-base
+/iron-router
 /router
 /page-js-ie-support
 /HTML5-History-API

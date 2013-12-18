@@ -15,13 +15,15 @@ var isAdmin = function() {
 	return false;
 };
 
-Template.home.projects = function () {
-	return Projects.find({});
+Template.header.rendered = function() {
+   $('a[rel=tooltip]').tooltip() //initialize all tooltips in this template
 };
 
-Template.home.mayRemove = function() {
-	return isAdmin() || this.owner === Meteor.userId();
-};
+Template.header.events({
+	'click #logout': function(e) {
+		Meteor.logout();
+	}
+})
 
 Template.home.helpers({
 	projects: function() {
