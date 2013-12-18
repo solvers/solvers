@@ -1,7 +1,7 @@
 <template name="showProject">
     <div class="project">
         <h2>{{getProject.role}}</h2>
-        <h5>Posted on {{formatDate getProject.postedDate}}</h5>
+        <h5 class="date">Posted on {{formatDate getProject.postedDate}}</h5>
         <h3>{{getProject.name}}</h3>
         <p>{{#markdown}}{{getProject.description}}{{/markdown}}</p>
         <a href="/"><button class="btn btn-info">Back</button></a>

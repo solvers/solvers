@@ -37,6 +37,11 @@ Template.home.helpers({
 	},
 	noUser: function() {
 		return !Meteor.user();
+	},
+	formatDate: function(date) {
+		if(!date)
+			return '';
+		return moment(date).format('MMM Do YYYY');
 	}
 });
 
