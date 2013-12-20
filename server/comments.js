@@ -21,7 +21,7 @@ Meteor.methods({
 		if(!this.userId)
 			throw new Meteor.Error(403, "Please log in to post a new comment.");
 		var comment = Comments.findOne({_id: id});
-		if(this.userId !== comment.owner)
+		if(!roles.isAdmin() && this.userId !== comment.owner)
 			throw new Meteor.Error(403, "You are not the owner of this comment.");
 		check(body, String);
 		Comments.update(id,
@@ -36,7 +36,7 @@ Meteor.methods({
 			throw new Meteor.Error(403, "Please log in to post a new comment.");
 
 		var comment = Comments.findOne({_id: id});
-		if(this.userId !== comment.owner)
+		if(!roles.isAdmin() && this.userId !== comment.owner)
 			throw new Meteor.Error(403, "You are not the owner of this comment.");
 
 		Comments.remove({_id: id});

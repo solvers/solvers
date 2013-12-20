@@ -38,6 +38,15 @@ Template.showProject.events({
 		$('#comment_' + this._id).hide();
 		$('#edit_comment_' + this._id).show();
 	},
+	'click .deleteComment': function(e) {
+		e.preventDefault();
+		if(confirm("Are you sure you want to delete this comment?")) {
+			Meteor.call('deleteComment',
+				this._id, function(err) {
+					if(err) alert(err.reason);
+				});
+		}
+	},
 	'click .cancelEditComment': function(e) {
 		e.preventDefault();
 		$('#comment_' + this._id).show();
