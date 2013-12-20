@@ -19,8 +19,8 @@ Template.showProject.helpers({
 		var comments = Comments.find({parent: project._id});
 		return comments;
 	},
-	isOwner: function() {
-		return this.owner === Meteor.userId();
+	mayUpdate: function() {
+		return roles.isAdmin() || this.owner === Meteor.userId();
 	}
 });
 

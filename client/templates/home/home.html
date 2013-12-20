@@ -7,7 +7,7 @@
         <ul class="projects" id="projectList">
         {{#each projects}}
             <li><a class="showProject" data-id="{{_id}}" href="projects/{{_id}}">{{name}} - {{role}}</a>
-                {{#if mayRemove}}
+                {{#if mayUpdate}}
                 <button class="btn btn-xs white pull-right deleteProject">
                     <span class="glyphicon glyphicon-trash"></span>
                 </button>
