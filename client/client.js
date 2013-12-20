@@ -38,7 +38,10 @@ Template.home.helpers({
 
 Template.home.events({
 	'click .deleteProject': function(e) {
-		Meteor.call('deleteProject', this._id);
+		e.preventDefault();
+		if(confirm("Are you sure you want to remove this project?")) {
+			Meteor.call('deleteProject', this._id);
+		}
 	}
 });
 
