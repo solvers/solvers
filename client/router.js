@@ -5,7 +5,8 @@ Router.configure({
 Router.map(function () {
   // Landing/lead capture page
   this.route('landing', {
-    path: '/'
+    path: '/',
+    layoutTemplate: 'landing_layout'
   });
 
   // Home
