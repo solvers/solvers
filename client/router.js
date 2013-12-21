@@ -12,7 +12,7 @@ Router.map(function () {
   // Home
   this.route('home', {
     path: '/projects' 
-  }); 
+  });
 
   // New project
   this.route('newProject', {
@@ -44,6 +44,16 @@ Router.map(function () {
     data: function() {
       return Meteor.users.findOne({ _id: this.params._id });
     }
+  });
+
+  // About
+  this.route('about', {
+    path: '/about'
+  });
+
+  // Contact
+  this.route('contact', {
+    path: '/contact'
   });
 
   // 404
