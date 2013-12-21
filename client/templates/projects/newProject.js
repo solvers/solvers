@@ -7,7 +7,9 @@ Template.newProject.events({
 		Meteor.call('addProject', {
 			name: $('#name').val(),
 			role: $('#role').val(),
-			description: $('#description').val()
+			description: $('#description').val(),
+			contact_name: $('#contact_name').val(),
+			contact_email: $('#contact_email').val()
 		}, function(err, result) {
 			if(err) {
 				alert(err.reason);

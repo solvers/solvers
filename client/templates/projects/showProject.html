@@ -2,9 +2,15 @@
     <div class="project">
         <h2>{{getProject.role}}</h2>
         <h5 class="date">Posted on {{formatDate getProject.postedDate}}</h5>
+
         <h3>{{getProject.name}}</h3>
         <p>{{#markdown}}{{getProject.description}}{{/markdown}}</p>
-        <a href="{{pathFor 'home'}}"><button class="btn btn-info">Back</button></a>
+
+        <h4 class="contact">Contact</h4>
+        <p>{{getProject.contact_name}} &lt;{{getProject.contact_email}}&gt;</p>
+
+        <a href="{{pathFor 'home'}}"><button class="btn-back btn btn-info">Back</button></a>
+
         <h4>Comments and questions</h4>
         {{#each comments}}
         <div class="comment">

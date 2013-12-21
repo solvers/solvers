@@ -9,11 +9,15 @@ Meteor.methods({
 		check(project.name, String);
 		check(project.role, String);
 		check(project.description, String);
+		check(project.contact_name, String);
+		check(project.contact_email, String);
 		return Projects.insert({
 			name: project.name,
 			postedDate: new Date(),
 			role: project.role,
 			description: project.description,
+			contact_name: project.contact_name,
+			contact_email: project.contact_email,
 			owner: this.userId
 		});
 	},

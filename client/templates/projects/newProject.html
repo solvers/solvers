@@ -3,19 +3,26 @@
         <form class="form-horizontal" role="form">
             <div class="form-group">
                 <label class="bold-label" for="name">Project name</label>
-                <input type="text" class="form-control" id="name" placeholder="e.g. Help speed up protein folding software to tackle cancer">
+                <input tabindex="1" type="text" class="form-control" id="name" placeholder="e.g. Help speed up protein folding software to tackle cancer">
             </div>
             <div class="form-group">
                 <label class="bold-label" for="role">Role</label>
-                <input type="text" class="form-control" id="role" placeholder="e.g. Someone with algorithms expertise">
+                <input tabindex="2" type="text" class="form-control" id="role" placeholder="e.g. Someone with algorithms expertise">
             </div>
             <div class="form-group">
                 <label class="bold-label" for="description">Description</label>
-                <span class="help-block">Describe the project. <strong>Don't forget to include how to contact you.</strong> You may use <a href="http://daringfireball.net/projects/markdown/basics">Markdown</a> to format your post.</span>
-                <textarea class="form-control" rows="5" id="description" placeholder="e.g. This project involves working with the Department of Biochemistry at MIT to improve the speed with which proteins can be screened for cancer-causing misfolding potential. The ability to identify these proteins computationally could enable the development of rapid early-stage screening for cancers, potentially saving or improving many lives. Email us: <fakeresearch@mit.edu>!"></textarea>
+                <span class="help-block">Describe the project, including its expected <strong>duration</strong> and <strong>required skillset</strong>. You may use <a href="http://daringfireball.net/projects/markdown/basics">Markdown</a> to format your post.</span>
+                <textarea tabindex="3" class="form-control" rows="5" id="description" placeholder="e.g. This project involves working with the Department of Biochemistry at MIT to improve the speed with which proteins can be screened for cancer-causing misfolding potential. The ability to identify these proteins computationally could enable the development of rapid early-stage screening for cancers, potentially saving or improving many lives."></textarea>
             </div>
-                <button class="btn btn-primary pull-left" id="addNewProject">Add new project</button>
-                <a href="/"><button class="btn btn-info pull-right">Cancel</button></a>
+            <div class="form-group">
+                <label class="bold-label" for="role">Contact</label>
+                <span class="help-block">Name</span>
+                <input tabindex="4" type="text" class="form-control" id="contact_name" placeholder="Prof. Rodriguez Rodriguez">
+                <span class="help-block">Email</span>
+                <input tabindex="5" type="text" class="form-control" id="contact_email" placeholder="rr@mit.edu">
+            </div>
+            <button class="btn btn-primary pull-left" id="addNewProject">Add new project</button>
+            <a href="{{pathFor 'home'}}"><button class="btn btn-info pull-right">Cancel</button></a>
             </fieldset>
         </form>
     </div>
