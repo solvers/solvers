@@ -3,9 +3,14 @@ Router.configure({
 });
 
 Router.map(function () {
+  // Landing/lead capture page
+  this.route('landing', {
+    path: '/'
+  });
+
   // Home
   this.route('home', {
-    path: '/' 
+    path: '/projects' 
   }); 
 
   // New project
