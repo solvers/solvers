@@ -45,6 +45,19 @@ Template.home.events({
 	}
 });
 
+Template.landing.events({
+	'click #mailing_btn': function(e) {
+		e.preventDefault();
+		Meteor.call('addToMailList', $('#mailing_email').val(), function(err) {
+			if(err) {
+				alert(err.reason);
+			} else {
+				alert("Thank you for signing up to our launch mailing list. Please check your email to confirm your subscription.")
+			}
+		});
+	}
+});
+
 Accounts.ui.config({
   requestPermissions: {
     github: ['user:email']
