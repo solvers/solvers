@@ -21,10 +21,47 @@ Template.showProject.helpers({
 	},
 	mayUpdate: function() {
 		return roles.isAdmin() || this.owner === Meteor.userId();
+	},
+	mayUpdateProject: function() {
+		return roles.isAdmin() || Session.get('project').owner === Meteor.userId();
 	}
 });
 
+var updateProject = function(tuple) {
+	tuple['_id'] = Session.get('project')._id;
+	Meteor.call('updateProject', tuple, function(err) {
+		if(err) alert(err.reason);
+	});
+};
+
 Template.showProject.events({
+	'click #project_description_p': function(e) {
+		e.preventDefault();
+		$('#project_description').show();
+		$('#project_description_p').hide();
+	},
+	'blur #project_description': function(e) {
+		e.preventDefault();
+		updateProject({description: $('#project_description').val()});
+		$('#project_description_p').show();
+		$('#project_description').hide();
+	},
+	'blur #project_name': function(e) {
+		e.preventDefault();
+		updateProject({name: $('#project_name').html()});
+	},
+	'blur #project_role': function(e) {
+		e.preventDefault();
+		updateProject({role: $('#project_role').html()});
+	},
+	'blur #project_contact_name': function(e) {
+		e.preventDefault();
+		updateProject({contact_name: $('#project_contact_name').html()});
+	},
+	'blur #project_contact_email': function(e) {
+		e.preventDefault();
+		updateProject({contact_email: $('#project_contact_email').html()});
+	},
 	'click #addNewComment': function(e) {
 		e.preventDefault();
 		Meteor.call('addComment',

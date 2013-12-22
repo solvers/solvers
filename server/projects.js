@@ -21,6 +21,28 @@ Meteor.methods({
 			owner: this.userId
 		});
 	},
+	updateProject: function(project) {
+		if(!this.userId)
+			throw new Meteor.Error(403, "Please sign in to edit a project.");
+		var prj = Projects.findOne(project._id);
+		if(!roles.isAdmin() && this.userId !== prj.owner)
+			throw new Meteor.Error(403, "You are not the owner of this project.");
+		if(project.name) {
+			Projects.update(project._id, {$set: {name: project.name}});
+		}
+		if(project.role) {
+			Projects.update(project._id, {$set: {role: project.role}});
+		}
+		if(project.description) {
+			Projects.update(project._id, {$set: {description: project.description}});
+		}
+		if(project.contact_name) {
+			Projects.update(project._id, {$set: {contact_name: project.contact_name}});
+		}
+		if(project.contact_email) {
+			Projects.update(project._id, {$set: {contact_email: project.contact_email}});
+		}
+	},
 	deleteProject: function(id) {
 		if(!this.userId)
 			throw new Meteor.Error(403, "Please sign in to remove a project.");
