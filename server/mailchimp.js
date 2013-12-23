@@ -1,8 +1,8 @@
 Meteor.methods({
   addToMailList: function (email) {
-    var mckey = '841e25e309b9933d79c8c543b458c88e-us7';
-    var baseUrl = 'https://us7.api.mailchimp.com/2.0/';
-    var listId = '873ea4a4c6';
+    var mckey = '41026970ad057466c39f65786ab3f4ff-us3';
+    var baseUrl = 'https://us3.api.mailchimp.com/2.0/';
+    var listId = '853a638394';
     var mcResult = HTTP.post(baseUrl + 'lists/subscribe', {data: {
       apikey: mckey,
       id: listId,
