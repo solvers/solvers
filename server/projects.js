@@ -2,6 +2,20 @@ Meteor.publish('projects', function() {
 	return Projects.find({archived: { $nin: [1] }}, {sort: [["postedDate", "desc"]]})
 });
 
+var validateTags = function(tags) {
+	var re = /^[a-z0-9]+$/i;
+	return _.map(tags, function(tag) {
+		var t = tag.trim();
+		if(!re.test(t)) {
+			throw new Meteor.Error(403, "Invalid tag: tags must be alphanumeric");
+		}
+		if(t.length > 25) {
+			throw new Meteor.Error(403, "Invalid tag: tags must no more than 25 characters long");
+		}
+		return t;
+	});
+};
+
 Meteor.methods({
 	addProject: function(project) {
 		if(!this.userId)
@@ -11,6 +25,10 @@ Meteor.methods({
 		check(project.description, String);
 		check(project.contact_name, String);
 		check(project.contact_email, String);
+
+		// validate tags
+		project.tags = validateTags(project.tags);
+
 		var newId = Projects.insert({
 			name: project.name,
 			postedDate: new Date(),
@@ -22,7 +40,7 @@ Meteor.methods({
 		});
 		if(project.tags.length > 0) {
 			_.forEach(project.tags, function(tag) {
-				MyCollection.addTag(tag, {_id: newId});
+				Projects.addTag(tag, {_id: newId});
 			});
 		}
 		return newId;

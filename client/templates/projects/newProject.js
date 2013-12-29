@@ -9,7 +9,8 @@ Template.newProject.events({
 			role: $('#role').val(),
 			description: $('#description').val(),
 			contact_name: $('#contact_name').val(),
-			contact_email: $('#contact_email').val()
+			contact_email: $('#contact_email').val(),
+			tags: $('#tags').val().split(',')
 		}, function(err, result) {
 			if(err) {
 				alert(err.reason);

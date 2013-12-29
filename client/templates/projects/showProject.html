@@ -1,18 +1,23 @@
 <template name="showProject">
     <div class="project">
-        <h2 id="project_role" contenteditable="{{mayUpdateProject}}">{{getProject.role}}</h2>
-        <h5 class="date">Posted on {{formatDate getProject.postedDate}}</h5>
+        {{#with getProject}}
+        <h2 id="project_role" contenteditable="{{mayUpdateProject}}">{{role}}</h2>
+        <h5 class="date">Posted on {{formatDate postedDate}}</h5>
 
-        <h3 id="project_name" contenteditable="{{mayUpdateProject}}">{{getProject.name}}</h3>
-        <div id="project_description_p" class="editable_{{mayUpdateProject}}">{{#markdown}}{{getProject.description}}{{/markdown}}</div>
-        <textarea id="project_description">{{getProject.description}}</textarea>
+        <h3 id="project_name" contenteditable="{{mayUpdateProject}}">{{name}}</h3>
+        <div id="project_description_p" class="editable_{{mayUpdateProject}}">{{#markdown}}{{description}}{{/markdown}}</div>
+        <textarea id="project_description">{{description}}</textarea>
 
         <h4 class="contact">Contact</h4>
-        <p><span id="project_contact_name" contenteditable="{{mayUpdateProject}}">{{getProject.contact_name}}</span></p>
-        <p><span id="project_contact_email" contenteditable="{{mayUpdateProject}}">{{getProject.contact_email}}</span></p>
+        <p><span id="project_contact_name" contenteditable="{{mayUpdateProject}}">{{contact_name}}</span></p>
+        <p><span id="project_contact_email" contenteditable="{{mayUpdateProject}}">{{contact_email}}</span></p>
+
+        <ul class="tags">
+            {{renderTags}}
+        </ul>
 
         <a href="{{pathFor 'home'}}"><button class="btn-back btn btn-info">Back</button></a>
-
+        {{/with}}
         <h4>Comments and questions</h4>
         {{#each comments}}
         <div class="comment">
