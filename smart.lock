@@ -8,7 +8,8 @@
       "bootstrap-3": {},
       "gravatar": {},
       "iron-router": {},
-      "moment": {}
+      "moment": {},
+      "tags": {}
     },
     "packages": {
       "page-js": {
@@ -45,6 +46,11 @@
         "git": "https://github.com/acreeger/meteor-moment.git",
         "tag": "v2.2.1",
         "commit": "9ee12e714afe56b189f53076447b7b54f3012065"
+      },
+      "tags": {
+        "git": "https://github.com/apendua/meteor-tags.git",
+        "tag": "v0.1.2.2",
+        "commit": "613382880617178276a7fbbcfe07812407d48e6b"
       },
       "crypto-md5": {
         "git": "https://github.com/oortcloud/meteor-crypto-md5.git",

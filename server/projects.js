@@ -11,7 +11,7 @@ Meteor.methods({
 		check(project.description, String);
 		check(project.contact_name, String);
 		check(project.contact_email, String);
-		return Projects.insert({
+		var newId = Projects.insert({
 			name: project.name,
 			postedDate: new Date(),
 			role: project.role,
@@ -20,6 +20,12 @@ Meteor.methods({
 			contact_email: project.contact_email,
 			owner: this.userId
 		});
+		if(project.tags.length > 0) {
+			_.forEach(project.tags, function(tag) {
+				MyCollection.addTag(tag, {_id: newId});
+			});
+		}
+		return newId;
 	},
 	updateProject: function(project) {
 		if(!this.userId)

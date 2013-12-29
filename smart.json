@@ -6,6 +6,7 @@
     "bootstrap-3": {},
     "gravatar": {},
     "iron-router": {},
-    "moment": {}
+    "moment": {},
+    "tags": {}
   }
 }
