@@ -12,11 +12,11 @@
         <p><span id="project_contact_name" contenteditable="{{mayUpdateProject}}">{{contact_name}}</span></p>
         <p><span id="project_contact_email" contenteditable="{{mayUpdateProject}}">{{contact_email}}</span></p>
 
-        <ul class="tags">
+        <ul class="tags clearfix">
             {{renderTags}}
         </ul>
 
-        <a href="{{pathFor 'home'}}"><button class="btn-back btn btn-info">Back</button></a>
+        <a class="btn-back btn btn-info" href="{{pathFor 'home'}}">Back</a>
         {{/with}}
         <h4>Comments and questions</h4>
         {{#each comments}}
