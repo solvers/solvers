@@ -3,7 +3,6 @@ page-js
 spin
 /page-js
 /spin
-/bootstrap-3
 /accounts-ui-bootstrap-3
 /gravatar
 /crypto-md5
@@ -13,7 +12,6 @@ spin
 /page-js-ie-support
 /HTML5-History-API
 accounts-ui-bootstrap-3
-bootstrap-3
 router
 page-js-ie-support
 HTML5-History-API
