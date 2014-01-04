@@ -1,6 +1,9 @@
 Meteor.publish('projects', function() {
 	return Projects.find({archived: { $nin: [1] }}, {sort: [["postedDate", "desc"]]})
 });
+Meteor.publish('tags', function() {
+	return Meteor.tags.find();
+});
 
 var validateTags = function(tags) {
 	var re = /^[a-z0-9]+$/i;
