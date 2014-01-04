@@ -1,8 +1,13 @@
 <template name="header">
 	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<a class="brand back" href="{{pathFor 'home'}}">
-			<span class='logo'><<span id='main'>Solvers</span><span id='tld'>.io</span>></span>
+			<span class='logo'>&lt;<span id='main'>Solvers</span><span id='tld'>.io</span>&gt;</span>
 		</a>
+    <form class="navbar-form navbar-left" role="search">
+			<div class="form-group">
+	      <input type="text" class="search-input form-control" placeholder="Search">
+	    </div>
+	  </form>
 		<ul class="nav navbar-nav navbar-right">
 			{{loginButtons}}
 			{{#if currentUser}}
