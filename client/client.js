@@ -12,6 +12,10 @@ Template.header.rendered = function() {
 	var listOfTags = Meteor.tags.find().map(function (tag) {return tag.name});
 	$(this.find('input')).typeahead({
 		source: listOfTags,
+		updater: function(item) {
+			//TODO: set search input value with item..
+			Router.go('/projects/tag/' + item);
+		}
 	});
 };
 
@@ -23,7 +27,10 @@ Template.header.events({
 
 Template.home.helpers({
 	projects: function() {
-		return Projects.find({});
+	  var tag = Session.get('projects_tag');
+	  if(tag)
+			return Projects.find({tags: {$in: [tag]}});
+		return Projects.find();
 	},
 	mayUpdate: function() {
 		return roles.isAdmin() || this.owner === Meteor.userId();
