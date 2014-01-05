@@ -1,10 +1,8 @@
-var projectsHandle = Meteor.subscribe('projects', function() {
-});
-Meteor.subscribe('comments', function() {
-});
-Meteor.autosubscribe(function() {
-	Meteor.subscribe("userData");
-});
+var projectsHandle = Meteor.subscribe('projects');
+
+Meteor.subscribe('comments');
+
+usersHandle = Meteor.subscribe('userData');
 
 Template.header.rendered = function() {
    $('a[rel=tooltip]').tooltip() //initialize all tooltips in this template
@@ -33,6 +31,14 @@ Template.home.helpers({
 		if(!date)
 			return '';
 		return moment(date).format('MMM Do YYYY');
+	},
+	username: function(id) {
+		var user = Meteor.users.findOne({_id: id});
+		if (user.profile)
+			return user.profile.name
+		else
+			return user.username;
+		return false;
 	}
 });
 

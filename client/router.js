@@ -33,6 +33,11 @@ Router.map(function () {
   // Edit profile
   this.route('profile', {
     path: '/profile',
+    before: [
+      function() {
+        Session.set('profileUser', Meteor.userId());
+      }
+    ],
     data: function() {
       return Meteor.user();
     }
@@ -41,6 +46,11 @@ Router.map(function () {
   // Show profile
   this.route('userCard', {
     path:'/profile/:_id',
+    before: [
+      function() {
+        Session.set('profileUser', this.params._id);
+      }
+    ],
     data: function() {
       return Meteor.users.findOne({ _id: this.params._id });
     }

@@ -1,11 +1,31 @@
 Meteor.publish("userData", function() {
-    return Meteor.users.find({_id: this.userId},
-        {fields: {'services': 1}});
+  return Meteor.users.find({},
+      {fields: {'profile': 1,
+                'username': 1,
+                'services.github.username': 1,
+                'services.google.name': 1,
+                'firstName': 1,
+                'lastName': 1}
+      });
+});
+
+Meteor.methods({
+    photoForUser: function(user) {
+        user = Meteor.users.findOne({_id: user._id});
+        if (user.emails) {
+            var url = Gravatar.imageUrl(user.emails[0].address) + '?s=300';
+            if (url)
+                return url;
+        }
+        else {
+            throw new Meteor.Error(500, "could not create Gravatar address", "no user email(s) found");   
+        }
+    }
 });
 
 Accounts.config({
-	sendVerificationEmail: true, 
-	forbidClientAccountCreation: false
+  sendVerificationEmail: true, 
+  forbidClientAccountCreation: false
 });
 
 // Borrowed from: https://gist.github.com/ondrej-kvasnovsky/6048353#file-oauth-js
@@ -41,8 +61,8 @@ Accounts.onCreateUser(function (options, user) {
                 // because there he doesn't exist in the DB yet
                 user.emails = [];
                 user.emails[0] = {
-					address: email,
-					verified: true
+          address: email,
+          verified: true
                 };
                 return user;
             } else {
@@ -69,6 +89,6 @@ Accounts.onCreateUser(function (options, user) {
  
         // even worse hackery
         Meteor.users.remove({_id: existingUser._id}); // remove existing record
-        return existingUser;    		      // record is re-inserted
+        return existingUser;              // record is re-inserted
     }
 });

@@ -1,32 +1,80 @@
 Template.userCard.helpers({
-  name: function() {
-    return "" + this.profile.firstName + " " + this.profile.lastName;
+  fullname: function() {
+    if (this.profile)
+      return this.profile.firstName + " " + this.profile.lastName;
+  },
+  loading: function() {
+    return !usersHandle.ready();
+  },
+  username: function() {
+    return this.username;
   },
   photo: function() {
-    return Gravatar.imageUrl(Meteor.user().emails[0].address) + '?s=200'
+    var photo = Session.get('photo');
+    var thisUser = Session.get('profileUser');
+    if (photo && Session.equals('photoUser', thisUser))
+      return photo;    
+    Meteor.call('photoForUser', this, function(e, r) {
+      if (!!e) {
+        // console.log(e);
+      } else {
+        Session.set('photoUser', thisUser);
+        Session.set('photo', r);
+      }
+    });
   },
   subhead: function() {
-    if (this.profile.organization && this.profile.location) {
-      return [this.profile.organization, this.profile.location].join(' - ');
-    } else {
-      if (this.profile.organization) {
-        return this.profile.organization;
-      }
-      if (this.profile.location) {
-        return this.profile.location;
+    if (this.profile) {
+      if (this.profile.organization && this.profile.location) {
+        return [this.profile.organization, this.profile.location].join(' - ');
+      } else {
+        if (this.profile.organization) {
+          return this.profile.organization;
+        }
+        if (this.profile.location) {
+          return this.profile.location;
+        }
       }
     }
   },
   bio: function() {
-    return this.profile.bio;
+    if (this.profile)
+      return this.profile.bio;
   },
   url: function() {
-    return this.profile.url;
+    if (this.profile)
+      return this.profile.url;
   },
   googlePlusUrl: function() {
-    return this.profile.googlePlusUrl;
+    if (this.profile)
+      return this.profile.googlePlusUrl;
   },
   twitterHandle: function() {
-    return this.profile.twitterHandle;
+    if (this.profile)
+      return this.profile.twitterHandle;
+  },
+  projects: function() {
+    return Projects.find({owner: this._id}, {limit: 10});
+  },
+  contributions: function() {
+    // collect the different types of contributions
+    var contribs = new Array();
+    // comments
+    var comments = Comments.find({owner: this._id}, {limit: 10});
+    comments.forEach(function(element, index, array) {
+      element.type = "comment";
+      element.snippet = '"' + element.body.substring(0, 25) + '..."';
+      element.projectname = Projects.findOne({_id: element.parent}).name;
+      contribs[contribs.length] = element;
+    });
+    contribs.sort(function(a, b){
+      a.postedDate - b.postedDate;
+    });
+    return contribs;
+  },
+  formatDate: function(date) {
+    if(!date)
+      return '';
+    return moment(date).format('MMM Do YYYY');
   }
 });

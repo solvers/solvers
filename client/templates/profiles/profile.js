@@ -19,6 +19,9 @@ Template.profile.helpers({
   lastName: function() {
     return Meteor.user().profile.lastName;
   },
+  username: function() {
+    return Meteor.user().username;
+  },
   organization: function() {
     return Meteor.user().profile.organization;
   },
@@ -56,6 +59,11 @@ Template.profile.events({
         'profile.lastName': $(event.target).val()
       }
     });
+  },
+  'change #username': function(event) {
+    return Meteor.call('changeUsername', 
+      Meteor.userId(),
+      $(event.target).val());
   },
   'change #organization': function(event) {
     return Meteor.users.update(Meteor.userId(), {
@@ -111,7 +119,7 @@ Template.profile.events({
   },
   'click .done': function() {
     if (Meteor.user().profile.firstName) {
-      return Router.go('/');
+      return Router.go('/profile');
     } else {
       return $('.errors').text('First name is required.');
     }

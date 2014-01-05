@@ -1,11 +1,69 @@
 <template name='userCard'>
   <div class='well'>
-    <h3>{{name}}</h3>
-    <img src="{{photo}}" alt="..." class="img-thumbnail">
-    <h4>{{subhead}}</h4>
-    <p>{{#markdown}}{{bio}}{{/markdown}}</p>
-    <p><a href='{{url}}'>{{url}}</a></p>
-    <p>Google Plus: <a href='{{googlePlusUrl}}'>{{googlePlusUrl}}</a></p>
-    <p><a href='http://twitter.com/{{twitterHandle}}'>@{{twitterHandle}}</a></p>
-  </div>
+	{{#if loading}}
+		{{>spinner}}
+	{{else}}
+	    <h3>{{fullname}} </h3>
+	    {{#if username}}
+			<h3>({{username}})</h3>
+		{{/if}}
+	    <h4>{{subhead}}</h4>
+	    <div class='row'>
+			<div class="col-md-4">
+				{{#if photo}}
+				<img src="{{photo}}" alt="..." class="img-thumbnail">
+				{{/if}}
+				<p>{{#markdown}}{{bio}}{{/markdown}}</p>
+				{{#if url}}
+			    <p><a href='{{url}}'>{{url}}</a></p>
+			    {{/if}}
+			    {{#if googlePlusUrl}}
+			    <p><a href='{{googlePlusUrl}}'>Google+ profile</a></p>
+			    {{/if}}
+			    {{#if twitterHandle}}
+			    <p><a href='http://twitter.com/{{twitterHandle}}'>@{{twitterHandle}}</a></p>
+			    {{/if}}
+			</div>
+			<div class="col-md-8">
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h4>Projects</h4>
+					</li>
+				{{#if projects}}
+				{{#each projects}}
+				<!-- project info here -->
+					<li class="list-group-item">
+					    <span class="badge">{{count}}</span>
+					<a href="/projects/{{_id}}">{{name}} - {{role}}</a>
+			        <span class="badge pull-right">{{formatDate postedDate}}</span>
+					</li>
+		        {{/each}}
+		        {{else}}
+			        <li class="list-group-item">
+						No projects yet.
+					</li>
+		        {{/if}}
+				</ul>
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h4>Contributions</h4>
+					</li>
+				{{#if contributions}}
+				{{#each contributions}}
+				<!-- contribution info here -->
+					<li class="list-group-item">
+					<span><i>{{snippet}}</i></span><span class="pull-right">{{type}} on <a href="/projects/{{parent}}">{{projectname}}</a></span>
+				    <span class="badge">{{formatDate postedDate}}</span>
+					</li>
+		        {{/each}}
+		        {{else}}
+			        <li class="list-group-item">
+						No contributions yet.
+					</li>
+		        {{/if}}
+				</ul>
+			</div>
+		</div>
+    {{/if}}
+	</div>
 </template>
