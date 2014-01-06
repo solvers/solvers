@@ -1,9 +1,14 @@
 <template name="home">
+    {{#unless message}}
     {{> callToAction}}
+    {{/unless}}
     {{#if loading}}
         {{>spinner}}
     {{else}}
     <div class="row">
+        {{#if message}}
+        <div class="alert alert-info filter-message">{{message}}</div>
+        {{/if}}
         <ul class="projects" id="projectList">
         {{#each projects}}
             <li><a class="showProject" data-id="{{_id}}" href="projects/{{_id}}">{{name}} - {{role}}</a>

@@ -32,6 +32,12 @@ Template.home.helpers({
 			return Projects.find({tags: {$in: [tag]}});
 		return Projects.find();
 	},
+	message: function() {
+	  var tag = Session.get('projects_tag');
+	  if(tag)
+			return 'Displaying all projects tagged with "' + tag + '"';
+		return null;
+	},
 	mayUpdate: function() {
 		return roles.isAdmin() || this.owner === Meteor.userId();
 	},
