@@ -37,6 +37,7 @@ var updateProject = function(tuple) {
 Template.showProject.events({
 	'click #project_description_p': function(e) {
 		e.preventDefault();
+		if($('#project_description_p').hasClass('editable_false')) return;
 		$('#project_description').show();
 		$('#project_description_p').hide();
 	},
