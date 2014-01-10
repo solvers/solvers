@@ -7,16 +7,20 @@ Meteor.autosubscribe(function() {
 });
 
 Template.header.rendered = function() {
-	$('a[rel=tooltip]').tooltip() //initialize all tooltips in this template
-	// initialise search typeahead
-	var listOfTags = Meteor.tags.find().map(function (tag) {return tag.name});
-	$(this.find('input')).typeahead({
-		source: listOfTags,
-		updater: function(item) {
-			//TODO: set search input value with item..
-			Router.go('/projects/tag/' + item);
-		}
-	});
+	//FIXME
+	setTimeout(function() {
+		$('a[rel=tooltip]').tooltip(); //initialize all tooltips in this template
+		// initialise search typeahead
+		var listOfTags = Meteor.tags.find().map(function (tag) {return tag.name});
+		console.log("Adding list of tags to typeahead: ", listOfTags);
+		$(this.find('input')).typeahead({
+			source: listOfTags,
+			updater: function(item) {
+				//TODO: set search input value with item..
+				Router.go('/projects/tag/' + item);
+			}
+		});
+	}.bind(this), 200);
 };
 
 Template.header.events({
