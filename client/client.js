@@ -12,7 +12,7 @@ Template.header.rendered = function() {
 		$('a[rel=tooltip]').tooltip(); //initialize all tooltips in this template
 		// initialise search typeahead
 		var listOfTags = Meteor.tags.find().map(function (tag) {return tag.name});
-		console.log("Adding list of tags to typeahead: ", listOfTags);
+		//console.log("Adding list of tags to typeahead: ", listOfTags);
 		$(this.find('input')).typeahead({
 			source: listOfTags,
 			updater: function(item) {
@@ -26,6 +26,16 @@ Template.header.rendered = function() {
 				scrollTop: $('.projects').offset().top
 			}, 300);
 		});
+		//DC: this was an attempted hack to stop non-verified users from logging in. It's
+		//not really necessary if account auto-merging is disabled and doesn't work anyway
+		// var user = Meteor.user();
+		// if(user) {
+		// 	_.forEach(user.emails, function(email) {
+		// 		if(email.verified === false) {
+		// 			Meteor.logout();
+		// 		}
+		// 	});
+		// }
 	}.bind(this), 200);
 };
 
