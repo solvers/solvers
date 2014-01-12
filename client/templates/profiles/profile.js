@@ -8,6 +8,9 @@ Template.profile.rendered = function() {
 };
 
 Template.profile.helpers({
+  loggedIn: function() {
+    return !!Meteor.user();
+  },
   email: function() {
     if (Meteor.user().emails != null) {
       return Meteor.user().emails[0].address;

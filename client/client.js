@@ -34,10 +34,12 @@ Template.home.helpers({
 	},
 	username: function(id) {
 		var user = Meteor.users.findOne({_id: id});
-		if (user.profile)
-			return user.profile.name
-		else
-			return user.username;
+		if (user) {
+			if (user.profile)
+				return user.profile.name
+			else if (user.username)
+				return user.username;
+		}
 		return false;
 	}
 });

@@ -1,6 +1,7 @@
 <template name='profile'>
   <div id="profile">
     <div class="container">
+      {{#if loggedIn}}
       <div class="row">
         <div class="col col-lg-6">
           <h2>Edit Profile</h2>
@@ -56,6 +57,9 @@
           {{> userCard }}
         </div>
       </div>
+      {{else}}
+      You must be logged in you view/edit your profile
+      {{/if}}
     </div>
   </div>
 </template>
