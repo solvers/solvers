@@ -20,6 +20,12 @@ Template.header.rendered = function() {
 				Router.go('/projects/tag/' + item);
 			}
 		});
+		$('#gotoProjects').click(function(e) {
+			e.preventDefault();
+			$('html, body').animate({
+				scrollTop: $('.projects').offset().top
+			}, 300);
+		});
 	}.bind(this), 200);
 };
 
