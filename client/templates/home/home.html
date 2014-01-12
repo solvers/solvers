@@ -5,11 +5,11 @@
     {{#if loading}}
         {{>spinner}}
     {{else}}
-    <div class="row">
+    <div class="row" id="projectList">
         {{#if message}}
         <div class="alert alert-info filter-message">{{message}}</div>
         {{/if}}
-        <ul class="projects" id="projectList">
+        <ul class="projects">
         {{#each projects}}
             <li><a class="showProject" data-id="{{_id}}" href="{{pathFor 'showProject'}}">{{name}} - {{role}}</a>
                 {{#if mayUpdate}}
