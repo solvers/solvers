@@ -1,17 +1,10 @@
 var projectsHandle = Meteor.subscribe('projects');
-<<<<<<< HEAD
-
-Meteor.subscribe('comments');
-
-usersHandle = Meteor.subscribe('userData');
-=======
 Meteor.subscribe('comments');
 Meteor.subscribe('tags');
 
 Meteor.autosubscribe(function() {
 	Meteor.subscribe("userData");
 });
->>>>>>> master
 
 Template.header.rendered = function() {
 	//FIXME
