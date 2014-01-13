@@ -17,7 +17,8 @@
                     <span class="glyphicon glyphicon-trash"></span>
                 </button>
                 {{/if}}
-                <h5 class="date pull-right">Posted on {{formatDate postedDate}} by <a href="profile/{{owner}}">{{username owner}}</h5>
+                <h5 class="date pull-right">{{formatDate postedDate}}
+                by <a href="/profile/{{owner}}">{{username owner}}</h5>
             </li>
         {{/each}}
         </ul>

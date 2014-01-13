@@ -1,3 +1,5 @@
+var usersHandle = Meteor.subscribe("userData");
+
 Template.userCard.helpers({
   fullname: function() {
     if (this.profile)
