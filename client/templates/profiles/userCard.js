@@ -3,7 +3,7 @@ var usersHandle = Meteor.subscribe("userData");
 Template.userCard.helpers({
   fullname: function() {
     if (this.profile)
-      return this.profile.firstName + " " + this.profile.lastName;
+      return this.profile.firstName || '' + " " + this.profile.lastName || '';
   },
   loading: function() {
     return !usersHandle.ready();
