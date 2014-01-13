@@ -1,11 +1,49 @@
 var projectsHandle = Meteor.subscribe('projects');
+<<<<<<< HEAD
 
 Meteor.subscribe('comments');
 
 usersHandle = Meteor.subscribe('userData');
+=======
+Meteor.subscribe('comments');
+Meteor.subscribe('tags');
+
+Meteor.autosubscribe(function() {
+	Meteor.subscribe("userData");
+});
+>>>>>>> master
 
 Template.header.rendered = function() {
-   $('a[rel=tooltip]').tooltip() //initialize all tooltips in this template
+	//FIXME
+	setTimeout(function() {
+		$('a[rel=tooltip]').tooltip(); //initialize all tooltips in this template
+		// initialise search typeahead
+		var listOfTags = Meteor.tags.find().map(function (tag) {return tag.name});
+		//console.log("Adding list of tags to typeahead: ", listOfTags);
+		$(this.find('input')).typeahead({
+			source: listOfTags,
+			updater: function(item) {
+				//TODO: set search input value with item..
+				Router.go('/projects/tag/' + item);
+			}
+		});
+		$('#gotoProjects').click(function(e) {
+			e.preventDefault();
+			$('html, body').animate({
+				scrollTop: $('.projects').offset().top
+			}, 300);
+		});
+		//DC: this was an attempted hack to stop non-verified users from logging in. It's
+		//not really necessary if account auto-merging is disabled and doesn't work anyway
+		// var user = Meteor.user();
+		// if(user) {
+		// 	_.forEach(user.emails, function(email) {
+		// 		if(email.verified === false) {
+		// 			Meteor.logout();
+		// 		}
+		// 	});
+		// }
+	}.bind(this), 200);
 };
 
 Template.header.events({
@@ -16,7 +54,16 @@ Template.header.events({
 
 Template.home.helpers({
 	projects: function() {
-		return Projects.find({});
+	  var tag = Session.get('projects_tag');
+	  if(tag)
+			return Projects.find({tags: {$in: [tag]}});
+		return Projects.find();
+	},
+	message: function() {
+	  var tag = Session.get('projects_tag');
+	  if(tag)
+			return 'Displaying all projects tagged with "' + tag + '"';
+		return null;
 	},
 	mayUpdate: function() {
 		return roles.isAdmin() || this.owner === Meteor.userId();

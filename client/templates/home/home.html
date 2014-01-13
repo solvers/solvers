@@ -1,12 +1,17 @@
 <template name="home">
+    {{#unless message}}
     {{> callToAction}}
+    {{/unless}}
     {{#if loading}}
         {{>spinner}}
     {{else}}
-    <div class="row">
-        <ul class="projects" id="projectList">
+    <div class="row" id="projectList">
+        {{#if message}}
+        <div class="alert alert-info filter-message">{{message}}</div>
+        {{/if}}
+        <ul class="projects">
         {{#each projects}}
-            <li><a class="showProject" data-id="{{_id}}" href="projects/{{_id}}">{{name}} - {{role}}</a>
+            <li><a class="showProject" data-id="{{_id}}" href="{{pathFor 'showProject'}}">{{name}} - {{role}}</a>
                 {{#if mayUpdate}}
                 <button class="btn btn-xs white pull-right deleteProject">
                     <span class="glyphicon glyphicon-trash"></span>

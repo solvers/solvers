@@ -43,6 +43,19 @@ a:hover { text-decoration: none; }
     padding: 5px 0;
     margin-top: 5px;
   }
+  .search-group {
+    input {
+      margin: 4px 40px;
+      width: 400px;
+    }
+    .dropdown-menu {
+      margin: 10px 40px;
+      li a:hover {
+        background: white;
+        color: black;
+      }
+    }
+  }
 }
 
 // Login
@@ -56,6 +69,7 @@ a:hover { text-decoration: none; }
   font-size: 17px;
 }
 
+// Landing page
 .mailing-signup {
   margin-top: 50px;
   input {
@@ -109,6 +123,11 @@ a:hover { text-decoration: none; }
   .editable_true,
   [contenteditable="true"] { padding: 2px; outline: 1px dashed #ccc; }
   [contenteditable="true"]:hover { outline: 1px dashed #0090D2; }
+}
+
+// Home page
+.filter-message {
+  font-size: 1.5em;
 }
 
 .projects {
@@ -176,8 +195,11 @@ a:hover { text-decoration: none; }
   left: 9%;
   width: 82% !important;
   margin: 0 auto;
-  padding: 40px 0 80px 0;
+  padding: 40px 10px 80px 10px;
   background: white;
+  input {
+    vertical-align: middle;
+  }
 }
 
 html {

@@ -9,9 +9,24 @@ Router.map(function () {
     layoutTemplate: 'landing_layout'
   });
 
-  // Home
+  // Projects
   this.route('home', {
-    path: '/projects' 
+    path: '/projects/',
+    before: [
+      function() {
+        Session.set('projects_tag', '');
+      }
+    ]
+  });
+
+  // Projects by tag
+  this.route('home', {
+    path: '/projects/tag/:_tag',
+    before: [
+      function() {
+        Session.set('projects_tag', this.params._tag);
+      }
+    ]
   });
 
   // New project
