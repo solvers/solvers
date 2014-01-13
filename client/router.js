@@ -20,7 +20,7 @@ Router.map(function () {
   });
 
   // Projects by tag
-  this.route('home', {
+  this.route('tagged', {
     path: '/projects/tag/:_tag',
     before: [
       function() {
