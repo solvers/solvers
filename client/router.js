@@ -4,14 +4,14 @@ Router.configure({
 
 Router.map(function () {
   // Landing/lead capture page
-  this.route('landing', {
-    path: '/',
-    layoutTemplate: 'landing_layout'
-  });
+  // this.route('landing', {
+  //   path: '/',
+  //   layoutTemplate: 'landing_layout'
+  // });
 
   // Projects
   this.route('home', {
-    path: '/projects/',
+    path: '/',
     before: [
       function() {
         Session.set('projects_tag', '');
