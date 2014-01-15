@@ -14,7 +14,7 @@
         {{/if}}
         <ul class="projects">
         {{#each projects}}
-            <li><a class="showProject" data-id="{{_id}}" href="{{pathFor 'showProject'}}">{{name}} - {{role}}</a>
+            <li class="clearfix"><a class="showProject" data-id="{{_id}}" href="{{pathFor 'showProject'}}">{{name}} - {{role}}</a>
                 {{#if mayUpdate}}
                 <button class="btn btn-xs white pull-right deleteProject">
                     <span class="glyphicon glyphicon-trash"></span>
