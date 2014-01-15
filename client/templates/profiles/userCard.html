@@ -32,7 +32,7 @@
 				{{#if projects}}
 				{{#each projects}}
 				<!-- project info here -->
-					<li class="list-group-item">
+					<li class="list-group-item clearfix">
 					    <span class="badge">{{count}}</span>
 					<a href="/projects/{{_id}}">{{name}} - {{role}}</a>
 			        <span class="badge pull-right">{{formatDate postedDate}}</span>
@@ -51,7 +51,7 @@
 				{{#if contributions}}
 				{{#each contributions}}
 				<!-- contribution info here -->
-					<li class="list-group-item">
+					<li class="list-group-item clearfix">
 					<span><i>{{snippet}}</i></span><span class="pull-right">{{type}} on <a href="/projects/{{parent}}">{{projectname}}</a></span>
 				    <span class="badge">{{formatDate postedDate}}</span>
 					</li>
