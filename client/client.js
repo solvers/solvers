@@ -1,15 +1,13 @@
-var projectsHandle = Meteor.subscribe('projects');
+//var projectsHandle = Meteor.subscribe('projects');
 Meteor.subscribe('comments');
 Meteor.subscribe('tags');
 var usersHandle = Meteor.subscribe("userData");
 
 Template.header.rendered = function() {
-	//FIXME
-	setTimeout(function() {
 		$('a[rel=tooltip]').tooltip(); //initialize all tooltips in this template
 		// initialise search typeahead
 		var listOfTags = Meteor.tags.find().map(function (tag) {return tag.name});
-		//console.log("Adding list of tags to typeahead: ", listOfTags);
+
 		$(this.find('input')).typeahead({
 			source: listOfTags,
 			updater: function(item) {
@@ -33,7 +31,6 @@ Template.header.rendered = function() {
 		// 		}
 		// 	});
 		// }
-	}.bind(this), 200);
 };
 
 Template.header.events({
@@ -59,7 +56,8 @@ Template.home.helpers({
 		return roles.isAdmin() || this.owner === Meteor.userId();
 	},
 	loading: function() {
-		return !projectsHandle.ready();
+		//console.log("Loading? " + projectsHandle.ready());
+		return false;//!projectsHandle.ready();
 	},
 	noUser: function() {
 		return !Meteor.user();

@@ -12,11 +12,11 @@ Router.map(function () {
   // Projects
   this.route('home', {
     path: '/',
-    before: [
+    before: 
       function() {
         Session.set('projects_tag', '');
+        this.subscribe('projects').wait();
       }
-    ]
   });
 
   // Projects by tag
