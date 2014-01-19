@@ -37,12 +37,12 @@ Router.map(function () {
   // Show project
   this.route('showProject', {
     path: '/projects/:_id',
-    before: [
+    before:
       function() {
+        this.subscribe('projects').wait();
         var project = Projects.findOne({_id: this.params._id});
         Session.set('project', project);
       }
-    ]
   });
 
   // Edit profile

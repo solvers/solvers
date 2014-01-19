@@ -1,6 +1,12 @@
 <template name="tagged">
     {{>home}}
 </template>
+<template name="loadingTemplate">
+    {{#unless message}}
+    {{> callToAction}}
+    {{/unless}}
+    {{>spinner}}
+</template>    
 <template name="home">
     {{#unless message}}
     {{> callToAction}}
