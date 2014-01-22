@@ -2,18 +2,12 @@
     {{>home}}
 </template>
 <template name="loadingTemplate">
-    {{#unless message}}
-    {{> callToAction}}
-    {{/unless}}
     {{>spinner}}
 </template>    
 <template name="home">
     {{#unless message}}
     {{> callToAction}}
     {{/unless}}
-    {{#if loading}}
-        {{>spinner}}
-    {{else}}
     <div class="row" id="projectList">
         {{#if message}}
         <div class="alert alert-info filter-message">{{message}}</div>
@@ -32,5 +26,4 @@
         {{/each}}
         </ul>
     </div>
-    {{/if}}
 </template>
