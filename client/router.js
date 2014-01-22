@@ -3,30 +3,16 @@ Router.configure({
 });
 
 Router.map(function () {
-  // Landing/lead capture page
-  // this.route('landing', {
-  //   path: '/',
-  //   layoutTemplate: 'landing_layout'
-  // });
-
   // Projects
   this.route('home', {
     path: '/',
-    before: [
-      function() {
-        Session.set('projects_tag', '');
-      }
-    ]
+    controller: HomeController
   });
 
   // Projects by tag
   this.route('tagged', {
     path: '/projects/tag/:_tag',
-    before: [
-      function() {
-        Session.set('projects_tag', this.params._tag);
-      }
-    ]
+    controller: HomeController
   });
 
   // New project
@@ -37,12 +23,12 @@ Router.map(function () {
   // Show project
   this.route('showProject', {
     path: '/projects/:_id',
-    before: [
+    before:
       function() {
+        this.subscribe('projects').wait();
         var project = Projects.findOne({_id: this.params._id});
         Session.set('project', project);
       }
-    ]
   });
 
   // Edit profile
