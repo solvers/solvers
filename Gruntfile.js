@@ -16,7 +16,7 @@ module.exports = function(grunt) {
     var done = this.async();
     var childArgs = [
       path.join(appPath + '/test/phantom.js'),
-      'http://localhost:3000'
+      'http://localhost:3000' //TODO: environment? or config maybe
     ];
     //NOTE: to make it fail, do this:
     //grunt.log.writeln().fail('Aborted due to warnings.');

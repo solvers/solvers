@@ -14,8 +14,10 @@ page.onConsoleMessage = function(msg) {
 	}
 };
 page.onResourceReceived = function() {
+	//TODO: move to Gruntfile
 	page.injectJs('Runner.js');
 	page.injectJs('click.spec.js');
+	page.injectJs('phantom-utils.js');
 };
 
 // hijack alert to indicate tests are all finished.

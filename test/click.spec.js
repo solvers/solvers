@@ -13,4 +13,20 @@ describe('Test navigation', function() {
 			}, 10);
 		}, 10);
 	});
+
+	it('Navigates to home page', function(done) {
+		setTimeout(function() {
+			var home = $('#homeLink');
+			assert('Home link is present', home.length === 1);
+
+			click(home[0]);
+
+			setTimeout(function() {
+				var button = $('#postProject');
+				assert('Post project button is present', button.length === 1);
+
+				done();
+			}, 10);
+		}, 10);
+	});
 });
