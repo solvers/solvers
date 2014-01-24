@@ -1,6 +1,0 @@
-[submodule "packages/tags"]
-	path = packages/tags
-	url = git@github.com:solvers/meteor-tags.git
-[submodule "packages/bootstrap-3"]
-	path = packages/bootstrap-3
-	url = git@github.com:solvers/meteor-bootstrap-3.git

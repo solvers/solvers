@@ -28,9 +28,9 @@
         "commit": "cdbd20eb065310c0cc302bbd5f22e5b2121c769a"
       },
       "bootstrap-3": {
-        "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
+        "git": "https://github.com/solvers/meteor-bootstrap-3.git",
         "tag": "v0.3.7",
-        "commit": "5dd0d142c870647b910be80bc777b96f0dd45e5e"
+        "commit": "801ab5e912f74f677c8b2bc44a3174b6333d0d7f"
       },
       "gravatar": {
         "git": "https://github.com/tmeasday/meteor-gravatar.git",
@@ -48,9 +48,9 @@
         "commit": "9ee12e714afe56b189f53076447b7b54f3012065"
       },
       "tags": {
-        "git": "https://github.com/apendua/meteor-tags.git",
+        "git": "https://github.com/solvers/meteor-tags.git",
         "tag": "v0.1.2.2",
-        "commit": "613382880617178276a7fbbcfe07812407d48e6b"
+        "commit": "ef2279ba80532f61447dc6b571aa16dcb4a5668f"
       },
       "crypto-md5": {
         "git": "https://github.com/oortcloud/meteor-crypto-md5.git",
