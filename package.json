@@ -1,0 +1,11 @@
+{
+  "name": "Meteor-test",
+  "version": "0.1.0",
+  "scripts": {
+    "test": "grunt --verbose"
+  },
+  "dependencies": {
+    "phantomjs": "~1.9.2-0",
+    "grunt": "~0.4.1"
+  }
+}
