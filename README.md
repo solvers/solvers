@@ -3,7 +3,7 @@ Solvers
 
 Solvers - improve our world.
 
-[![Build Status](https://travis-ci.org/davedx/solvers.png?branch=master)](https://travis-ci.org/davedx/solvers)
+[![Build Status](https://travis-ci.org/solvers/solvers.png?branch=master)](https://travis-ci.org/solvers/solvers)
 
 A Meteor experiment to connect developers and other skilled people with science projects in need of expertise.
 
