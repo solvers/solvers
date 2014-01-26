@@ -1,0 +1,7 @@
+language: node_js
+node_js:
+  - "0.10"
+before_install:
+  - "curl -L https://raw2.github.com/davedx/solvers/master/configure.sh | /bin/sh"
+services:
+  - mongodb
