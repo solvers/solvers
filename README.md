@@ -18,6 +18,6 @@ In order to run the tests, follow these instructions:
 
 3. In the root directory, run ```npm install``` to install the other testing dependencies from npm
 
-4. In the app/ directory, run the project with: ```mrt --settings settings_test.json``` to run the project in test mode. This ensures the database is setup correctly for testing. NOTE: CURRENTLY THIS WILL WIPE ANY EXISTING DATABASE INCLUDING USERS!
+4. In the app/ directory, run the project with: ```mrt --settings settings_test.json``` to run the project in test mode. This ensures the database is setup correctly for testing. NOTE: CURRENTLY THIS WILL WIPE ANY EXISTING DATABASE INCLUDING USERS!!
 
 5. In the root directory, run ```grunt test``` to execute the automated tests
