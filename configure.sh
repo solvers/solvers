@@ -10,4 +10,4 @@ npm install -g grunt-cli
 npm install -g meteorite
 
 #run meteor project
-cd app;mrt &
+cd app;mrt --settings settings_test.json &
