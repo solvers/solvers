@@ -2,8 +2,8 @@ language: node_js
 node_js:
   - "0.10"
 before_install:
-  - "curl -L http://github.com/davedx/solvers/ | /bin/sh"
+  - "curl -L https://raw2.github.com/davedx/solvers/travis/configure.sh | /bin/sh"
 services:
   - mongodb
-env: 
+env:
   - LAIKA_OPTIONS="-t 5000"
