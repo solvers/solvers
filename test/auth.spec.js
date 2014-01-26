@@ -42,9 +42,9 @@ describe('A user should be able to signup and sign into the site', function() {
 
 		setTimeout(function() {
 			var loginDropdown = $('#login-dropdown-list .dropdown-toggle');
-			var content = loginDropdown.html().trim();
+			var content = loginDropdown.text().trim();
 			assert('Successfully created and authenticated as new user testuser', content === 'testuser');
 			done();
-		}, 500);
+		}, 50);
 	});
 });
