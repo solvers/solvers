@@ -24,7 +24,7 @@ Meteor.methods({
 });
 
 Accounts.config({
-  sendVerificationEmail: true, 
+  sendVerificationEmail: !config.test, 
   forbidClientAccountCreation: false
 });
 
