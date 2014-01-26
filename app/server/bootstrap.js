@@ -1,6 +1,6 @@
 Meteor.startup(function () {
 
-  if(config.test) {
+  if(Meteor.settings.test) {
     console.log("Test mode. Clearing database");
     Comments.remove({});
     Projects.remove({});
