@@ -1,5 +1,23 @@
 Meteor.startup(function () {
 
+  if(config.test) {
+    console.log("Test mode. Clearing database");
+    Comments.remove({});
+    Projects.remove({});
+    Meteor.users.remove({});
+
+    // create fake project to test navigation
+    Projects.insert({
+      name: "Bob's project",
+      role: "Documentation slave",
+      description: "For this project you need to be a very fast writer",
+      postedDate: new Date(),
+      owner: "bobsuseridhash",
+      user: "Bob Jones",
+      contact: "bob@example.com"
+    });
+  }
+
 	if(false) {
 		Accounts.loginServiceConfiguration.remove({
 		  service: "github"

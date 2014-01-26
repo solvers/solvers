@@ -7,6 +7,7 @@ describe('Test navigation', function() {
 			setTimeout(function() {
 				// verify we're on post project page
 				var description_input = $('#description');
+
 				assert('Description input is present', description_input.length === 1);
 
 				done();
@@ -45,6 +46,6 @@ describe('Test navigation', function() {
 				assert('Not found page is loaded', notFound.html() === 'Uh-oh! Couldn\'t find that page.');
 				done();
 			}, 10);
-		}, 10);
-	})
+		}, 20);
+	});
 });

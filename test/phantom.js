@@ -9,14 +9,14 @@ page.onConsoleMessage = function(msg) {
 	console.log(msg);
 	if(msg.indexOf('TEST EXIT') !== -1) {
 		var fails = msg.substring(msg.indexOf('TEST EXIT')+10);
-		console.log(fails);
 		phantom.exit(fails);
 	}
 };
-page.onResourceReceived = function() {
-	//TODO: move to Gruntfile
+
+loadScripts = function() {
 	page.injectJs('Runner.js');
-	page.injectJs('click.spec.js');
+	page.injectJs('navigation.spec.js');
+	page.injectJs('auth.spec.js');
 	page.injectJs('phantom-utils.js');
 };
 
@@ -38,11 +38,14 @@ page.open(encodeURI(url), function(status){
 		console.log('[phantomjs] could not retrieve!');
 		phantom.exit();
 	} else {
-		page.evaluate(function() {
-			Runner.run('', function(fails) {
-				alert(fails);
+		loadScripts();
+		setTimeout(function() {
+			page.evaluate(function() {
+				Runner.run('', function(fails) {
+					alert(fails);
+				});
 			});
-		});
+		}, 10);
 		setTimeout(function () {
 			killRun();
 		}, 5000);
