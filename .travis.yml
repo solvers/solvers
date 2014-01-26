@@ -5,5 +5,3 @@ before_install:
   - "curl -L https://raw2.github.com/davedx/solvers/master/configure.sh | /bin/sh"
 services:
   - mongodb
-env:
-  - LAIKA_OPTIONS="-t 5000"
