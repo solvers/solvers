@@ -26,6 +26,7 @@ Router.map(function () {
     before:
       function() {
         this.subscribe('projects').wait();
+        this.subscribe('comments').wait();
         var project = Projects.findOne({_id: this.params._id});
         if(!project) {
           this.render('notFound');
@@ -40,6 +41,8 @@ Router.map(function () {
     path: '/profile',
     before: [
       function() {
+        this.subscribe('projects').wait();
+        this.subscribe('comments').wait();
         Session.set('profileUser', Meteor.userId());
       }
     ],
@@ -53,6 +56,8 @@ Router.map(function () {
     path:'/profile/:_id',
     before: [
       function() {
+        this.subscribe('projects').wait();
+        this.subscribe('comments').wait();
         Session.set('profileUser', this.params._id);
       }
     ],
