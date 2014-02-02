@@ -4,13 +4,14 @@ Template.newProject.events({
 	},
 	'click #addNewProject': function(e) {
 		e.preventDefault();
+		var tags = $('#tags').val().length > 0 ? $('#tags').val().split(',') : null;
 		Meteor.call('addProject', {
 			name: $('#name').val(),
 			role: $('#role').val(),
 			description: $('#description').val(),
 			contact_name: $('#contact_name').val(),
 			contact_email: $('#contact_email').val(),
-			tags: $('#tags').val().split(',')
+			tags: tags
 		}, function(err, result) {
 			if(err) {
 				alert(err.reason);
