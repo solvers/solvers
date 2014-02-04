@@ -38,6 +38,13 @@ Accounts.emailTemplates.verifyEmail.text = function(user, url) {
         + url;
 };
 
+//Fixes: https://github.com/solvers/solvers/issues/66
+//See: https://github.com/meteor/meteor/issues/1369
+Accounts.onCreateUser(function (options, user) {
+  user.profile = options.profile ? options.profile : {};
+  return user;
+});
+
 // Borrowed from: https://gist.github.com/ondrej-kvasnovsky/6048353#file-oauth-js
 // Accounts.onCreateUser(function (options, user) {
 //     if (user.services) {
