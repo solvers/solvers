@@ -18,7 +18,7 @@ describe('A user should be able to signup and sign into the site', function() {
 		done();
 	});
 
-	it('Can sign up to make a new account', function(done) {
+	it('A user should be able to sign up to make a new account', function(done) {
 		var loginDropdown = $('#login-dropdown-list .dropdown-toggle');
 		var dropDownMenu = $('.dropdown-menu');
 		click(loginDropdown[0]);
@@ -47,4 +47,10 @@ describe('A user should be able to signup and sign into the site', function() {
 			done();
 		}, 50);
 	});
+
+	it('A user should be able to edit his profile when signed in', function(done) {
+		var editProfile = $('#editProfile');
+		assert('Edit profile link is present', editProfile.length === 1);
+		click(editProfile[0]);
+	})
 });
