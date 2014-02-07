@@ -52,5 +52,36 @@ describe('A user should be able to signup and sign into the site', function() {
 		var editProfile = $('#editProfile');
 		assert('Edit profile link is present', editProfile.length === 1);
 		click(editProfile[0]);
-	})
+
+		setTimeout(function() {
+			var editEmail = $('#email');
+			assert('Edit email input is present', editEmail.length === 1);
+
+			var editFirstName = $('#firstName');
+			assert('Edit first name input is present', editFirstName.length === 1);
+			editFirstName.focus();
+			click(editFirstName[0]);
+			keypress(editFirstName[0], "T");
+			keypress(editFirstName[0], "e");
+//			editFirstName.val('Testy');
+			editFirstName.blur();
+
+			var editLastName = $('#lastName');
+			assert('Edit last name input is present', editLastName.length === 1);
+			editLastName.focus();
+			click(editLastName[0]);
+			editLastName.val('Userman');
+			editLastName.blur();
+
+			editFirstName.focus();
+
+			setTimeout(function() {
+				var fullName = $('#fullName');
+				console.log("Full name: " + fullName.html());
+				assert('Full name in user card preview has changed to Testy Userman', fullName.html() === 'Testy Userman');
+
+				done();
+			}, 50);
+		}, 10);
+	});
 });

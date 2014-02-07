@@ -50,6 +50,7 @@ Template.profile.events({
     return Meteor.call('changeEmail', Meteor.userId(), $(event.target).val());
   },
   'change #firstName': function(event) {
+    console.log("Updating first name");
     return Meteor.users.update(Meteor.userId(), {
       $set: {
         'profile.firstName': $(event.target).val()
