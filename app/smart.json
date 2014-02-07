@@ -3,10 +3,10 @@
     "page-js": {},
     "spin": {},
     "accounts-ui-bootstrap-3": {},
-    "bootstrap-3": {},
     "gravatar": {},
     "iron-router": {},
     "moment": {},
-    "tags": {}
+    "rssfeed": {},
+    "flextags": {}
   }
 }

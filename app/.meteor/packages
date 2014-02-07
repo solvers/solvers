@@ -19,5 +19,5 @@ gravatar
 iron-router
 moment
 http
-bootstrap-3
-tags
+rssfeed
+flextags
