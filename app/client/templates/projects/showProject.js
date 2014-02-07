@@ -40,6 +40,10 @@ Template.showProject.events({
 		e.stopPropagation();
 		return;
 	},
+	'click .tags .btn': function(e) {
+		e.preventDefault();
+		Router.go('/projects/tag/' + $(e.target).text());
+	},
 	'click #project_description_p': function(e) {
 		e.preventDefault();
 		if($('#project_description_p').hasClass('editable_false')) return;
