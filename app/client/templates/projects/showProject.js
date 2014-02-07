@@ -40,7 +40,7 @@ Template.showProject.events({
 		e.stopPropagation();
 		return;
 	},
-	'click .tags .btn': function(e) {
+	'click .tags .btn-group .btn': function(e) {
 		e.preventDefault();
 		Router.go('/projects/tag/' + $(e.target).text());
 	},
