@@ -19,12 +19,17 @@ Template.home.helpers({
 	username: function(id) {
 		var user = Meteor.users.findOne({_id: id});
 		if (user) {
-			if (user.profile)
-				return user.profile.name
-			else if (user.username)
+			if (user.profile && user.profile.name) {
+				return user.profile.name;
+			}
+			if(user.profile && user.profile.firstName) {
+	      return (user.profile.firstName || '') + " " + (user.profile.lastName || '');
+			}
+			if (user.username) {
 				return user.username;
+			}
 		}
-		return false;
+		return 'Unknown';
 	}
 });
 
