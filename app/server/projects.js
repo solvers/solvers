@@ -6,7 +6,7 @@ Meteor.publish('tags', function() {
 });
 
 var validateTags = function(tags) {
-	var re = /^[a-z0-9]+$/i;
+	var re = /^[a-z0-9\-]+$/i;
 	return _.map(tags, function(tag) {
 		var t = tag.trim();
 		if(!re.test(t)) {
