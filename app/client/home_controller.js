@@ -19,7 +19,6 @@ Template.home.helpers({
 	username: function(id) {
 		var user = Meteor.users.findOne({_id: id});
 		if (user) {
-			// this is ridiculous. WTF
 			if (user.profile && user.profile.name) {
 				return user.profile.name;
 			}

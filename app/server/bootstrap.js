@@ -2,7 +2,7 @@ Meteor.startup(function () {
 
   //Fix for orphaned users with no profile
   var noProfileCount = Meteor.users.find({profile: { $exists: false}}).fetch().length;
-  console.log("Counted "+noProfileCount+" users with no profile.");
+  //console.log("Counted "+noProfileCount+" users with no profile.");
   if(noProfileCount > 0) {
     console.log("Fixing users with no profile...");
     Meteor.users.update(

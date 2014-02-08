@@ -7,7 +7,6 @@ standard-app-packages
 insecure
 preserve-inputs
 accounts-github
-page-js
 showdown
 less
 spin
@@ -19,5 +18,7 @@ gravatar
 iron-router
 moment
 http
-bootstrap-3
-tags
+rssfeed
+flextags
+phantomjs
+spiderable

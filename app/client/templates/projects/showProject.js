@@ -35,6 +35,15 @@ var updateProject = function(tuple) {
 };
 
 Template.showProject.events({
+	'click a': function(e) {
+		// always follow links
+		e.stopPropagation();
+		return;
+	},
+	'click .tags .btn-group .btn': function(e) {
+		e.preventDefault();
+		Router.go('/projects/tag/' + $(e.target).text());
+	},
 	'click #project_description_p': function(e) {
 		e.preventDefault();
 		if($('#project_description_p').hasClass('editable_false')) return;
@@ -68,8 +77,14 @@ Template.showProject.events({
 		Meteor.call('addComment',
 			Session.get('project')._id,	{
 				body: $('#comment_body').val()
+			}, function(err) {
+				if(err) {
+					$('#comment_error').show().text(err.reason);
+				} else {
+					$('#comment_error').hide();
+					$('#comment_body').val('');
+				}
 			});
-		$('#comment_body').val('');
 	},
 	'click .editComment': function(e) {
 		e.preventDefault();
