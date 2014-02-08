@@ -46,50 +46,50 @@ Template.profile.helpers({
 });
 
 Template.profile.events({
-  'change #email': function(event) {
+  'blur #email': function(event) {
     return Meteor.call('changeEmail', Meteor.userId(), $(event.target).val());
   },
-  'change #firstName': function(event) {
+  'blur #firstName': function(event) {
     return Meteor.users.update(Meteor.userId(), {
       $set: {
         'profile.firstName': $(event.target).val()
       }
     });
   },
-  'change #lastName': function(event) {
+  'blur #lastName': function(event) {
     return Meteor.users.update(Meteor.userId(), {
       $set: {
         'profile.lastName': $(event.target).val()
       }
     });
   },
-  'change #username': function(event) {
+  'blur #username': function(event) {
     return Meteor.call('changeUsername', 
       Meteor.userId(),
       $(event.target).val());
   },
-  'change #organization': function(event) {
+  'blur #organization': function(event) {
     return Meteor.users.update(Meteor.userId(), {
       $set: {
         'profile.organization': $(event.target).val()
       }
     });
   },
-  'change #location': function(event) {
+  'blur #location': function(event) {
     return Meteor.users.update(Meteor.userId(), {
       $set: {
         'profile.location': $(event.target).val()
       }
     });
   },
-  'change #bio': function(event) {
+  'blur #bio': function(event) {
     return Meteor.users.update(Meteor.userId(), {
       $set: {
         'profile.bio': $(event.target).val()
       }
     });
   },
-  'change #url': function(event) {
+  'blur #url': function(event) {
     var url;
     url = $(event.target).val();
     if (!url.match(/^http/) && !url.match(/^https/) && url !== '') {
@@ -101,7 +101,7 @@ Template.profile.events({
       }
     });
   },
-  'change #googlePlusUrl': function(event) {
+  'blur #googlePlusUrl': function(event) {
     var url;
     url = $(event.target).val();
     if (!url.match(/^http/) && !url.match(/^https/) && url !== '') {
@@ -113,7 +113,7 @@ Template.profile.events({
       }
     });
   },
-  'change #twitterHandle': function(event) {
+  'blur #twitterHandle': function(event) {
     return Meteor.users.update(Meteor.userId(), {
       $set: {
         'profile.twitterHandle': $(event.target).val()
