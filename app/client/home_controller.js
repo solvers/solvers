@@ -74,7 +74,7 @@ HomeController = RouteController.extend({
 	},
 
 	waitOn: function () {
-		return [Meteor.subscribe('projects'), Meteor.subscribe('tags'), Meteor.subscribe('userData')];
+		return [Meteor.subscribe('projects'), Meteor.subscribe('tags')];
 	},
 
 	data: function () {
