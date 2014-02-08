@@ -14,8 +14,9 @@ Template.newProject.events({
 			tags: tags
 		}, function(err, result) {
 			if(err) {
-				alert(err.reason);
+				$('#project_error').show().text(err.reason);
 			} else {
+				$('#project_error').hide();
 				Router.go('/projects/' + result);
 			}
 		});
