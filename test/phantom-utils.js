@@ -13,10 +13,13 @@ function click(el){
     el.dispatchEvent(ev);
 }
 
-function keypress(el, character) {
-  var evt = document.createEvent("KeyboardEvent");
-  (evt.initKeyEvent || evt.initKeyboardEvent)("keypress", true, true, window,
-                    0, 0, 0, 0,
-                    0, character.charCodeAt(0)) 
-  el.dispatchEvent(evt);
-}
+// function keypress(el, character) {
+//   var evt = document.createEvent("KeyboardEvent");
+//   evt.initKeyboardEvent(
+//         "keypress",
+//         true, true,
+//         window, 0,
+//         0, 0, 0, 0,
+//         character.charCodeAt(0));
+//   el.dispatchEvent(evt);
+// }
