@@ -77,8 +77,14 @@ Template.showProject.events({
 		Meteor.call('addComment',
 			Session.get('project')._id,	{
 				body: $('#comment_body').val()
+			}, function(err) {
+				if(err) {
+					$('#comment_error').show().text(err.reason);
+				} else {
+					$('#comment_error').hide();
+					$('#comment_body').val('');
+				}
 			});
-		$('#comment_body').val('');
 	},
 	'click .editComment': function(e) {
 		e.preventDefault();
