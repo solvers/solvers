@@ -7,7 +7,6 @@ standard-app-packages
 insecure
 preserve-inputs
 accounts-github
-page-js
 showdown
 less
 spin
@@ -21,3 +20,5 @@ moment
 http
 rssfeed
 flextags
+phantomjs
+spiderable

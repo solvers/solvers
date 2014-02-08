@@ -2,21 +2,16 @@
   "meteor": {},
   "dependencies": {
     "basePackages": {
-      "page-js": {},
       "spin": {},
       "accounts-ui-bootstrap-3": {},
       "gravatar": {},
       "iron-router": {},
       "moment": {},
       "rssfeed": {},
-      "flextags": {}
+      "flextags": {},
+      "phantomjs": {}
     },
     "packages": {
-      "page-js": {
-        "git": "https://github.com/tmeasday/meteor-page-js.git",
-        "tag": "v1.3.5",
-        "commit": "c652f795a86498aa4609ab637a694710421cb218"
-      },
       "spin": {
         "git": "https://github.com/SachaG/meteor-spin.git",
         "tag": "v0.2.2",
@@ -43,14 +38,19 @@
         "commit": "8c9bc5d3fc96705057737cb9743d555417f6e551"
       },
       "rssfeed": {
-        "git": "https://github.com/solvers/Meteor-rssfeed.git",
-        "tag": "v0.0.3",
-        "commit": "dee13193f2c899d498cf1eed777d0dcbda7b6291"
+        "git": "https://github.com/raix/Meteor-rssfeed.git",
+        "tag": "v0.0.4",
+        "commit": "e592cda10c553209491aa08c74096fc4ddefe3d7"
       },
       "flextags": {
         "git": "https://github.com/solvers/meteor-tags.git",
         "tag": "v0.1.3",
         "commit": "6d9ec8b846f1c385f00a548c8906973e4e1593d8"
+      },
+      "phantomjs": {
+        "git": "https://github.com/gadicohen/meteor-phantomjs.git",
+        "tag": "v0.0.2",
+        "commit": "a72eb79af068dd5d5d617ac71a42bd74e0cb52a4"
       },
       "crypto-md5": {
         "git": "https://github.com/oortcloud/meteor-crypto-md5.git",
