@@ -79,8 +79,9 @@ Template.showProject.events({
 				body: $('#comment_body').val()
 			}, function(err) {
 				if(err) {
-					alert(err.reason);
+					$('#comment_error').show().text(err.reason);
 				} else {
+					$('#comment_error').hide();
 					$('#comment_body').val('');
 				}
 			});
