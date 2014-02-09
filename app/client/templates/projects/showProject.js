@@ -1,3 +1,7 @@
+Template.showProject.rendered = function() {
+	$('table').addClass('table table-striped table-bordered table-hover');
+}
+
 Template.showProject.helpers({
 	getProject: function() {
 		return Session.get('project');

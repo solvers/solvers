@@ -10,6 +10,8 @@
     "phantomjs": {},
     "pagedown-bootstrap": {
       "path": "/Users/rds45/code/meteor-pagedown-bootstrap"
-    }
+    },
+    "font-awesome-4": {},
+    "marked": {}
   }
 }

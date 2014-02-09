@@ -30,3 +30,6 @@ phantomjs
 /phantomjs
 /bootstrap-wysihtml5
 pagedown-bootstrap
+/pagedown-bootstrap
+/font-awesome-4
+/marked

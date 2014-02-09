@@ -5,7 +5,7 @@
         <h5 class="date">Posted on {{formatDate postedDate}}</h5>
 
         <h3 id="project_name" contenteditable="{{mayUpdateProject}}">{{name}}</h3>
-        <div id="project_description_p" class="editable_{{mayUpdateProject}}">{{#markdown}}{{description}}{{/markdown}}</div>
+        <div id="project_description_p" class="editable_{{mayUpdateProject}}">{{#pagedown}}{{description}}{{/pagedown}}</div>
         <textarea id="project_description">{{description}}</textarea>
 
         <h4 class="contact">Contact</h4>

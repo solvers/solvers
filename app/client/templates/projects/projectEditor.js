@@ -5,12 +5,16 @@ Template.projectEditor.created = function() {
 
 Template.projectEditor.rendered = function() {
 	if (!this.editor) {
-		var converter = new Markdown.getSanitizingConverter();
+		var converter = {
+			makeHtml: function(text) { return marked(text); }
+		};
 		var editor = new Markdown.Editor(converter);
 		editor.run();
 		this.editor = true;
-	    console.log('editor created');
 	}
+	$('#edit-btn-icon').tooltip({placement: 'bottom'})
+	$('#preview-btn-icon').tooltip({placement: 'bottom'})
+	$('table').addClass('table table-striped table-bordered table-hover');
 }
 
 Template.projectEditor.helpers({
@@ -28,16 +32,16 @@ Template.projectEditor.events({
 		e.preventDefault();
 		var description = $('#innerEditor').text();
 		Session.set('description', description);
-		$('#editor').hide();
+		$('#wmd-input').hide();
 		$('#preview-btn').hide();
-		$('#preview').show();
+		$('#wmd-preview').show();
 		$('#edit-btn').show();
 	},
 	'click #edit-btn': function(e) {
 		e.preventDefault();
-		$('#preview').hide();
+		$('#wmd-preview').hide();
 		$('#edit-btn').hide();
-		$('#editor').show();
+		$('#wmd-input').show();
 		$('#preview-btn').show();
 	},
 });
