@@ -25,3 +25,8 @@ tags
 rssfeed
 flextags
 phantomjs
+/rssfeed
+/flextags
+/phantomjs
+/bootstrap-wysihtml5
+pagedown-bootstrap

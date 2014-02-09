@@ -7,6 +7,9 @@
     "moment": {},
     "rssfeed": {},
     "flextags": {},
-    "phantomjs": {}
+    "phantomjs": {},
+    "pagedown-bootstrap": {
+      "path": "/Users/rds45/code/meteor-pagedown-bootstrap"
+    }
   }
 }
