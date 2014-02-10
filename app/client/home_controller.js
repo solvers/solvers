@@ -82,9 +82,9 @@ HomeController = RouteController.extend({
 		var tag = this.params._tag;
 		Session.set('projects_tag', tag);
 		if(tag) {
-			data['projects'] = Projects.find({tags: {$in: [tag]}});
+			data['projects'] = Projects.find({tags: {$in: [tag]}}, {sort: [["postedDate", "desc"]]});
 		} else {
-			data['projects'] = Projects.find();
+			data['projects'] = Projects.find({}, {sort: [["postedDate", "desc"]]});
 		}
 		return data;
 	}

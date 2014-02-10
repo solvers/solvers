@@ -1,5 +1,5 @@
 Meteor.publish('projects', function() {
-	return Projects.find({archived: { $nin: [1] }}, {sort: [["postedDate", "desc"]]})
+	return Projects.find({archived: { $nin: [1] }});
 });
 Meteor.publish('tags', function() {
 	return Meteor.tags.find();
