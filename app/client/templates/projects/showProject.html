@@ -1,17 +1,19 @@
 <template name="showProject">
     <div class="col-md-8 col-md-offset-2 project">
         {{#with getProject}}
-        <h2 id="project_role" contenteditable="{{mayUpdateProject}}">{{role}}</h2>
-        <h5 class="date">Posted on {{formatDate postedDate}}</h5>
-
-        <h3 id="project_name" contenteditable="{{mayUpdateProject}}">{{name}}</h3>
+        <div class="alert alert-info">
+            <h2 id="project_name" style="margin-top:0;" contenteditable="{{mayUpdateProject}}">{{name}}</h2>
+            <p>needs...</p>
+            <h3 id="project_role" contenteditable="{{mayUpdateProject}}">{{role}}</h3>
+        </div>
+        <h5 class="date pull-right" id="posted_date"><small>Posted on {{formatDate postedDate}}</small></h5>
         <div id="project_description_p" class="editable_{{mayUpdateProject}}">{{#pagedown}}{{description}}{{/pagedown}}</div>
         <textarea id="project_description">{{description}}</textarea>
 
         <h4 class="contact">Contact</h4>
-        <p><span id="project_contact_name" contenteditable="{{mayUpdateProject}}">{{contact_name}}</span></p>
-        <p><span id="project_contact_email" contenteditable="{{mayUpdateProject}}">{{contact_email}}</span></p>
+        <p><span id="project_contact_name" contenteditable="{{mayUpdateProject}}">{{contact_name}}</span> (<span id="project_contact_email" contenteditable="{{mayUpdateProject}}">{{contact_email}}</span>)</p>
 
+        <h4 class="tags">Tags</h4>
         <ul class="tags clearfix">
             {{renderTags mayUpdate}}
         </ul>
