@@ -17,6 +17,8 @@ loadScripts = function() {
 	page.injectJs('Runner.js');
 	page.injectJs('navigation.spec.js');
 	page.injectJs('auth.spec.js');
+	page.injectJs('posting.spec.js');
+	page.injectJs('profile.spec.js');
 	page.injectJs('phantom-utils.js');
 };
 
