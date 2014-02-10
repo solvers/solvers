@@ -1,10 +1,16 @@
 <template name="showProject">
     <div class="col-md-8 col-md-offset-2 project">
-        {{#with getProject}}
+        {{#if mayUpdateProject}}
+            <button class="project-edit-btn btn btn-xs pull-right" class="btn btn-default btn-xs">edit project</button>
+        {{/if}}
+        {{#if editing}}
+            {{newProject getProject}}
+        {{else}}
+                    {{#with getProject}}
         <div class="alert alert-info">
             <h2 id="project_name" style="margin-top:0;" contenteditable="{{mayUpdateProject}}">{{name}}</h2>
-            <p>needs...</p>
-            <h3 id="project_role" contenteditable="{{mayUpdateProject}}">{{role}}</h3>
+            <p>is looking for...</p>
+            <h3 style="margin-top: 0; margin-bottom:10px;" id="project_role" contenteditable="{{mayUpdateProject}}">{{role}}</h3>
         </div>
         <h5 class="date pull-right" id="posted_date"><small>Posted on {{formatDate postedDate}}</small></h5>
         <div id="project_description_p" class="editable_{{mayUpdateProject}}">{{#pagedown}}{{description}}{{/pagedown}}</div>
@@ -17,6 +23,7 @@
         <ul class="tags clearfix">
             {{renderTags mayUpdate}}
         </ul>
+
 
         <a class="btn-back btn btn-info" href="{{pathFor 'home'}}">Back</a>
         {{/with}}
@@ -55,5 +62,6 @@
                 <button class="btn btn-primary" id="addNewComment">Post comment</button>
             </fieldset>
         </form>
+        {{/if}}
     </div>
 </template>

@@ -12,8 +12,8 @@ Template.projectEditor.rendered = function() {
 		editor.run();
 		this.editor = true;
 	}
-	$('#edit-btn-icon').tooltip({placement: 'bottom'})
-	$('#preview-btn-icon').tooltip({placement: 'bottom'})
+	$('#edit-btn').tooltip({placement: 'bottom'})
+	$('#preview-btn').tooltip({placement: 'bottom'})
 	$('table').addClass('table table-striped table-bordered table-hover');
 }
 
@@ -36,6 +36,7 @@ Template.projectEditor.events({
 		$('#preview-btn').hide();
 		$('#wmd-preview').show();
 		$('#edit-btn').show();
+		$('table').addClass('table table-striped table-bordered table-hover');
 	},
 	'click #edit-btn': function(e) {
 		e.preventDefault();

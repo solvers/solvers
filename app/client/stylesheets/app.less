@@ -72,6 +72,12 @@ a {
   padding: 5px 20px;
 }
 
+#login-dropdown-list {
+  .btn {
+    width: 100%;
+  }
+} 
+
 // Forms
 .bold-label {
   font-weight: bold;
@@ -139,8 +145,8 @@ tt {
     height: 150px;
   }
   #project_description_p {
+    overflow: hidden;
     border: 1px solid #ccc;
-    padding: 5px;
   }
   #posted_date {
     margin-top:-20px;
@@ -258,21 +264,27 @@ html {
 }
 
 // Project editor
+.project-edit-btn {
+  float: right;
+}
+.wmd-panel {
+  height: 100%;
+}
+
 #wmd-button-bar {
   background-color: #fff;
 }
 
 #wmd-input {
-  height: 362px;
-  border: 0px solid #ccc;
+  height:100%;
   overflow: auto;
   resize: none;
   background-color: #eee;
 }
 
 #wmd-preview {
-  height: 362px;
-  border: 0px solid #ccc;
+  height: calc(100% - 18px);
+  border: 0px;
   overflow: auto;
 }
 
@@ -282,4 +294,10 @@ html {
     margin-left: auto;
     margin-right: auto 
   }
+}
+
+.table {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
 }
