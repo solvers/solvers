@@ -48,30 +48,4 @@ describe('A user should be able to signup and sign into the site', function() {
 		}, 50);
 	});
 
-	it('A user should be able to edit his profile when signed in', function(done) {
-		var editProfile = $('#editProfile');
-		assert('Edit profile link is present', editProfile.length === 1);
-		click(editProfile[0]);
-
-		setTimeout(function() {
-			var editEmail = $('#email');
-			assert('Edit email input is present', editEmail.length === 1);
-
-			var editFirstName = $('#firstName');
-			assert('Edit first name input is present', editFirstName.length === 1);
-			editFirstName.focus().val('Testy').blur();
-
-			var editLastName = $('#lastName');
-			assert('Edit last name input is present', editLastName.length === 1);
-			editLastName.focus().val('Userman').blur();
-
-			setTimeout(function() {
-				var fullName = $('#fullName');
-				console.log("Full name: " + fullName.text());
-				assert('Full name in user card preview has changed to Testy Userman', fullName.text() === 'Testy Userman');
-
-				done();
-			}, 20);
-		}, 20);
-	});
 });

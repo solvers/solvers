@@ -46,6 +46,6 @@ describe('Test navigation', function() {
 				assert('Not found page is loaded', notFound.html() === 'Uh-oh! Couldn\'t find that page.');
 				done();
 			}, 10);
-		}, 20);
+		}, 30);
 	});
 });
