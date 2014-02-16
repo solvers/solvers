@@ -1,14 +1,14 @@
 <template name="projectEditor">
-	<div id="description" style="height:400px; border: 1px solid #ccc;">
-		<button type="button" class="btn btn-primary btn-xs" id="edit-btn" style="float: right; display: none;" title="Edit mode"><i class="fa fa-edit" id="edit-btn-icon"></i></button>
-		<button type="button" class="btn btn-primary btn-xs" id="preview-btn" style="float: right;" title="Preview mode"><i class="fa fa-eye" id="preview-btn-icon"></i></button>
-		{{#constant}}
-		<div class='wmd-panel'>
-			<div class="wmd-button-bar" id="wmd-button-bar"></div>
-			<div class="wmd-preview" id="wmd-preview" tabindex="4" style="display: none;">
-			</div>
-			<textarea class='wmd-input' id="wmd-input"></textarea>
-		</div>
-		{{/constant}}
-	</div>
+    <div id="description">
+        <button type="button" class="btn btn-primary btn-xs" id="edit-btn" style="float: right; display: none;" title="Edit mode"><i class="fa fa-edit" id="edit-btn-icon"></i></button>
+        <button type="button" class="btn btn-primary btn-xs" id="preview-btn" style="float: right;" title="Preview mode"><i class="fa fa-eye" id="preview-btn-icon"></i></button>
+        {{#constant}}
+        <div class='wmd-panel'>
+            <div class="wmd-button-bar" id="wmd-button-bar"></div>
+            <div class="wmd-preview" id="wmd-preview" tabindex="4" style="display: none;">
+            </div>
+            <textarea class='wmd-input' id="wmd-input"></textarea>
+        </div>
+        {{/constant}}
+    </div>
 </template>

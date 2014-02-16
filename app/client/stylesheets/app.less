@@ -106,15 +106,9 @@ tt {
   color: #22A;
 }
 
-.form-group {
-  #description {
-    height: 150px;
-  }
-}
-
 .project {
   h2 {
-    margin-top: 30px;
+    margin-top: 10px;
     margin-bottom: 0;
   }
   .date {
@@ -134,26 +128,24 @@ tt {
       margin-right: 10px;
     }
   }
-  img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto 
-  }
-  #project_description {
-    display: none;
-    width: 90%;
-    height: 150px;
-  }
   #project_description_p {
+    h2 {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    padding: 15px;
     overflow: hidden;
     border: 1px solid #ccc;
   }
   #posted_date {
     margin-top:-20px;
   }
-  .editable_true,
-  [contenteditable="true"] { padding: 2px; outline: 1px dashed #ccc; }
-  [contenteditable="true"]:hover { outline: 1px dashed #0090D2; }
 }
 
 // Home page
@@ -276,24 +268,33 @@ html {
 }
 
 #wmd-input {
-  height:100%;
+  height: 364px;
   overflow: auto;
   resize: none;
   background-color: #eee;
 }
 
 #wmd-preview {
-  height: calc(100% - 18px);
+  height: 364px;
   border: 0px;
   overflow: auto;
+  h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  img {
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  padding: 15px;
 }
 
 #description {
-  img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto 
-  }
+  height:400px; 
+  overflow: hidden;
+  border: 1px solid #ccc;
 }
 
 .table {
