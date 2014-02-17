@@ -3,7 +3,9 @@ Template.editProject.helpers({
     return Session.get('project');
   },
   tags: function() {
-    return Session.get('project').tags.join();
+    tags = Session.get('project').tags;
+    if (tags) return tags.join();
+    else return "";
   }
 });
 
@@ -33,6 +35,7 @@ Template.editProject.rendered = function() {
 
 Template.editProject.destroyed = function() {
     Session.set('description', null);
+    Session.set('editing', false);
 }
 
 var updateProject = function(tuple) {
