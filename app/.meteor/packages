@@ -23,5 +23,7 @@ flextags
 phantomjs
 spiderable
 pagedown-bootstrap
-font-awesome-4
+font-awesome
 marked
+nvd3js
+d3

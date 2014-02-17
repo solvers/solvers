@@ -66,6 +66,15 @@ Router.map(function () {
     }
   });
 
+  // Admin stats
+  this.route('stats', {
+    path:'/stats',
+    waitOn: function() {
+      return [this.subscribe('projects'),
+              this.subscribe('comments')];
+    }
+  });
+
   // About
   this.route('about', {
     path: '/about'
