@@ -1,5 +1,5 @@
 <template name="newProject">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-8 col-md-offset-2">
         <form class="form-horizontal" role="form">
             <div class="form-group">
                 <label class="bold-label" for="name">Project name</label>
@@ -12,7 +12,7 @@
             <div class="form-group">
                 <label class="bold-label" for="description">Description</label>
                 <span class="help-block">Describe the project, including its expected <strong>duration</strong> and <strong>required skillset</strong>. You may use <a href="http://daringfireball.net/projects/markdown/basics">Markdown</a> to format your post.</span>
-                <textarea tabindex="3" class="form-control" rows="5" id="description" placeholder="e.g. This project involves working with the Department of Biochemistry at MIT to improve the speed with which proteins can be screened for cancer-causing misfolding potential. The ability to identify these proteins computationally could enable the development of rapid early-stage screening for cancers, potentially saving or improving many lives."></textarea>
+                {{> projectEditor}}
             </div>
             <div class="form-group">
                 <label class="bold-label" for="role">Contact</label>
@@ -23,7 +23,7 @@
             </div>
             <div class="form-group">
                 <label class="bold-label" for="tags">Tags</label>
-                <span class="help-block">Add tags as a comma-separated list to categorise your project so people can find projects relevant to their skills and interests.<br>You can use letters, numbers, spaces and hyphens. '<tt>machine-learning</tt>' is allowed but '<tt>machinelearning!</tt>' is not. '<tt>one, two</tt>' adds the tags one and two
+                <span class="help-block">Add tags as a comma-separated list to categorise your project so people can find projects relevant to their skills and interests. You can use letters, numbers, spaces and hyphens. '<tt>machine-learning</tt>' is allowed but '<tt>machinelearning!</tt>' is not. '<tt>one, two</tt>' adds the tags one and two.
                 </span>
                 <input tabindex="6" type="text" class="form-control" id="tags" placeholder="biology, proteins, folding, c++">
             </div>

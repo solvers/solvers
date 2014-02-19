@@ -1,20 +1,27 @@
 <template name="showProject">
     <div class="col-md-8 col-md-offset-2 project">
+        {{#if editing}}
+            {{> editProject}}
+        {{else}}
+        {{#if mayUpdateProject}}
+            <button class="project-edit-btn btn btn-xs pull-right" class="btn btn-default btn-xs">edit project</button>
+        {{/if}}
         {{#with getProject}}
-        <h2 id="project_role" contenteditable="{{mayUpdateProject}}">{{role}}</h2>
-        <h5 class="date">Posted on {{formatDate postedDate}}</h5>
-
-        <h3 id="project_name" contenteditable="{{mayUpdateProject}}">{{name}}</h3>
-        <div id="project_description_p" class="editable_{{mayUpdateProject}}">{{#markdown}}{{description}}{{/markdown}}</div>
-        <textarea id="project_description">{{description}}</textarea>
-
+        <div class="alert alert-info">
+            <h2 id="project_name" style="margin-top:0;">{{name}}</h2>
+            <p>is looking for...</p>
+            <h3 style="margin-top: 0; margin-bottom:10px;" id="project_role">{{role}}</h3>
+        </div>
+        <h5 class="date pull-right" id="posted_date"><small>Posted on {{formatDate postedDate}}</small></h5>
+        <div id="project_description_p">{{#pagedown}}{{description}}{{/pagedown}}</div>
         <h4 class="contact">Contact</h4>
-        <p><span id="project_contact_name" contenteditable="{{mayUpdateProject}}">{{contact_name}}</span></p>
-        <p><span id="project_contact_email" contenteditable="{{mayUpdateProject}}">{{contact_email}}</span></p>
+        <p><span id="project_contact_name">{{contact_name}}</span> (<span id="project_contact_email">{{contact_email}}</span>)</p>
 
+        <h4 class="tags">Tags</h4>
         <ul class="tags clearfix">
             {{renderTags mayUpdate}}
         </ul>
+
 
         <a class="btn-back btn btn-info" href="{{pathFor 'home'}}">Back</a>
         {{/with}}
@@ -53,5 +60,6 @@
                 <button class="btn btn-primary" id="addNewComment">Post comment</button>
             </fieldset>
         </form>
+        {{/if}}
     </div>
 </template>

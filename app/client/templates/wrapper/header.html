@@ -1,42 +1,42 @@
 <template name="header">
-	<div class="navbar navbar-default navbar-static-top" role="navigation">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-				</button>
-				<a class="brand back" href="{{pathFor 'home'}}" id="homeLink">
-					<span class='logo'>&lt;<span id='main'>Solvers</span><span id='tld'>.io</span>&gt;</span>
-				</a>
-			</div>
-																	<form class="navbar-form navbar-left hidden-sm hidden-xs" role="search">
-			<div class="form-group search-group">
-										<input type="text" id="input-search" class="form-control" data-provide="typeahead" placeholder="Search">
-									</div>
-														</form>
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand back" href="{{pathFor 'home'}}" id="homeLink">
+                    <span class='logo'>&lt;<span id='main'>Solvers</span><span id='tld'>.io</span>&gt;</span>
+                </a>
+            </div>
+            <form class="navbar-form navbar-left hidden-sm hidden-xs" role="search">
+                <div class="form-group search-group">
+                    <input type="text" id="input-search" class="form-control" data-provide="typeahead" placeholder="Search">
+                </div>
+            </form>
 
-			<div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav navbar-right">
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
 
-					{{loginButtons}}
-					{{#if currentUser}}
-					<li>
-						<a id="editProfile" href="{{pathFor 'profile'}}" rel="tooltip" data-placement="bottom" title="edit profile">
-							<span class="icon-bar glyphicon white glyphicon-user"></span>
-						</a>
-					</li>
-					<li>
-						<a href="#" id="logout" rel="tooltip" data-placement="bottom" title="sign out">
-							<span class="icon-bar glyphicon white glyphicon-log-out"></span>
-						</a>
-					</li>
-					{{/if}}
-				</ul>
-			</div>
-		</div>
-	</div>
+                    {{loginButtons}}
+                    {{#if currentUser}}
+                    <li>
+                        <a id="editProfile" href="{{pathFor 'profile'}}" rel="tooltip" data-placement="bottom" title="edit profile">
+                            <span class="icon-bar glyphicon white glyphicon-user"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="logout" rel="tooltip" data-placement="bottom" title="sign out">
+                            <span class="icon-bar glyphicon white glyphicon-log-out"></span>
+                        </a>
+                    </li>
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+    </div>
 </template>
