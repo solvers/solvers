@@ -14,9 +14,13 @@ Template.projectEditor.rendered = function() {
         this.editor = true;
     }
     var project = Session.get('project');
-    var description = project.description;
-    console.log(description);
-    $('#wmd-input').text(description || "");
+    var description;
+    if (project) {
+	    description = project.description;
+    } else {
+    	description = description_template;
+    }
+    $('#wmd-input').text(description);
     $('#edit-btn').tooltip({placement: 'bottom'})
     $('#preview-btn').tooltip({placement: 'bottom'})
     $('table').addClass('table table-striped table-bordered table-hover');
@@ -51,3 +55,23 @@ Template.projectEditor.events({
         $('#preview-btn').show();
     },
 });
+
+description_template = [
+"![this is an example image][1]",
+"",
+"## This is your main **heading** ##",
+"",
+" 1. List *item*",
+" 2. List **item**",
+" 3. List item",
+"",
+"> Sometimes I quote people - *Anon*",
+"",
+"    for i in range(10):",
+"        print('we've got code blocks too')",
+"",
+"Normal text gets rendered like this.",
+"URLs are automatically rendered as links: http://google.com",
+"",
+" [1]: http://placekitten.com/700/200"
+].join('\n');
