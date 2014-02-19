@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/solvers/solvers.png?label=ready)](https://waffle.io/solvers/solvers)
 Solvers
 =======
 
