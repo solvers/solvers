@@ -1,9 +1,9 @@
-[![Stories in Ready](https://badge.waffle.io/solvers/solvers.png?label=ready)](https://waffle.io/solvers/solvers)
 Solvers
 =======
 
 Solvers - improve our world.
 
+[![Stories in Ready](https://badge.waffle.io/solvers/solvers.png?label=ready)](https://waffle.io/solvers/solvers)
 [![Build Status](https://travis-ci.org/solvers/solvers.png?branch=master)](https://travis-ci.org/solvers/solvers)
 
 A Meteor experiment to connect developers and other skilled people with science projects in need of expertise.
