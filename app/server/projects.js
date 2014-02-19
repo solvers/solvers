@@ -78,5 +78,8 @@ Meteor.methods({
 			throw new Meteor.Error(403, "You are not the owner of this project.");
 		Projects.update({_id: id}, {$set: {archived: 1}});
 		return true;
+	},
+	addView: function(id) {
+		Projects.update({_id: id}, {$inc: {views: 1}});
 	}
 });
