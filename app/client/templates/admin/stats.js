@@ -21,7 +21,7 @@ Template.stats.rendered = function() {
 	var datekey = 'createdAt';
 	var data = last30days(Meteor.users, datekey);
 	plotPerDay(data, 'users', datekey)
-;nv	// comment plot
+	// comment plot
 	var datekey = 'postedDate';
 	var data = last30days(Comments, datekey);
 	plotPerDay(data, 'comments', datekey);
