@@ -8,9 +8,6 @@
     "rssfeed": {},
     "flextags": {},
     "phantomjs": {},
-    "pagedown-bootstrap": {
-      "path": "../../../code/meteor-pagedown-bootstrap"
-    },
     "font-awesome": {},
     "marked": {},
     "nvd3js": {}
