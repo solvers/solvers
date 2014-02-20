@@ -10,3 +10,9 @@ Accounts.ui.config({
   },
   passwordSignupFields: 'USERNAME_AND_EMAIL'
 });
+
+Deps.autorun(function () {
+	if (Meteor.users) {
+	  	Session.set('usercount', Meteor.users.find().count());
+	}
+});

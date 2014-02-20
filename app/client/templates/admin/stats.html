@@ -1,0 +1,27 @@
+<template name="stats">
+    <div class="col-md-8 col-md-offset-2">
+        <p>There are {{usercount}} users and {{projectcount}} projects. {{projectownercount}} users have posted a project.</p>
+
+        <div>
+            <h3>New users per day</h3>
+            <div id="users" class="plot">
+                <svg>
+                </svg>
+            </div>
+        </div>
+        <div>
+            <h3>New projects per day</h3>
+            <div id="projects" class="plot">
+                <svg>
+                </svg>
+            </div>
+        </div>
+        <div>
+            <h3>Comments per day</h3>
+            <div id="comments" class="plot">
+                <svg>
+                </svg>
+            </div>
+        </div>
+    </div>
+</template>

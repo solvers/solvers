@@ -33,6 +33,16 @@ Router.map(function () {
           this.stop();
         }
         Session.set('project', project);
+      },
+      after: function() {
+          if (!Session.get(this.params._id)) {
+              Meteor.call('addView', this.params._id, function(err) {
+                  if(err) {
+                      console.log(err.reason);
+                  }
+              });
+              Session.set(this.params._id, true);
+          }
       }
   });
 
@@ -63,6 +73,15 @@ Router.map(function () {
     ],
     data: function() {
       return Meteor.users.findOne({ _id: this.params._id });
+    }
+  });
+
+  // Admin stats
+  this.route('stats', {
+    path:'/stats',
+    waitOn: function() {
+      return [this.subscribe('projects'),
+              this.subscribe('comments')];
     }
   });
 

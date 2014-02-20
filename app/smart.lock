@@ -10,11 +10,9 @@
       "rssfeed": {},
       "flextags": {},
       "phantomjs": {},
-      "pagedown-bootstrap": {
-        "path": "../../../code/meteor-pagedown-bootstrap"
-      },
-      "font-awesome-4": {},
-      "marked": {}
+      "font-awesome": {},
+      "marked": {},
+      "nvd3js": {}
     },
     "packages": {
       "spin": {
@@ -57,18 +55,20 @@
         "tag": "v0.0.2",
         "commit": "a72eb79af068dd5d5d617ac71a42bd74e0cb52a4"
       },
-      "pagedown-bootstrap": {
-        "path": "../../../code/meteor-pagedown-bootstrap"
-      },
-      "font-awesome-4": {
-        "git": "https://github.com/michaelbishop/meteor-font-awesome-4.git",
-        "tag": "v4.0.0",
-        "commit": "c28b5a0f2a2bd233c495642b40a167eda95172f5"
+      "font-awesome": {
+        "git": "https://github.com/nate-strauser/meteor-font-awesome.git",
+        "tag": "v4.0.3",
+        "commit": "61e9361384347547ae144f8228faa4deffda23db"
       },
       "marked": {
         "git": "https://github.com/chuangbo/meteor-marked.git",
         "tag": "v0.2.9",
         "commit": "6485d6f03841501f81176e34ab375840473aa714"
+      },
+      "nvd3js": {
+        "git": "https://github.com/ouuyeah/nvd3js.git",
+        "tag": "v0.1.0",
+        "commit": "89a8c66bb3b35d25900d31195ae0b318e4176ddb"
       },
       "crypto-md5": {
         "git": "https://github.com/oortcloud/meteor-crypto-md5.git",

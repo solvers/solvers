@@ -12,7 +12,19 @@
             <p>is looking for...</p>
             <h3 style="margin-top: 0; margin-bottom:10px;" id="project_role">{{role}}</h3>
         </div>
-        <h5 class="date pull-right" id="posted_date"><small>Posted on {{formatDate postedDate}}</small></h5>
+        <div class="metrics-strip">
+            <p class="viewcount">
+                <small>Viewed {{views}} times</small>
+            </p>
+            <p class="posteddate">
+                <small>Posted on {{formatDate postedDate}}</small>
+            </p>
+        </div>
+        {{#if solved}}
+            <div class="alert alert-success">
+            <strong>Success!</strong> This project was solved on {{solveddate}}.
+            </div>
+        {{/if}}
         <div id="project_description_p">{{#pagedown}}{{description}}{{/pagedown}}</div>
         <h4 class="contact">Contact</h4>
         <p><span id="project_contact_name">{{contact_name}}</span> (<span id="project_contact_email">{{contact_email}}</span>)</p>

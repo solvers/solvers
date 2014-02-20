@@ -1,0 +1,9 @@
+<template name="adminButtons">
+    {{#if admin}}
+    <li>
+        <a id="showStats" href="{{pathFor 'stats'}}" rel="tooltip" data-placement="bottom" title="show stats">
+            <span class="icon-bar glyphicon white glyphicon-stats"></span>
+        </a>
+    </li>
+    {{/if}}
+</template>
