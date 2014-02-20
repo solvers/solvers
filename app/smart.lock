@@ -12,7 +12,8 @@
       "phantomjs": {},
       "font-awesome": {},
       "marked": {},
-      "nvd3js": {}
+      "nvd3js": {},
+      "pagedown-bootstrap": {}
     },
     "packages": {
       "spin": {
@@ -69,6 +70,11 @@
         "git": "https://github.com/ouuyeah/nvd3js.git",
         "tag": "v0.1.0",
         "commit": "89a8c66bb3b35d25900d31195ae0b318e4176ddb"
+      },
+      "pagedown-bootstrap": {
+        "git": "https://github.com/Blahah/meteor-pagedown-bootstrap.git",
+        "tag": "v0.0.1",
+        "commit": "504130865bccd2b8ff62f0bba5999de29ea5e3d8"
       },
       "crypto-md5": {
         "git": "https://github.com/oortcloud/meteor-crypto-md5.git",

@@ -10,6 +10,7 @@
     "phantomjs": {},
     "font-awesome": {},
     "marked": {},
-    "nvd3js": {}
+    "nvd3js": {},
+    "pagedown-bootstrap": {}
   }
 }
