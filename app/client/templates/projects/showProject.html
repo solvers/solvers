@@ -1,5 +1,6 @@
 <template name="showProject">
     <div class="col-md-8 col-md-offset-2 project">
+    {{#if getProject}}
         {{#with getProject}}
         <h2 id="project_role" contenteditable="{{mayUpdateProject}}">{{role}}</h2>
         <h5 class="date">Posted on {{formatDate postedDate}}</h5>
@@ -53,5 +54,8 @@
                 <button class="btn btn-primary" id="addNewComment">Post comment</button>
             </fieldset>
         </form>
+    {{else}}
+        {{>spinner}}
+    {{/if}}
     </div>
 </template>
