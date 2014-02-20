@@ -13,6 +13,7 @@
     },
     "font-awesome": {},
     "marked": {},
-    "nvd3js": {}
+    "nvd3js": {},
+    "GAnalytics": {}
   }
 }

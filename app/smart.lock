@@ -16,7 +16,7 @@
       "font-awesome": {},
       "marked": {},
       "nvd3js": {},
-      "mongodb-aggregation": {}
+      "GAnalytics": {}
     },
     "packages": {
       "spin": {
@@ -77,10 +77,10 @@
         "tag": "v0.1.0",
         "commit": "89a8c66bb3b35d25900d31195ae0b318e4176ddb"
       },
-      "mongodb-aggregation": {
-        "git": "https://github.com/jhoxray/meteor-mongo-extensions.git",
-        "tag": "v0.1.71",
-        "commit": "da9661c47b3797cec062005f01f84a4723051438"
+      "GAnalytics": {
+        "git": "https://github.com/datariot/meteor-ganalytics.git",
+        "tag": "v0.1.1",
+        "commit": "91b19d37687bb2cd7976fb43b482143a53509d7e"
       },
       "crypto-md5": {
         "git": "https://github.com/oortcloud/meteor-crypto-md5.git",
