@@ -13,7 +13,8 @@
       "font-awesome": {},
       "marked": {},
       "nvd3js": {},
-      "pagedown-bootstrap": {}
+      "pagedown-bootstrap": {},
+      "GAnalytics": {}
     },
     "packages": {
       "spin": {
@@ -75,6 +76,11 @@
         "git": "https://github.com/Blahah/meteor-pagedown-bootstrap.git",
         "tag": "v0.0.1",
         "commit": "504130865bccd2b8ff62f0bba5999de29ea5e3d8"
+      },
+      "GAnalytics": {
+        "git": "https://github.com/datariot/meteor-ganalytics.git",
+        "tag": "v0.1.1",
+        "commit": "91b19d37687bb2cd7976fb43b482143a53509d7e"
       },
       "crypto-md5": {
         "git": "https://github.com/oortcloud/meteor-crypto-md5.git",
