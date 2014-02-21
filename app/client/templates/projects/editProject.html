@@ -1,6 +1,5 @@
 <template name="editProject">
     <form class="form-horizontal" role="form">
-        {{#with project}}
         <div class="form-group">
             <label class="bold-label" for="name">Project name</label>
             <input tabindex="1" type="text" class="form-control" id="name" placeholder="e.g. Help speed up protein folding software to tackle cancer" value="{{name}}">
@@ -21,7 +20,6 @@
             <span class="help-block">Email</span>
             <input tabindex="5" type="text" class="form-control" id="contact_email" placeholder="rr@mit.edu" value="{{contact_email}}">
         </div>
-        {{/with}}
         <div class="form-group">
             <label class="bold-label" for="tags">Tags</label>
             <span class="help-block">Add tags as a comma-separated list to categorise your project so people can find projects relevant to their skills and interests. You can use letters, numbers, spaces and hyphens. '<tt>machine-learning</tt>' is allowed but '<tt>machinelearning!</tt>' is not. '<tt>one, two</tt>' adds the tags one and two.

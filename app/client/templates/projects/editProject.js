@@ -1,9 +1,6 @@
 Template.editProject.helpers({
-  project: function() {
-    return Session.get('project');
-  },
   tags: function() {
-    tags = Session.get('project').tags;
+    tags = this.tags;
     if (tags) return tags.join();
     else return "";
   }
@@ -14,10 +11,10 @@ Template.editProject.events({
         Session.set('page', 'home');
     },
     'click #project-save-btn': function(e) {
-        console.log($('#innerEditor').val());
         e.preventDefault();
         var tags = $('#tags').val().length > 0 ? $('#tags').val().split(',') : null;
         updateProject({
+            _id: this._id,
             name: $('#name').val(),
             role: $('#role').val(),
             description: $('#wmd-input').val(),
@@ -39,7 +36,6 @@ Template.editProject.destroyed = function() {
 }
 
 var updateProject = function(tuple) {
-    tuple['_id'] = Session.get('project')._id;
     Meteor.call('updateProject', tuple, function(err) {
         if(err) {
             $('#project_error').show().text(err.reason);
