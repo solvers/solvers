@@ -26,13 +26,20 @@ Router.map(function () {
   // Show project
   this.route('showProject', {
     path: '/projects/:_id',
+    notFoundTemplate: 'notFound',
+    loadingTemplate: 'loading',
     before:
       function() {
         this.subscribe('projects').wait();
         this.subscribe('comments').wait();
-        var project = Projects.findOne({_id: this.params._id});
-        Session.set('project', project);
       },
+    data:
+      function() {
+        return Projects.findOne({_id: this.params._id});
+      },
+    waitOn: function() {
+      return Meteor.subscribe('projects');
+    },
     after: function() {
       GAnalytics.pageview('/projects/:_id');
       if (!Session.get(this.params._id)) {
