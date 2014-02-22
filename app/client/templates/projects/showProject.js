@@ -42,7 +42,6 @@ Template.showProject.events({
     'click a': function(e) {
         // always follow links
         e.stopPropagation();
-        return;
     },
     'click .project-edit-btn': function(e) {
         Session.set('editing', true);

@@ -1,8 +1,4 @@
 Meteor.publish('projects', function() {
-	// var bleh;
-	// for(var i=0; i<1000000000; i++) {
-	// 	bleh = i;
-	// }
 	return Projects.find({archived: { $nin: [1] }});
 });
 Meteor.publish('tags', function() {
