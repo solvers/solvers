@@ -7,7 +7,6 @@ standard-app-packages
 insecure
 preserve-inputs
 accounts-github
-showdown
 less
 spin
 accounts-ui-bootstrap-3
