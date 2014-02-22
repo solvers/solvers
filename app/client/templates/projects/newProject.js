@@ -22,9 +22,3 @@ Template.newProject.events({
         });
     }
 });
-
-// Template.projectEditor.helpers({
-//  getProject: function() {
-//      return Session.get('project');
-//  }
-// });
