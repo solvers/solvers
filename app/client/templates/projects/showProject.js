@@ -7,9 +7,6 @@ Template.showProject.destroyed = function() {
 }
 
 Template.showProject.helpers({
-    getProject: function() {
-        return Session.get('project');
-    },
     formatDate: function(date) {
         if(!date)
             return '';
@@ -21,17 +18,14 @@ Template.showProject.helpers({
         return moment(date).format('MMM Do YYYY HH:mm');
     },
     comments: function() {
-        var project = Session.get('project');
-        if(!project)
-            return [];
-        var comments = Comments.find({parent: project._id});
+        var comments = Comments.find({parent: this._id});
         return comments;
     },
     mayUpdate: function() {
         return roles.isAdmin() || this.owner === Meteor.userId();
     },
     mayUpdateProject: function() {
-        return roles.isAdmin() || Session.get('project').owner === Meteor.userId();
+        return roles.isAdmin() || this.owner === Meteor.userId();
     },
     editing: function() {
         return Session.get('editing');
@@ -53,7 +47,7 @@ Template.showProject.events({
     'click #addNewComment': function(e) {
         e.preventDefault();
         Meteor.call('addComment',
-            Session.get('project')._id, {
+            this._id, {
                 body: $('#comment_body').val()
             }, function(err) {
                 if(err) {
