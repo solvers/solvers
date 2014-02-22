@@ -11,7 +11,9 @@
     "font-awesome": {},
     "marked": {},
     "nvd3js": {},
-    "pagedown-bootstrap": {},
-    "GAnalytics": {}
+    "GAnalytics": {},
+    "pagedown-bootstrap": {
+      "version": "0.0.3"
+    }
   }
 }

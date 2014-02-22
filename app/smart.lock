@@ -13,8 +13,10 @@
       "font-awesome": {},
       "marked": {},
       "nvd3js": {},
-      "pagedown-bootstrap": {},
-      "GAnalytics": {}
+      "GAnalytics": {},
+      "pagedown-bootstrap": {
+        "version": "0.0.3"
+      }
     },
     "packages": {
       "spin": {
@@ -24,8 +26,8 @@
       },
       "accounts-ui-bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
-        "tag": "v0.2.4",
-        "commit": "cdbd20eb065310c0cc302bbd5f22e5b2121c769a"
+        "tag": "v0.2.5",
+        "commit": "91cd37a1320213dd209c3a668bf542eeb9c39a00"
       },
       "gravatar": {
         "git": "https://github.com/tmeasday/meteor-gravatar.git",
@@ -72,15 +74,15 @@
         "tag": "v0.1.0",
         "commit": "89a8c66bb3b35d25900d31195ae0b318e4176ddb"
       },
-      "pagedown-bootstrap": {
-        "git": "https://github.com/Blahah/meteor-pagedown-bootstrap.git",
-        "tag": "v0.0.1",
-        "commit": "504130865bccd2b8ff62f0bba5999de29ea5e3d8"
-      },
       "GAnalytics": {
         "git": "https://github.com/datariot/meteor-ganalytics.git",
         "tag": "v0.1.1",
         "commit": "91b19d37687bb2cd7976fb43b482143a53509d7e"
+      },
+      "pagedown-bootstrap": {
+        "git": "https://github.com/Blahah/meteor-pagedown-bootstrap.git",
+        "tag": "v0.0.3",
+        "commit": "940abd8b0137da751f60b8acdd53b8c5577a2f82"
       },
       "crypto-md5": {
         "git": "https://github.com/oortcloud/meteor-crypto-md5.git",
