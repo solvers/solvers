@@ -8,7 +8,8 @@ Accounts.ui.config({
   requestPermissions: {
     github: ['user:email']
   },
-  passwordSignupFields: 'USERNAME_AND_EMAIL'
+  passwordSignupFields: 'USERNAME_AND_EMAIL',
+  extraSignupFields: []
 });
 
 Deps.autorun(function () {
