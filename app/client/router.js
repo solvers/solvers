@@ -14,7 +14,7 @@ Router.map(function () {
   this.route('tagged', {
     path: '/projects/tag/:_tag',
     controller: HomeController,
-    after: function() { GAnalytics.pageview('/projects/tag/:_tag'); }
+    after: function() { GAnalytics.pageview('/projects/tag/' + this.params._tag); }
   });
 
   // New project
@@ -41,7 +41,7 @@ Router.map(function () {
       return Meteor.subscribe('projects');
     },
     after: function() {
-      GAnalytics.pageview('/projects/:_id');
+      GAnalytics.pageview('/projects/' + this.params._id);
       if (!Session.get(this.params._id)) {
         Meteor.call('addView', this.params._id, function(err) {
           if(err) {
@@ -82,7 +82,7 @@ Router.map(function () {
     data: function() {
       return Meteor.users.findOne({ _id: this.params._id });
     },
-    after: function() { GAnalytics.pageview('/profile/:_id'); }
+    after: function() { GAnalytics.pageview('/profile/' + this.params._id); }
   });
 
   // Admin stats
