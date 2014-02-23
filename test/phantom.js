@@ -29,7 +29,7 @@ page.onAlert = function (fails) {
 
 var killRun = function () {
 	console.log("Aborted run due to timeout");
-	phantom.exit();
+	phantom.exit(1);
 }
 
 var url = args[1] + '';
@@ -38,7 +38,7 @@ console.log('[phantomjs] Loading page: '+url);
 page.open(encodeURI(url), function(status){
 	if (status !== 'success') {
 		console.log('[phantomjs] could not retrieve!');
-		phantom.exit();
+		phantom.exit(1);
 	} else {
 		loadScripts();
 		setTimeout(function() {
