@@ -28,7 +28,6 @@ module.exports = function(grunt) {
       //grunt.log.write("Finished with code: "+code);
       done(code === 0);
     });
-
   });
 
   grunt.registerTask('default', ['test']);

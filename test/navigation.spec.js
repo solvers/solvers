@@ -38,14 +38,13 @@ describe('Test navigation', function() {
 			var project = $('.showProject')[0];
 			project.setAttribute('data-id', nonExistantProject);
 			project.setAttribute('href', '/projects/'+nonExistantProject);
-
 			click(project);
 
 			setTimeout(function() {
 				var notFound = $('div.alert-warning h2');
 				assert('Not found page is loaded', notFound.html() === 'Uh-oh! Couldn\'t find that page.');
 				done();
-			}, 10);
+			}, 50);
 		}, 30);
 	});
 });
