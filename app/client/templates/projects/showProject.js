@@ -46,6 +46,10 @@ Template.showProject.events({
     },
     'click #addNewComment': function(e) {
         e.preventDefault();
+        if($('#comment_body').val().length === 0) {
+            $('#comment_error').show().text("Please enter a comment.");
+            return;
+        }
         Meteor.call('addComment',
             this._id, {
                 body: $('#comment_body').val()
