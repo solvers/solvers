@@ -12,7 +12,8 @@ npm install -g meteorite
 #install all meteor deps
 cd app
 mrt install
-mrt --settings settings_test.json &
+mrt --settings settings_test.json &	
+cd ..
 
 #give it 5 seconds to load before testing
 sleep 5

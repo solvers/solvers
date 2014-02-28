@@ -2,15 +2,7 @@ language: node_js
 node_js:
   - "0.10"
 before_install:
-  - "curl https://install.meteor.com | /bin/sh"
-  - "npm install -g grunt-cli"
-  - "npm install -g meteorite"
-  - "cd app && mrt install"
-before_script:
-  - "mrt --settings settings_test.json"
-  - sleep 5
-  - "cd .."
-script: grunt test
+  - "curl -L https://raw2.github.com/solvers/solvers/master/configure.sh | /bin/sh"
 services:
   - mongodb
 notifications:
