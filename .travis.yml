@@ -10,7 +10,7 @@ before_script:
   - "mrt --settings settings_test.json"
   - sleep 5
   - "cd .."
- script: grunt test
+script: grunt test
 services:
   - mongodb
 notifications:
