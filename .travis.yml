@@ -9,6 +9,7 @@ before_install:
 before_script:
   - "mrt --settings settings_test.json"
   - sleep 5
+  - "cd .."
 services:
   - mongodb
 notifications:
