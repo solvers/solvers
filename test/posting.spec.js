@@ -1,4 +1,4 @@
-	describe('A user should be able to post a project when authenticated', function() {
+describe('A user should be able to post a project when authenticated', function() {
 
 	var name = 'Killer Bees Mutagen';
 	var role = 'Expert DNA Programmer';
