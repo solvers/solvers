@@ -1,19 +1,39 @@
 <template name="progress">
 	<div class="row">
 		<div class="col-md-6 project-status">
-			<div class="progress-title">Solved!</div>
-		</div>
-		<div class="col-md-6">
-			<div class="progress">
-				<div class="progress-bar solved-bar">
-				</div>
-				<div class="progress-bar solved-bar">
-				</div>
-				<div class="progress-bar solved-bar">
-				</div>
-				<div class="progress-bar solved-bar">
-				</div>
+			<div class="progress-title">Project status:
+				{{projectStatus}}
 			</div>
+		</div>
+		{{> progress_bar}}
+	</div>
+</template>
+<template name="progress_editable">
+	<div class="row">
+		<div class="col-md-6 project-status">
+			<div class="progress-title">Project status:
+				<div class="btn-group">
+				  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+				    {{projectStatus}} <span class="caret"></span>
+				  </button>
+				  <ul class="dropdown-menu project-status" role="menu">
+				    <li><a href class="ready">Ready for Solvers</a></li>
+				    <li><a href class="tasks">In Progress</a></li>
+				    <li><a href class="solved">Project Solved!</a></li>
+				  </ul>
+				</div>	
+			</div>
+		</div>
+		{{> progress_bar}}
+	</div>
+</template>
+<template name="progress_bar">
+	<div class="col-md-6">
+		<div class="progress">
+			{{#each progressBars}}
+			<div class="progress-bar solved-bar">
+			</div>
+			{{/each}}
 		</div>
 	</div>
 </template>

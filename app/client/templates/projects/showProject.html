@@ -24,7 +24,11 @@
                 <strong>Success!</strong> This project was solved on {{solveddate}}.
             </div>
         {{else}}
-            {{> progress}}
+            {{#if mayUpdateProject}}
+                {{> progress_editable}}
+            {{else}}
+                {{> progress}}
+            {{/if}}
         {{/if}}
         <div id="project_description_p">{{#pagedown}}{{description}}{{/pagedown}}</div>
         <h4 class="contact">Contact</h4>
