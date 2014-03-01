@@ -1,15 +1,17 @@
 <template name="tasks">
 	<div class="row">
-		{{#each tasks}}
 		<div class="col-md-12">
-			<div class="well">
-				<strong>{{name}}</strong>
-			{{#if mayUpdateTasks}}
-				<button class="btn close_task">Close task</button>
-			{{/if}}
-			</div>
+			<ul class="list-group tasks-list">
+			{{#each tasks}}
+			  <li class="list-group-item clearfix">{{name}}
+				{{#if mayUpdateTasks}}
+					<button class="pull-right btn btn-primary btn-xs close_task">Close task</button>
+				{{/if}}
+			  	<span class="badge">{{assigned_username}}</span>
+				</li>
+			{{/each}}
+			</ul>
 		</div>
-		{{/each}}
 	</div>
 </template>
 
@@ -49,7 +51,7 @@
 
 	<div class="row">
 		<div class="col-md-12">
-			<button class="btn" id="add_task">Add task</button>
+			<button class="btn btn-primary btn-sm" id="add_task">Add task</button>
 		</div>
 	</div>
 </template>
