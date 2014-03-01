@@ -16,6 +16,11 @@ Template.progress_editable.helpers({
 
 Template.progress_bar.helpers({
     progressBars: function() {
+        var tasks = Tasks.find({parent: this._id}).fetch();
+        var open = _.filter(tasks, function(task) { return task.status === 'open'}).length;
+        var closed = _.filter(tasks, function(task) { return task.status === 'closed'}).length;
+        //var numTasks = if(open + closed === 0)
+        console.log("Open: ", open, closed);
     	switch(this.status) {
     		case 'ready': return [1];
     		case 'tasks': return [1,2];
