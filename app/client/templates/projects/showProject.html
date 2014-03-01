@@ -24,7 +24,11 @@
                 <strong>Success!</strong> This project was solved on {{solveddate}}.
             </div>
         {{else}}
-            {{> progress}}
+            {{#if mayUpdateProject}}
+                {{> progress_editable}}
+            {{else}}
+                {{> progress}}
+            {{/if}}
             {{> tasks}}
             {{#if mayUpdateProject}}
                 {{> task_controls}}
