@@ -25,6 +25,10 @@
             </div>
         {{else}}
             {{> progress}}
+            {{> tasks}}
+            {{#if mayUpdateProject}}
+                {{> task_controls}}
+            {{/if}}
         {{/if}}
         <div id="project_description_p">{{#pagedown}}{{description}}{{/pagedown}}</div>
         <h4 class="contact">Contact</h4>

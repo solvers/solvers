@@ -1,0 +1,55 @@
+<template name="tasks">
+	<div class="row">
+		{{#each tasks}}
+		<div class="col-md-12">
+			<div class="well">
+				<strong>{{name}}</strong>
+			{{#if mayUpdateTasks}}
+				<button class="btn close_task">Close task</button>
+			{{/if}}
+			</div>
+		</div>
+		{{/each}}
+	</div>
+</template>
+
+<template name="task_controls">
+	<div id="add_task_modal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Add task</h4>
+				</div>
+				<div class="modal-body">
+	        <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label class="bold-label" for="task_name">Task name</label>
+              <input tabindex="1" type="text" class="form-control" id="task_name" placeholder="e.g. Build website contact form">
+            </div>
+            <div class="form-group">
+              <label class="bold-label" for="task_description">Task description</label>
+              <span class="help-block">You may use <a href="http://daringfireball.net/projects/markdown/basics">Markdown</a>.</span>
+              <textarea tabindex="2" class="form-control" id="task_description"></textarea>
+            </div>
+            <div class="form-group">
+              <label class="bold-label" for="task_assigned">Assigned to</label>
+              <input tabindex="3" type="text" class="form-control" id="task_assigned" placeholder="e.g. John Sturgeon">
+            </div>
+            <div id="task_error" class="alert alert-danger"></div>
+          </form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+					<button type="button" class="btn btn-primary" id="save_task">Save</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<button class="btn" id="add_task">Add task</button>
+		</div>
+	</div>
+</template>
