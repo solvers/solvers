@@ -3,7 +3,7 @@ Meteor.publish('tasks', function() {
 });
 
 Meteor.methods({
-	addTask: function(projectId, task) {
+	addOrUpdateTask: function(projectId, task) {
 		if(!this.userId)
 			throw new Meteor.Error(403, "Please log in to post a new comment.");
 		
@@ -16,7 +16,7 @@ Meteor.methods({
 		if(!assigned_user)
 			throw new Meteor.Error(403, "Assigned user not found.");
 
-		Tasks.insert({
+		var attrs = {
 			parent: projectId,
 			owner: this.userId,
 			name: task.name,
@@ -24,7 +24,13 @@ Meteor.methods({
 			assigned: assigned_user._id,
 			assigned_username: task.assigned,
 			status: 'open'
-		});
+		};
+
+		if(task.id) {
+			Tasks.update(task.id, attrs);
+		} else {
+			Tasks.insert(attrs);
+		}
 		return true;
 	},
 	closeTask: function(id) {

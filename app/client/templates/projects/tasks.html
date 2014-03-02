@@ -6,6 +6,7 @@
 			  <li class="list-group-item clearfix">{{name}}
 				{{#if mayUpdateTasks}}
 					<button class="pull-right btn btn-primary btn-xs close_task">Close task</button>
+					<button class="pull-right btn btn-primary btn-xs edit_task">Edit task</button>
 				{{/if}}
 			  	<span class="badge">{{assigned_username}}</span>
 				</li>
@@ -25,6 +26,7 @@
 				</div>
 				<div class="modal-body">
 	        <form class="form-horizontal" role="form">
+	        	<input type="hidden" id="task_id">
             <div class="form-group">
               <label class="bold-label" for="task_name">Task name</label>
               <input tabindex="1" type="text" class="form-control" id="task_name" placeholder="e.g. Build website contact form">
