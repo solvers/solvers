@@ -1,6 +1,11 @@
 <template name="tasks">
 	<div class="row">
 		<div class="col-md-12">
+			<strong>{{closedTasks}}/{{totalTasks}} tasks completed</strong>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
 			<ul class="list-group tasks-list">
 			{{#each tasks}}
 			  <li class="list-group-item clearfix">{{name}}
