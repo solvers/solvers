@@ -30,10 +30,24 @@
 <template name="progress_bar">
 	<div class="col-md-6">
 		<div class="progress">
-			{{#each progressBars}}
+			{{#if statusIsReady}}
+			<div class="progress-bar solved-bar solved-bar-first">
+			</div>
+			{{/if}}
+			{{#if statusIsTasks}}
+			<div class="progress-bar solved-bar solved-bar-first">
+			</div>
 			<div class="progress-bar solved-bar">
 			</div>
-			{{/each}}
+			{{/if}}
+			{{#if statusIsSolved}}
+			<div class="progress-bar solved-bar solved-bar-first">
+			</div>
+			<div class="progress-bar solved-bar">
+			</div>
+			<div class="progress-bar solved-bar solved-bar-last">
+			</div>
+			{{/if}}
 		</div>
 	</div>
 </template>

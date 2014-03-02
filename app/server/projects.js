@@ -55,7 +55,6 @@ Meteor.methods({
 		var prj = Projects.findOne(attr.id);
 		if(!roles.isAdmin() && this.userId !== prj.owner)
 			throw new Meteor.Error(403, "You are not the owner of this project.");
-console.log("Updating project "+attr.id+" to "+attr.status);
 		Projects.update(attr.id, {$set: {status: attr.status}});
 	},
 	updateProject: function(project) {
