@@ -52,7 +52,8 @@ Template.showProject.events({
         }
         Meteor.call('addComment',
             this._id, {
-                body: $('#comment_body').val()
+                body: $('#comment_body').val(),
+                projectUser: this.owner
             }, function(err) {
                 if(err) {
                     $('#comment_error').show().text(err.reason);
