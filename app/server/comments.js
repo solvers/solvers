@@ -19,7 +19,7 @@ Meteor.methods({
 	},
 	updateComment: function(id, body) {
 		if(!this.userId)
-			throw new Meteor.Error(403, "Please log in to post a new comment.");
+			throw new Meteor.Error(403, "Please log in to update a comment.");
 		var comment = Comments.findOne({_id: id});
 		if(!roles.isAdmin() && this.userId !== comment.owner)
 			throw new Meteor.Error(403, "You are not the owner of this comment.");
@@ -35,7 +35,7 @@ Meteor.methods({
 	},
 	deleteComment: function(id) {
 		if(!this.userId)
-			throw new Meteor.Error(403, "Please log in to post a new comment.");
+			throw new Meteor.Error(403, "Please log in to delete this comment.");
 
 		var comment = Comments.findOne({_id: id});
 		if(!roles.isAdmin() && this.userId !== comment.owner)

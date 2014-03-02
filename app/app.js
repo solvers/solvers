@@ -5,3 +5,4 @@ Projects.allowTags(function (userId, doc) {
 });
 
 Comments = new Meteor.Collection('comments');
+Tasks = new Meteor.Collection('tasks');

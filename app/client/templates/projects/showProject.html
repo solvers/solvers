@@ -23,6 +23,16 @@
             <div class="alert alert-success">
                 <strong>Success!</strong> This project was solved on {{solveddate}}.
             </div>
+        {{else}}
+            {{#if mayUpdateProject}}
+                {{> progress_editable}}
+            {{else}}
+                {{> progress}}
+            {{/if}}
+            {{> tasks}}
+            {{#if mayUpdateProject}}
+                {{> task_controls}}
+            {{/if}}
         {{/if}}
         <div id="project_description_p">{{#pagedown}}{{description}}{{/pagedown}}</div>
         <h4 class="contact">Contact</h4>
