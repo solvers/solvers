@@ -16,26 +16,7 @@ Meteor.methods({
 			user: username
 		}
 		var commentId = Comments.insert(p);
-		// only notify if they aren't commenting on their own project
-		var projectUser = Projects.findOne({ _id: projectId }).owner;
-		console.log(projectUser);
-		if(projectUser != this.userId){
-			// populate remaining properties for notification
-			p.projectId = projectId;
-			p.projectName = Projects.findOne({ _id: projectId }).title;
-			p.commentId = commentId;
-			p.commentAuthorName = username;
-			p.commentAuthorId = this.userId;
-			// send
-            createNotification({
-              event: 'newComment',
-              properties: p,
-              userToNotify: projectUser,
-              userDoingAction: this.userId,
-              sendEmail: true
-              // sendEmail: getUserSetting('notifications.comments', false, projectUser)
-            });
-          }
+    createCommentNotification(p, commentId);
 		return true;
 	},
 	updateComment: function(id, body) {
@@ -66,3 +47,26 @@ Meteor.methods({
 		return true;
 	}
 });
+
+var createCommentNotification = function(p, commentId) {
+	// only notify if they aren't commenting on their own project
+	var project = Projects.findOne({ _id: p.parent })
+	var projectUser = project.owner;
+	if(projectUser != p.owner){
+		// populate remaining properties for notification
+		p.projectId = p.parent;
+		p.projectName = project.name;
+		p.commentId = commentId;
+		p.commentAuthorName = p.user;
+		p.commentAuthorId = p.owner;
+		// send
+    createNotification({
+      event: 'newComment',
+      properties: p,
+      userToNotify: projectUser,
+      userDoingAction: p.owner,
+      sendEmail: true
+      // sendEmail: getUserSetting('notifications.comments', false, projectUser)
+    });
+  }
+}

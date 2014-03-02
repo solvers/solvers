@@ -344,6 +344,57 @@ margin-left: 0;
   colour: white;
 }
 
+// Notifications
 .notification-icon {
   color: white;
+}
+
+.notifications {
+  ul {
+    padding-left: 0;
+    margin-top: 20px;
+    height:100%;
+    overflow:auto;
+    li {
+      margin-left :0;
+      padding:10px;
+      border-bottom:1px solid #666;
+      font-size:13px;
+      background:white;
+      .notification-timestamp{
+        color:#555;
+        font-size:12px;
+      }
+      &.read{
+        color:#555;
+        background:#f3f3f3;
+      }
+    }
+  }
+  p, .checkbox {
+    padding-left: 0;
+  }
+  .mark-read-checkbox {
+    margin-right: 7px;
+    padding-top: 3px;
+  }
+  .read {
+    a {
+      color: #666;
+    }
+    color: #666;
+    background-color: #444;
+  }
+  .notification-timestamp {
+    color: #bbb;
+    font-style: bold;
+  }
+  .snippet {
+    padding-left: 20px;
+    font-style: italic;
+  }
+  .mark-as-read {
+    float: right;
+    margin-left: 5px;
+  }
 }

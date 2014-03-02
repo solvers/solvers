@@ -1,0 +1,11 @@
+<template name="notification_item">
+	<li class="{{#if read}}read{{/if}}">
+		<span class="notification-timestamp">{{nice_time}}</span>
+		<span class="checkbox">
+		{{#unless read}}
+		<button class="btn btn-xs mark-read pull-right">Mark as read</button>
+		{{/unless}}
+		{{{notificationHTML}}}
+		</span>
+	</li>
+</template>

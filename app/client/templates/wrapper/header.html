@@ -28,7 +28,9 @@
                         <a id="gotoNotifications" href="{{pathfor 'notifications'}}" rel="tooltip" data-placement="bottom" title="view notifications">
                             <div class="notification-icon">
                                 <span class="glyphicon glyphicon-envelope"></span>
+                                {{#if notificationCount}}
                                 <span class="badge badge-success">{{notificationCount}}</span>
+                                {{/if}}
                             </div>
                         </a>
                     <li>

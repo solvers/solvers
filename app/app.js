@@ -6,3 +6,5 @@ Projects.allowTags(function (userId, doc) {
 });
 
 Comments = new Meteor.Collection('comments');
+
+Notifications = new Meteor.Collection('notifications');

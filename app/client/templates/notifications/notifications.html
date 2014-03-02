@@ -1,0 +1,23 @@
+<template name="notifications">
+	<div class="container">
+	    <div class="col-md-8 col-md-offset-2">
+			<div class="alert alert-info">
+				<h3 style="margin:0;">{{notification_count}}</h3>
+			</div>
+			{{#if loggedin}}
+				<div class="notifications desktop">
+					{{notification_count}}
+					<button class="btn btn-sm mark-as-read">Mark all as read</button>
+					<ul>
+					{{#each notifications}}
+						{{> notification_item}}
+				    {{/each}}
+					</ul>
+				</div>
+			{{else}}
+			user not logged in
+			<div class="alert alert-info">You need to be logged in to see notifications.</div>
+			{{/if}}
+		</div>
+	</div>
+</template>
