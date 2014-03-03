@@ -34,6 +34,18 @@ Template.tasks.events({
     }
 });
 
+Template.task_controls.rendered = function() {
+    if(!this.typeaheadInitialised) {
+        var users = Meteor.users.find().fetch();
+        if(users.length > 0) {
+            var usernames = _.map(users, function(user) { return user.profile.username });
+            $('#task_assigned').typeahead({
+              source: usernames
+            });
+        }
+    }
+};
+
 Template.task_controls.events({
 	'click #add_task': function(e) {
 		$('#add_task_modal').modal();

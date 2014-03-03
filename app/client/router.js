@@ -51,13 +51,6 @@ Router.map(function () {
         });
         Session.set(this.params._id, true);
       }
-      var users = Meteor.users.find({}, {"user.profile"}).fetch();
-      if(users.length > 0) {
-        var usernames = _.map(users, function(user) { return user.profile.username });
-        $('#task_assigned').typeahead({
-          source: usernames
-        });
-      }
     }
   });
 
