@@ -13,10 +13,6 @@ Template.tasks.helpers({
   }
 });
 
-Template.tasks.rendered = function() {
-    $('#tasks_list li').popover();
-};
-
 Template.tasks.events({
 	'click .close_task': function(e) {
 		e.preventDefault();
@@ -31,6 +27,10 @@ Template.tasks.events({
         $('#task_description').val(this.description);
         $('#task_assigned').val(this.assigned_username);
         $('#task_id').val(this._id);
+    },
+    'click #tasks_list li': function(e) {
+        var descr = $('.task-description', e.target);
+        descr.toggleClass('description-shown');
     }
 });
 

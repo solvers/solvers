@@ -17,7 +17,6 @@ Meteor.startup(function () {
   _.each(users, function(user) {
     var username = user.profile.username;
     if(!username) {
-      console.log("Setting user.profile.username for "+user._id);
       if(user.services && user.services.github && user.services.github.username) {
         username = user.services.github.username;
       } else if(user.services && user.services.google && user.services.google.name) {
@@ -26,7 +25,20 @@ Meteor.startup(function () {
         username = user.username;
       }
       if(username) {
-        Meteor.users.update(user._id, {$set: { profile: { username: username } } });
+        Meteor.users.update(user._id, {$set: {"profile.username": username }});
+
+        console.log(JSON.stringify(Meteor.users.find().fetch()));
+      }
+    }
+    var name = user.profile.name;
+    if(!name) {
+      if(user.profile.firstName && user.profile.lastName) {
+        name = user.profile.firstName + ' ' + user.profile.lastName;
+      } else if (user.profile.username) {
+        name = user.profile.username;
+      }
+      if(name) {
+        Meteor.users.update(user._id, {$set: {"profile.name": name}});
       }
     }
   });

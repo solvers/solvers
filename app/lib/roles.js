@@ -23,11 +23,11 @@ roles = (function() {
 		},
 		findFullName: function (user) {
 			if (user) {
-				if (user.profile && user.profile.name) {
-					return user.profile.name;
-				}
 				if(user.profile && user.profile.firstName) {
 		      return (user.profile.firstName || '') + " " + (user.profile.lastName || '');
+				}
+				if (user.profile && user.profile.name) {
+					return user.profile.name;
 				}
 				if (user.username) {
 					return user.username;

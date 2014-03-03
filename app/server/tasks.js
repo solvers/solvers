@@ -11,7 +11,7 @@ Meteor.methods({
 		check(task.description, String);
 		check(task.assigned, String);
 
-		var assigned_user = Meteor.users.findOne({profile: { username: task.assigned } });
+		var assigned_user = Meteor.users.findOne({"profile.username": task.assigned});
 		if(!assigned_user)
 			throw new Meteor.Error(403, "Assigned user not found.");
 

@@ -1,19 +1,24 @@
 <template name="tasks">
+	{{#if totalTasks}}
 	<div class="row">
 		<div class="col-md-12 tasks-status">
 			{{closedTasks}}/{{totalTasks}} tasks completed
 		</div>
 	</div>
+	{{/if}}
 	<div class="row">
 		<div class="col-md-12">
 			<ul class="list-group tasks-list" id="tasks_list">
 			{{#each tasks}}
-			  <li class="list-group-item clearfix" data-container="body" data-toggle="popover" data-placement="top" data-content="{{description}}">{{name}}
+			  <li class="list-group-item clearfix">{{name}}
 				{{#if mayUpdateTask}}
 					<button class="pull-right btn btn-primary btn-xs close_task">Close task</button>
 					<button class="pull-right btn btn-primary btn-xs edit_task">Edit task</button>
 				{{/if}}
 			  	<span class="badge">{{assigned_username}}</span>
+			  	<div class="clearfix task-description">
+			  		{{#markdown}}{{description}}{{/markdown}}
+			  	</div>
 				</li>
 			{{/each}}
 			</ul>
