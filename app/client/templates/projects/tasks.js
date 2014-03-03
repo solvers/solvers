@@ -2,8 +2,8 @@ Template.tasks.helpers({
   tasks: function() {
     return Tasks.find({parent: this._id, status: 'open'});
   },
-  mayUpdateTasks: function() {
-    return roles.isAdmin() || this.owner === Meteor.userId();
+  mayUpdateTask: function() {
+    return roles.isAdmin() || this.owner === Meteor.userId() || this.assigned === Meteor.userId();
   },
   closedTasks: function() {
     return Tasks.find({parent: this._id, status: 'closed'}).fetch().length;

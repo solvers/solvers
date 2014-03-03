@@ -9,7 +9,7 @@
 			<ul class="list-group tasks-list" id="tasks_list">
 			{{#each tasks}}
 			  <li class="list-group-item clearfix" data-container="body" data-toggle="popover" data-placement="top" data-content="{{description}}">{{name}}
-				{{#if mayUpdateTasks}}
+				{{#if mayUpdateTask}}
 					<button class="pull-right btn btn-primary btn-xs close_task">Close task</button>
 					<button class="pull-right btn btn-primary btn-xs edit_task">Edit task</button>
 				{{/if}}

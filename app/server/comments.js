@@ -7,7 +7,7 @@ Meteor.methods({
 		if(!this.userId)
 			throw new Meteor.Error(403, "Please log in to post a new comment.");
 		check(comment.body, String);
-		var username = roles.username(Meteor.user());
+		var username = roles.findFullName(Meteor.user());
 		Comments.insert({
 			postedDate: new Date(),
 			body: comment.body,
@@ -24,7 +24,7 @@ Meteor.methods({
 		if(!roles.isAdmin() && this.userId !== comment.owner)
 			throw new Meteor.Error(403, "You are not the owner of this comment.");
 		check(body, String);
-		var username = roles.username(Meteor.user());
+		var username = roles.findFullName(Meteor.user());
 		Comments.update(id,
 			{ $set: {
 				body: body,
