@@ -68,7 +68,6 @@ Template.task_controls.events({
     	return;
     if(!checkNotEmpty('task_description', "Please enter a description for the task."))
     	return;
-    //TODO: assign owner of project by default when the page is generated
     if(!checkNotEmpty('task_assigned', "Please assign a user for the task."))
     	return;
 
