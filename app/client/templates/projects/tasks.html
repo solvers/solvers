@@ -1,14 +1,14 @@
 <template name="tasks">
 	<div class="row">
-		<div class="col-md-12">
-			<strong>{{closedTasks}}/{{totalTasks}} tasks completed</strong>
+		<div class="col-md-12 tasks-status">
+			{{closedTasks}}/{{totalTasks}} tasks completed
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<ul class="list-group tasks-list">
+			<ul class="list-group tasks-list" id="tasks_list">
 			{{#each tasks}}
-			  <li class="list-group-item clearfix">{{name}}
+			  <li class="list-group-item clearfix" data-container="body" data-toggle="popover" data-placement="top" data-content="{{description}}">{{name}}
 				{{#if mayUpdateTasks}}
 					<button class="pull-right btn btn-primary btn-xs close_task">Close task</button>
 					<button class="pull-right btn btn-primary btn-xs edit_task">Edit task</button>

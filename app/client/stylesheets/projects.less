@@ -1,0 +1,208 @@
+@grey: #556270;
+@blue: #4ECDC4;
+@green: #C7F464;
+@salmon: #FF6B6B;
+@rose: #C44D58;
+
+// Projects
+#newProject {
+  float: right;
+}
+
+tt {
+  color: #22A;
+}
+
+.project {
+  h2 {
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+  h3 {
+    margin-top: 5px;
+    margin-bottom: 0;
+  }
+  .metrics-strip {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 0;
+    position: relative;
+  }
+  .posteddate, .viewcount {
+    vertical-align: center;
+    width: 45%;
+    margin-top: -20px;
+    color: @grey;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+  }
+  .viewcount {
+    left: 0;
+  }
+  .posteddate {
+    right: 0;
+    text-align: right;
+  }
+  .contact {
+    margin-top: 30px;
+  }
+  .btn-back {
+    margin: 10px 0;
+  }
+  .tags {
+    margin: 15px 0;
+    padding: 0;
+    li {
+      float: left;
+      margin-right: 10px;
+    }
+  }
+  #project_description_p {
+    h2 {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    padding: 15px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    margin-top: 15px;
+  }
+  #posted_date {
+    margin-top:-20px;
+  }
+}
+
+// Comments
+.comment {
+  padding: 15px 0;
+  border-bottom: 1px solid #e5e5e5;
+  .edit-comment {
+    display: none;
+    textarea {
+      width: 90%;
+      height: 60px;
+    }
+  }
+  .date {
+    font-size: 0.9em;
+  }
+}
+
+#comment_error, #project_error {
+  display: none;
+}
+
+.editComment, .deleteComment {
+  margin-top: -25px;
+  margin-left: 10px;
+}
+
+// Project editor
+.project-edit-btn {
+  float: right;
+}
+.wmd-panel {
+  height: 100%;
+}
+
+#wmd-button-bar {
+  background-color: #fff;
+}
+
+#wmd-input {
+  height: 364px;
+  overflow: auto;
+  resize: none;
+  background-color: #eee;
+  border: 0;
+}
+
+#wmd-preview {
+  height: 364px;
+  border: 0;
+  overflow: auto;
+  h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  img {
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  padding: 15px;
+}
+
+#description {
+  height: 400px; 
+  overflow: hidden;
+  border: 1px solid #ccc;
+}
+
+// Tasks and progress
+.progress-title {
+	margin-top: 13px;
+	font-size: 1.2em;
+	color: @grey;
+}
+
+.project-status {
+	font-size: 0.9em;
+}
+.btn.project-status {
+	padding-top: 0;
+	padding-bottom: 3px;
+}
+
+.progress {
+  width: 100%;
+  height: 100%;
+  margin: 10px 0 0 0;
+  display: inline-block;
+  border-radius: 5px;
+}
+.solved-bar-first {
+  border-radius: 4px 0 0 4px;
+}
+.solved-bar-last {
+  border-radius: 0 4px 4px 0;
+}
+.solved-bar:nth-child(1n+2) {
+  border-left: 1px solid rgba(0, 44, 95, 0.4);
+}
+.solved-bar {
+  width: 33.3%;
+  height: 30px;
+  background-color: #007cba;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#007cba', endColorstr='#002C5F'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(#007cba), to(#002C5F)); /* for webkit browsers */
+  background: -moz-linear-gradient(top, #007cba, #002C5F); /* for firefox 3.6+ */  
+}
+
+#task_error {
+  display: none;
+}
+.tasks-list li {
+  font-size: 1.5em;
+  cursor: pointer;
+  span {
+    font-size: 1em;
+    background-color: white;
+  }
+  .btn {
+    margin-left: 20px;
+  }
+}
+.tasks-status {
+	color: @grey;
+	margin-left: 16px;
+}

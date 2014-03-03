@@ -13,6 +13,10 @@ Template.tasks.helpers({
   }
 });
 
+Template.tasks.rendered = function() {
+    $('#tasks_list li').popover();
+};
+
 Template.tasks.events({
 	'click .close_task': function(e) {
 		e.preventDefault();
