@@ -19,11 +19,64 @@
                 <small>Posted on {{formatDate postedDate}}</small>
             </p>
         </div>
+        <ul id="project_tabs" class="nav nav-tabs">
+          <li class="active"><a href="#project_tab">Project</a></li>
+          <li><a href="#tasks_tab">Tasks</a></li>
+        </ul>
         {{#if solved}}
             <div class="alert alert-success">
                 <strong>Success!</strong> This project was solved on {{solveddate}}.
             </div>
-        {{else}}
+        {{/if}}
+        <div class="tab-content">
+            <div class="tab-pane active" id="project_tab">
+                <div id="project_description_p">{{#pagedown}}{{description}}{{/pagedown}}</div>
+                <h4 class="contact">Contact</h4>
+                <p><span id="project_contact_name">{{contact_name}}</span> (<span id="project_contact_email">{{contact_email}}</span>)</p>
+
+                <h4 class="tags">Tags</h4>
+                <ul class="tags clearfix">
+                    {{renderTags mayUpdate}}
+                </ul>
+
+                <a class="btn-back btn btn-info" href="{{pathFor 'home'}}">Back</a>
+                <h4>Comments and questions</h4>
+                {{#each comments}}
+                    <div class="comment">
+                        <div id="comment_{{_id}}">
+                            <strong><a href="/profile/{{owner}}">{{user}}</a></strong> <h5 class="date">{{formatLongDate postedDate}}</h5>{{#markdown}}{{body}}{{/markdown}}
+                        </div>
+                        {{#if mayUpdate}}
+                            <button class="btn btn-xs white pull-right editComment">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </button>
+                            <button class="btn btn-xs white pull-right deleteComment">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                            <div class="edit-comment" id="edit_comment_{{_id}}">
+                                <div class="form">
+                                    <div class="form-group">
+                                        <textarea class="form-control" rows="3" id="comment_body_{{_id}}">{{body}}</textarea>
+                                    </div>
+                                </div>
+                                <button class="btn btn-sm saveComment">Save</button>
+                                <button class="btn btn-sm cancelEditComment">Cancel</button>
+                            </div>
+                        {{/if}}
+                    </div>
+                {{/each}}
+                <form>
+                    <div class="form">
+                        <div id="comment_error" class="alert alert-danger"></div>
+                        <div class="form-group">
+                            <span class="help-block">Post your comment. You may use <a href="http://daringfireball.net/projects/markdown/basics">Markdown</a> to format it.</span>
+                            <textarea id="comment_body" placeholder=""></textarea>
+                        </div>
+                        <button class="btn btn-primary" id="addNewComment">Post comment</button>
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane" id="tasks_tab">
             {{#if mayUpdateProject}}
                 {{> progress_editable}}
             {{else}}
@@ -33,53 +86,8 @@
             {{#if mayUpdateProject}}
                 {{> task_controls}}
             {{/if}}
-        {{/if}}
-        <div id="project_description_p">{{#pagedown}}{{description}}{{/pagedown}}</div>
-        <h4 class="contact">Contact</h4>
-        <p><span id="project_contact_name">{{contact_name}}</span> (<span id="project_contact_email">{{contact_email}}</span>)</p>
-
-        <h4 class="tags">Tags</h4>
-        <ul class="tags clearfix">
-            {{renderTags mayUpdate}}
-        </ul>
-
-
-        <a class="btn-back btn btn-info" href="{{pathFor 'home'}}">Back</a>
-        <h4>Comments and questions</h4>
-        {{#each comments}}
-            <div class="comment">
-                <div id="comment_{{_id}}">
-                    <strong><a href="/profile/{{owner}}">{{user}}</a></strong> <h5 class="date">{{formatLongDate postedDate}}</h5>{{#markdown}}{{body}}{{/markdown}}
-                </div>
-                {{#if mayUpdate}}
-                    <button class="btn btn-xs white pull-right editComment">
-                        <span class="glyphicon glyphicon-edit"></span>
-                    </button>
-                    <button class="btn btn-xs white pull-right deleteComment">
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </button>
-                    <div class="edit-comment" id="edit_comment_{{_id}}">
-                        <div class="form">
-                            <div class="form-group">
-                                <textarea class="form-control" rows="3" id="comment_body_{{_id}}">{{body}}</textarea>
-                            </div>
-                        </div>
-                        <button class="btn btn-sm saveComment">Save</button>
-                        <button class="btn btn-sm cancelEditComment">Cancel</button>
-                    </div>
-                {{/if}}
             </div>
-        {{/each}}
-        <form>
-            <div class="form">
-                <div id="comment_error" class="alert alert-danger"></div>
-                <div class="form-group">
-                    <span class="help-block">Post your comment. You may use <a href="http://daringfireball.net/projects/markdown/basics">Markdown</a> to format it.</span>
-                    <textarea id="comment_body" placeholder=""></textarea>
-                </div>
-                <button class="btn btn-primary" id="addNewComment">Post comment</button>
-            </fieldset>
-        </form>
+        </div>
     {{/if}}
     </div>
 </template>
