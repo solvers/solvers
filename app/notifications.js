@@ -63,5 +63,19 @@ Meteor.methods({
       },
       {multi: true}
     );
+  },
+  markNotificationAsRead : function(notificationId) {
+    var notification = Notifications.findOne({ _id: notificationId });
+    if (notification.userId == Meteor.userId()) {
+      Notifications.update(
+        {_id: notificationId},
+        { $set:{ read: true } },
+        function(error, result){
+          if(error){
+            console.log(error);
+          } 
+        }
+      );
+    }
   }
 });

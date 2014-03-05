@@ -16,6 +16,7 @@ Template.notification_item.helpers({
 Template.notification_item.events({
   'click .mark-read': function(event, instance){
     var notificationId=instance.data._id;
-    Meteor.call('markNoficiationAsRead', notificationId);
+    console.log(notificationId);
+    Meteor.call('markNotificationAsRead', notificationId);
   }
 });

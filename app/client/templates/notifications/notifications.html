@@ -1,13 +1,12 @@
 <template name="notifications">
 	<div class="container">
-	    <div class="col-md-8 col-md-offset-2">
-			<div class="alert alert-info">
-				<h3 style="margin:0;">{{notification_count}}</h3>
+	    <div class="col-md-8 col-md-offset-2 notifications">
+			<div class="alert alert-info navbar clearfix" style="position: relative;">
+				<h3 class="notification-head">{{notification_count}}</h3>
+				<button type="button" class="mark-as-read btn btn-default btn-sm">Mark all as read</button>
 			</div>
 			{{#if loggedin}}
-				<div class="notifications desktop">
-					{{notification_count}}
-					<button class="btn btn-sm mark-as-read">Mark all as read</button>
+				<div>
 					<ul>
 					{{#each notifications}}
 						{{> notification_item}}
