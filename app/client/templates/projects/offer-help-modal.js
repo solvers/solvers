@@ -1,0 +1,28 @@
+Template.showProject.events({
+  'click #offer-send': function(e) {
+    // always follow links
+    e.stopPropagation();
+    if (this.owner === Meteor.userId()) {
+      $('#owner-alert').show();
+      return;
+    }
+    var username = roles.username(Meteor.user());
+    var email = Meteor.user().emails[0].address;
+    var properties = {
+      message: $('#offer-help-textarea').val(),
+      offeringUser: Meteor.userId(),
+      offeringUserName: username,
+      offeringUserEmail: email,
+      projectId: this._id,
+      projectName: this.name
+    }
+    var options = {
+      event: 'newOffer',
+      userToNotify: this.owner,
+      userDoingAction: Meteor.userId(),
+      properties: properties,
+      sendEmail: true
+    }
+    Meteor.call('sendOfferOfHelp', options);
+  }
+});

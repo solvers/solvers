@@ -28,12 +28,5 @@ Template.notifications.events({
         error && console.log(error);
       }
     );
-	},
-  'click .mark-as-read': function(){
-    Meteor.call('markAllNotificationsAsRead', 
-      function(error, result){
-        error && console.log(error);
-      }
-    );
-  }
+	}
 })

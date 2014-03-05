@@ -25,16 +25,20 @@
             </div>
         {{/if}}
         <div id="project_description_p">{{#pagedown}}{{description}}{{/pagedown}}</div>
-        <h4 class="contact">Contact</h4>
-        <p><span id="project_contact_name">{{contact_name}}</span> (<span id="project_contact_email">{{contact_email}}</span>)</p>
-
-        <h4 class="tags">Tags</h4>
+        <div class="row">
+            <div class="well well-lg offer-skills">
+                    <h2>Want to help?</h3>
+                    {{#if currentUser}}
+                    <button class="btn btn-success btn-lg offer-help-btn">Offer your skills</button>
+                    {{else}}
+                    <button class="btn btn-success btn-lg open-signup">Sign in/up to offer your skills</button>
+                    {{/if}}
+            </div>
+        </div>
+        <div><h4 class="tags">Tags</h4></div>
         <ul class="tags clearfix">
             {{renderTags mayUpdate}}
         </ul>
-
-
-        <a class="btn-back btn btn-info" href="{{pathFor 'home'}}">Back</a>
         <h4>Comments and questions</h4>
         {{#each comments}}
             <div class="comment">
@@ -60,6 +64,7 @@
                 {{/if}}
             </div>
         {{/each}}
+        {{#if currentUser}}
         <form>
             <div class="form">
                 <div id="comment_error" class="alert alert-danger"></div>
@@ -70,6 +75,12 @@
                 <button class="btn btn-primary" id="addNewComment">Post comment</button>
             </fieldset>
         </form>
+        {{else}}
+        <div class="alert alert-dismissable alert-info">
+            <p><a href="" class="open-signup" data-toggle="dropdown">Sign in/up</a> to post comments.</p>
+        </div>
+        {{/if}}
     {{/if}}
     </div>
+    {{>offer-help-modal}}
 </template>

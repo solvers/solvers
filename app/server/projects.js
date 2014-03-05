@@ -82,5 +82,8 @@ Meteor.methods({
 	},
 	addView: function(id) {
 		Projects.update({_id: id}, {$inc: {views: 1}});
+	},
+	sendOfferOfHelp: function(options) {
+		var notification = createNotification(options);
 	}
 });

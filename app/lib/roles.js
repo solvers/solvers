@@ -11,8 +11,12 @@ roles = (function() {
 		if(user && user.emails && user.emails[0].verified)
 			return user.emails[0].address;
 		// then try 3rd party service email(s)
-		if(user && user.services && user.services.github)
-			return user.services.github.email;
+		if(user && user.services) {
+			if (user.services.github)
+				return user.services.github.email;
+			if (user.services.google)
+				return user.services.google.email;
+		}
 		return '';
 	};
 

@@ -33,9 +33,19 @@ Template.showProject.helpers({
 });
 
 Template.showProject.events({
+    'click .open-signup': function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+        $('#login-dropdown-list .dropdown-toggle').dropdown('toggle');
+    },
     'click a': function(e) {
         // always follow links
         e.stopPropagation();
+    },
+    'click .offer-help-btn': function(e) {
+        e.preventDefault();
+        $('#offer-help-modal').modal('show');
     },
     'click .project-edit-btn': function(e) {
         Session.set('editing', true);
