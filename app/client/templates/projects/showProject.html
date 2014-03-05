@@ -30,6 +30,11 @@
         {{/if}}
         <div class="tab-content">
             <div class="tab-pane active" id="project_tab">
+                {{#if mayUpdateProject}}
+                    {{> progress_editable}}
+                {{else}}
+                    {{> progress}}
+                {{/if}}
                 <div id="project_description_p">{{#pagedown}}{{description}}{{/pagedown}}</div>
                 <h4 class="contact">Contact</h4>
                 <p><span id="project_contact_name">{{contact_name}}</span> (<span id="project_contact_email">{{contact_email}}</span>)</p>
@@ -77,11 +82,6 @@
                 </form>
             </div>
             <div class="tab-pane" id="tasks_tab">
-            {{#if mayUpdateProject}}
-                {{> progress_editable}}
-            {{else}}
-                {{> progress}}
-            {{/if}}
             {{> tasks}}
             {{#if mayUpdateProject}}
                 {{> task_controls}}
