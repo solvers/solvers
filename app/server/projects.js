@@ -49,6 +49,14 @@ Meteor.methods({
 		}
 		return newId;
 	},
+	updateProjectStatus: function(attr) {
+		if(!this.userId)
+			throw new Meteor.Error(403, "Please sign in to edit a project.");
+		var prj = Projects.findOne(attr.id);
+		if(!roles.isAdmin() && this.userId !== prj.owner)
+			throw new Meteor.Error(403, "You are not the owner of this project.");
+		Projects.update(attr.id, {$set: {status: attr.status}});
+	},
 	updateProject: function(project) {
 		if(!this.userId)
 			throw new Meteor.Error(403, "Please sign in to edit a project.");

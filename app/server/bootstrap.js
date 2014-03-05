@@ -11,6 +11,38 @@ Meteor.startup(function () {
     console.log("Now: counted "+noProfileCount2+" users with no profile.");
   }
 
+  //Migrate usernames
+  //TODO: make new users always set username on their profile
+  var users = Meteor.users.find().fetch();
+  _.each(users, function(user) {
+    var username = user.profile.username;
+    if(!username) {
+      if(user.services && user.services.github && user.services.github.username) {
+        username = user.services.github.username;
+      } else if(user.services && user.services.google && user.services.google.name) {
+        username = user.services.google.name;
+      } else if(user.username) {
+        username = user.username;
+      }
+      if(username) {
+        Meteor.users.update(user._id, {$set: {"profile.username": username }});
+
+        console.log(JSON.stringify(Meteor.users.find().fetch()));
+      }
+    }
+    var name = user.profile.name;
+    if(!name) {
+      if(user.profile.firstName && user.profile.lastName) {
+        name = user.profile.firstName + ' ' + user.profile.lastName;
+      } else if (user.profile.username) {
+        name = user.profile.username;
+      }
+      if(name) {
+        Meteor.users.update(user._id, {$set: {"profile.name": name}});
+      }
+    }
+  });
+
   if(Meteor.settings.test) {
     console.log("Test mode. Clearing database");
     Comments.remove({});

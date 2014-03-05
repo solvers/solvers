@@ -37,6 +37,14 @@ Template.showProject.events({
         // always follow links
         e.stopPropagation();
     },
+    'click .project-status a': function(e) {
+        Meteor.call('updateProjectStatus',
+            {id: this._id, status: e.target.className},
+            function(err) {
+                if(err) console.error(err);
+            });
+        e.preventDefault();
+    },
     'click .project-edit-btn': function(e) {
         Session.set('editing', true);
     },

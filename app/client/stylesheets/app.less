@@ -97,82 +97,6 @@ a {
   }
 }
 
-// Projects
-#newProject {
-  float: right;
-}
-
-tt {
-  color: #22A;
-}
-
-.project {
-  h2 {
-    margin-top: 0;
-    margin-bottom: 5px;
-  }
-  h3 {
-    margin-top: 5px;
-    margin-bottom: 0;
-  }
-  .metrics-strip {
-    width: 100%;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 0;
-    position: relative;
-  }
-  .posteddate, .viewcount {
-    vertical-align: center;
-    width: 45%;
-    margin-top: -20px;
-    color: @grey;
-    display: inline-block;
-    position: absolute;
-    top: 0;
-  }
-  .viewcount {
-    left: 0;
-  }
-  .posteddate {
-    right: 0;
-    text-align: right;
-  }
-  .contact {
-    margin-top: 30px;
-  }
-  .btn-back {
-    margin: 10px 0;
-  }
-  .tags {
-    margin: 15px 0;
-    padding: 0;
-    li {
-      float: left;
-      margin-right: 10px;
-    }
-  }
-  #project_description_p {
-    h2 {
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
-    img {
-      max-width: 100%;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    padding: 15px;
-    overflow: hidden;
-    border: 1px solid #ccc;
-    margin-top: 25px;
-  }
-  #posted_date {
-    margin-top:-20px;
-  }
-}
-
 // Home page
 .filter-message {
   font-size: 1.5em;
@@ -204,31 +128,6 @@ tt {
 .date {
   margin: 0;
   color: grey;
-}
-
-// Comments
-.comment {
-  padding: 15px 0;
-  border-bottom: 1px solid #e5e5e5;
-  .edit-comment {
-    display: none;
-    textarea {
-      width: 90%;
-      height: 60px;
-    }
-  }
-  .date {
-    font-size: 0.9em;
-  }
-}
-
-#comment_error, #project_error {
-  display: none;
-}
-
-.editComment, .deleteComment {
-  margin-top: -25px;
-  margin-left: 10px;
 }
 
 .white, .white a {
@@ -281,56 +180,8 @@ html {
   }
 }
 
-// Project editor
-.project-edit-btn {
-  float: right;
-}
-.wmd-panel {
-  height: 100%;
-}
-
-#wmd-button-bar {
-  background-color: #fff;
-}
-
-#wmd-input {
-  height: 364px;
-  overflow: auto;
-  resize: none;
-  background-color: #eee;
-  border: 0;
-}
-
-#wmd-preview {
-  height: 364px;
-  border: 0;
-  overflow: auto;
-  h2 {
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-  img {
-    max-width: 100%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  padding: 15px;
-}
-
-#description {
-  height:400px; 
-  overflow: hidden;
-  border: 1px solid #ccc;
-}
-
-.table {
-  width: 95%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
+/* FIXME: do not override Bootstrap - make a new class */
 .form-horizontal .form-group {
-margin-right: 0;
-margin-left: 0;
+  margin-right: 0;
+  margin-left: 0;
 }
