@@ -27,8 +27,6 @@ Meteor.methods({
 		check(project.name, String);
 		check(project.role, String);
 		check(project.description, String);
-		check(project.contact_name, String);
-		check(project.contact_email, String);
 
 		// validate tags
 		project.tags = validateTags(project.tags);
@@ -38,8 +36,6 @@ Meteor.methods({
 			postedDate: new Date(),
 			role: project.role,
 			description: project.description,
-			contact_name: project.contact_name,
-			contact_email: project.contact_email,
 			owner: this.userId
 		});
 		if(project.tags.length > 0) {
@@ -63,12 +59,6 @@ Meteor.methods({
 		}
 		if(project.description) {
 			Projects.update(project._id, {$set: {description: project.description}});
-		}
-		if(project.contact_name) {
-			Projects.update(project._id, {$set: {contact_name: project.contact_name}});
-		}
-		if(project.contact_email) {
-			Projects.update(project._id, {$set: {contact_email: project.contact_email}});
 		}
 	},
 	deleteProject: function(id) {
