@@ -25,14 +25,14 @@
             </div>
         {{/if}}
         <div id="project_description_p">{{#pagedown}}{{description}}{{/pagedown}}</div>
-        <div class="row">
+        <div class="row offer-skills-row">
             <div class="well well-lg offer-skills">
-                    <h2>Want to help?</h3>
-                    {{#if currentUser}}
-                    <button class="btn btn-success btn-lg offer-help-btn">Offer your skills</button>
-                    {{else}}
-                    <button class="btn btn-success btn-lg open-signup">Sign in/up to offer your skills</button>
-                    {{/if}}
+                <h2>Want to help?</h3>
+                {{#if currentUser}}
+                <button class="btn btn-success btn-lg offer-help-btn">Offer your skills</button>
+                {{else}}
+                <button class="btn btn-success btn-lg open-signup">Sign in/up to offer your skills</button>
+                {{/if}}
             </div>
         </div>
         <div><h4 class="tags">Tags</h4></div>

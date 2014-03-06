@@ -69,6 +69,7 @@ Router.map(function () {
     function() {
       this.subscribe('projects').wait();
       this.subscribe('comments').wait();
+      this.subscribe('settings').wait();
       Session.set('profileUser', Meteor.userId());
     }
     ],
