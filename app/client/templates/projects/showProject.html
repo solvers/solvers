@@ -45,6 +45,15 @@
                 </ul>
 
                 <a class="btn-back btn btn-info" href="{{pathFor 'home'}}">Back</a>
+            </div>
+            <div class="tab-pane" id="tasks_tab">
+            {{> tasks}}
+            {{#if mayUpdateProject}}
+                {{> task_controls}}
+            {{/if}}
+            </div>
+
+
                 <h4>Comments and questions</h4>
                 {{#each comments}}
                     <div class="comment">
@@ -80,13 +89,6 @@
                         <button class="btn btn-primary" id="addNewComment">Post comment</button>
                     </div>
                 </form>
-            </div>
-            <div class="tab-pane" id="tasks_tab">
-            {{> tasks}}
-            {{#if mayUpdateProject}}
-                {{> task_controls}}
-            {{/if}}
-            </div>
         </div>
     {{/if}}
     </div>
