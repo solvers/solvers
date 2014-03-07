@@ -1,4 +1,22 @@
 Meteor.startup(function () {
+  if(Meteor.settings.test) {
+    console.log("Test mode. Clearing database");
+    Comments.remove({});
+    Projects.remove({});
+    Meteor.users.remove({});
+
+    // create fake project to test navigation
+    Projects.insert({
+      name: "Bob's project",
+      role: "Documentation slave",
+      description: "For this project you need to be a very fast writer",
+      postedDate: new Date(),
+      owner: "bobsuseridhash",
+      user: "Bob Jones",
+      contact: "bob@example.com"
+    });
+  }
+
   //Fix for orphaned users with no profile
   var noProfileCount = Meteor.users.find({profile: { $exists: false}}).fetch().length;
   //console.log("Counted "+noProfileCount+" users with no profile.");
@@ -10,6 +28,9 @@ Meteor.startup(function () {
     var noProfileCount2 = Meteor.users.find({profile: { $exists: false}}).fetch().length;
     console.log("Now: counted "+noProfileCount2+" users with no profile.");
   }
+
+  //Migrate projects
+  Projects.update({status: {$exists: false}}, {$set: {status: "ready"}});
 
   //Migrate usernames
   //TODO: make new users always set username on their profile
@@ -42,24 +63,6 @@ Meteor.startup(function () {
       }
     }
   });
-
-  if(Meteor.settings.test) {
-    console.log("Test mode. Clearing database");
-    Comments.remove({});
-    Projects.remove({});
-    Meteor.users.remove({});
-
-    // create fake project to test navigation
-    Projects.insert({
-      name: "Bob's project",
-      role: "Documentation slave",
-      description: "For this project you need to be a very fast writer",
-      postedDate: new Date(),
-      owner: "bobsuseridhash",
-      user: "Bob Jones",
-      contact: "bob@example.com"
-    });
-  }
 
 	if(false) {
 		Accounts.loginServiceConfiguration.remove({
