@@ -36,7 +36,7 @@ describe('A user should be able to post a project when authenticated', function(
 					assert('Project contact name is correct', $('#project_contact_name').text() === contact_name);
 					assert('Project contact email is correct', $('#project_contact_email').text() === contact_email);
 					done();
-				}, 100);
+				}, 200);
 
 			}, 10);
 
