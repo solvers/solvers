@@ -40,6 +40,7 @@ Meteor.methods({
 			description: project.description,
 			contact_name: project.contact_name,
 			contact_email: project.contact_email,
+			status: "ready",
 			owner: this.userId
 		});
 		if(project.tags.length > 0) {
