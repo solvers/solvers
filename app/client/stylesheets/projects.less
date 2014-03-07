@@ -26,7 +26,6 @@ tt {
     width: 100%;
     margin-top: 10px;
     margin-bottom: 10px;
-    padding: 0;
     position: relative;
   }
   .posteddate, .viewcount {
@@ -70,9 +69,8 @@ tt {
       margin-left: auto;
       margin-right: auto;
     }
-    padding: 15px;
+    padding: 15px 0;
     overflow: hidden;
-    border: 1px solid #ccc;
     margin-top: 15px;
   }
   #posted_date {
@@ -150,7 +148,7 @@ tt {
 
 // Tasks and progress
 .progress-title {
-	margin-top: 13px;
+	margin-top: 16px;
 	font-size: 1.2em;
 	color: @grey;
 }
@@ -213,4 +211,19 @@ tt {
 .tasks-status {
 	color: @grey;
 	margin-left: 16px;
+}
+
+#project_tabs {
+  margin-top: 25px; /* weird */
+}
+
+.tab-pane {
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+  padding: 0 15px 15px 15px;
+}
+
+#tasks_tab {
+  padding-top: 15px;
 }
