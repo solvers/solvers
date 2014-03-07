@@ -1,6 +1,5 @@
 Template.showProject.rendered = function() {
     $('table').addClass('table table-striped table-bordered table-hover');
-    console.log("Initialising tabs");
     $('#project_tabs').tab();
     $('#project_tabs a').click(function(e) {
         e.preventDefault();
