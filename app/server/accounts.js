@@ -13,7 +13,7 @@ Meteor.methods({
     photoForUser: function(user) {
         user = Meteor.users.findOne({_id: user._id});
         if (user.emails) {
-            var url = Gravatar.imageUrl(user.emails[0].address) + '?s=300';
+            var url = Gravatar.imageUrl(roles.getEmail()) + '?s=300';
             if (url)
                 return url;
         }

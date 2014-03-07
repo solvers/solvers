@@ -5,10 +5,10 @@ roles = (function() {
 		"davedx@gmail.com": true /* Dave Clayton */
 	};
 
-	var getEmail = function() {
+	var getEmail = function(verify) {
 		var user = Meteor.user();
 		// first try email from regular signup
-		if(user && user.emails && user.emails[0].verified)
+		if(user && user.emails && (verify && user.emails[0].verified))
 			return user.emails[0].address;
 		// then try 3rd party service email(s)
 		if(user && user.services) {
@@ -22,7 +22,7 @@ roles = (function() {
 
 	return {
 		isAdmin: function() {
-			var email = getEmail();
+			var email = getEmail(true);
 			return admins[email] === true;
 		},
 		username: function (user) {
@@ -38,6 +38,9 @@ roles = (function() {
 				}
 			}
 			return "Unknown";
+		},
+		getEmail: function() {
+			return getEmail(false);
 		}
 	}
 })();
