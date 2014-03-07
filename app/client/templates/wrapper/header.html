@@ -1,4 +1,11 @@
 <template name="header">
+    {{#unless no_hn_mail}}
+    <div class="hn" id="hn_mail">
+        <div class="container">
+            Hi Hacker News! Please subscribe to our newsletter: <input id="mailing_email" type="text"> <button id="mailing_btn" class="btn btn-xs">Add me!</button> <button id="close_mailing_btn" class="btn btn-xs">Close</button>
+        </div>
+    </div>
+    {{/unless}}
     <div class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
