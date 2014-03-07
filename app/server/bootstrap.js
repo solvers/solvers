@@ -30,7 +30,7 @@ Meteor.startup(function () {
   }
 
   //Migrate projects
-  Projects.update({status: {$exists: false}}, {$set: {status: "ready"}});
+  Projects.update({status: {$exists: false}}, {$set: {status: "ready"}}, {multi: true});
 
   //Migrate usernames
   //TODO: make new users always set username on their profile
