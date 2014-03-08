@@ -32,9 +32,9 @@ function last30days(collection, key) {
 	var now = new Date();
 	var query = {};
 	query[key] = {
-        $gte: moment(now).subtract('days', 30)
-   	}
-	return collection.find(query);
+    $gte: moment().subtract('days', 30).toDate()
+ 	}
+	return collection.find();
 }
 
 // count mongo results by key
