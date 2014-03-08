@@ -19,26 +19,40 @@
                 <small>Posted on {{formatDate postedDate}}</small>
             </p>
         </div>
+        <ul id="project_tabs" class="nav nav-tabs">
+          <li class="active"><a href="#project_tab">Project</a></li>
+          <li><a href="#tasks_tab">Tasks</a></li>
+        </ul>
         {{#if solved}}
             <div class="alert alert-success">
                 <strong>Success!</strong> This project was solved on {{solveddate}}.
             </div>
         {{/if}}
-        <div id="project_description_p">{{#pagedown}}{{description}}{{/pagedown}}</div>
-        <div class="row offer-skills-row">
-            <div class="well well-lg offer-skills">
-                <h2>Want to help?</h3>
-                {{#if currentUser}}
-                <button class="btn btn-success btn-lg offer-help-btn">Offer your skills</button>
+        <div class="tab-content">
+            <div class="tab-pane active" id="project_tab">
+                {{#if mayUpdateProject}}
+                    {{> progress_editable}}
                 {{else}}
-                <button class="btn btn-success btn-lg open-signup">Sign in/up to offer your skills</button>
+                    {{> progress}}
                 {{/if}}
+                <div id="project_description_p">{{#pagedown}}{{description}}{{/pagedown}}</div>
+                <h4 class="contact">Contact</h4>
+                <p><span id="project_contact_name">{{contact_name}}</span> (<span id="project_contact_email">{{contact_email}}</span>)</p>
+
+                <h4 class="tags">Tags</h4>
+                <ul class="tags clearfix">
+                    {{renderTags mayUpdate}}
+                </ul>
+
+                <a class="btn-back btn btn-info" href="{{pathFor 'home'}}">Back</a>
+            </div>
+            <div class="tab-pane" id="tasks_tab">
+            {{> tasks}}
+            {{#if mayUpdateProject}}
+                {{> task_controls}}
+            {{/if}}
             </div>
         </div>
-        <div><h4 class="tags">Tags</h4></div>
-        <ul class="tags clearfix">
-            {{renderTags mayUpdate}}
-        </ul>
         {{>comments}}
     {{/if}}
     </div>

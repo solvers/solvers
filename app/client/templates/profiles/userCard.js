@@ -9,9 +9,6 @@ Template.userCard.helpers({
   loading: function() {
     return !usersHandle.ready();
   },
-  username: function() {
-    return this.username;
-  },
   photo: function() {
     var photo = Session.get('photo');
     var thisUser = Session.get('profileUser');

@@ -36,6 +36,7 @@ Meteor.methods({
 			postedDate: new Date(),
 			role: project.role,
 			description: project.description,
+			status: "ready",
 			owner: this.userId
 		});
 		if(project.tags.length > 0) {
@@ -44,6 +45,14 @@ Meteor.methods({
 			});
 		}
 		return newId;
+	},
+	updateProjectStatus: function(attr) {
+		if(!this.userId)
+			throw new Meteor.Error(403, "Please sign in to edit a project.");
+		var prj = Projects.findOne(attr.id);
+		if(!roles.isAdmin() && this.userId !== prj.owner)
+			throw new Meteor.Error(403, "You are not the owner of this project.");
+		Projects.update(attr.id, {$set: {status: attr.status}});
 	},
 	updateProject: function(project) {
 		if(!this.userId)

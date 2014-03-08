@@ -7,7 +7,7 @@ Meteor.methods({
 		if(!this.userId)
 			throw new Meteor.Error(403, "Please log in to post a new comment.");
 		check(comment.body, String);
-		var username = roles.username(Meteor.user());
+		var username = roles.findFullName(Meteor.user());
 		var p = {
 			postedDate: new Date(),
 			body: comment.body,
@@ -21,12 +21,12 @@ Meteor.methods({
 	},
 	updateComment: function(id, body) {
 		if(!this.userId)
-			throw new Meteor.Error(403, "Please log in to post a new comment.");
+			throw new Meteor.Error(403, "Please log in to update a comment.");
 		var comment = Comments.findOne({_id: id});
 		if(!roles.isAdmin() && this.userId !== comment.owner)
 			throw new Meteor.Error(403, "You are not the owner of this comment.");
 		check(body, String);
-		var username = roles.username(Meteor.user());
+		var username = roles.findFullName(Meteor.user());
 		Comments.update(id,
 			{ $set: {
 				body: body,
@@ -37,7 +37,7 @@ Meteor.methods({
 	},
 	deleteComment: function(id) {
 		if(!this.userId)
-			throw new Meteor.Error(403, "Please log in to post a new comment.");
+			throw new Meteor.Error(403, "Please log in to delete this comment.");
 
 		var comment = Comments.findOne({_id: id});
 		if(!roles.isAdmin() && this.userId !== comment.owner)

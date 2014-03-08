@@ -1,5 +1,14 @@
 Template.showProject.rendered = function() {
     $('table').addClass('table table-striped table-bordered table-hover');
+    $('#project_tabs').tab();
+    $('#project_tabs a').click(function(e) {
+        e.preventDefault();
+        var id = $(this).attr('href');
+        $('#project_tabs li').removeClass('active');
+        $(this).parent().addClass('active');
+        $('.tab-pane').hide();
+        $(id).show();
+    });
 }
 
 Template.showProject.destroyed = function() {
@@ -46,6 +55,14 @@ Template.showProject.events({
     'click .offer-help-btn': function(e) {
         e.preventDefault();
         $('#offer-help-modal').modal('show');
+    },
+    'click .project-status a': function(e) {
+        Meteor.call('updateProjectStatus',
+            {id: this._id, status: e.target.className},
+            function(err) {
+                if(err) console.error(err);
+            });
+        e.preventDefault();
     },
     'click .project-edit-btn': function(e) {
         Session.set('editing', true);
