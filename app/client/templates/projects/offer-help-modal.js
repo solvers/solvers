@@ -7,12 +7,10 @@ Template.showProject.events({
       return;
     }
     var username = roles.username(Meteor.user());
-    var email = Meteor.user().emails[0].address;
     var properties = {
       message: $('#offer-help-textarea').val(),
       offeringUser: Meteor.userId(),
       offeringUserName: username,
-      offeringUserEmail: email,
       projectId: this._id,
       projectName: this.name
     }
@@ -24,5 +22,6 @@ Template.showProject.events({
       sendEmail: true
     }
     Meteor.call('sendOfferOfHelp', options);
+    $('#offer-help-modal').modal('hide');
   }
 });
