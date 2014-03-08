@@ -1,3 +1,7 @@
+Template.header.rendered = function() {
+  $("[rel=tooltip]").tooltip({ placement: 'bottom'});
+}
+
 Template.header.helpers({
   notificationCount: function() {
 	  if (Meteor.user && Notifications) {
