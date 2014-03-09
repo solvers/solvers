@@ -90,6 +90,7 @@ Meteor.methods({
 		var p = options.properties;
 		Offers.insert({
 			userId: p.offeringUser,
+			userName: p.offeringUserName,
 			projectId: p.projectId,
 			madeOn: new Date(),
 			message: p.message

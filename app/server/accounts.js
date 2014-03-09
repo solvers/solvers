@@ -10,12 +10,12 @@ Meteor.publish("userData", function() {
 });
 
 Meteor.methods({
-    photoForUser: function(user) {
+    photoForUser: function(user, size) {
+        size = size ? size : 300;
         user = Meteor.users.findOne({_id: user._id});
-        if (user.emails) {
-            var url = Gravatar.imageUrl(roles.getEmail()) + '?s=300';
-            if (url)
-                return url;
+        var url = Gravatar.imageUrl(roles.getEmail()) + '?s=' + size;
+        if (url) {
+          return url;
         }
         else {
             throw new Meteor.Error(500, "could not create Gravatar address", "no user email(s) found");   

@@ -22,6 +22,9 @@
         <ul id="project_tabs" class="nav nav-tabs">
           <li class="active"><a href="#project_tab">Project</a></li>
           <li><a href="#tasks_tab">Tasks</a></li>
+          {{#if mayUpdateProject}}
+          <li><a href="#offers_tab">Offers</a></li>
+          {{/if}}
         </ul>
         {{#if solved}}
             <div class="alert alert-success">
@@ -49,6 +52,11 @@
                 {{> task_controls}}
             {{/if}}
             </div>
+            {{#if mayUpdateProject}}
+                <div class="tab-pane" id="offers_tab">
+                {{> offers}}
+                </div>
+            {{/if}}
         </div>
         <div class="row offer-skills-row">
             <div class="well well-lg offer-skills">
