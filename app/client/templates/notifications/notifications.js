@@ -14,6 +14,9 @@ Template.notifications.helpers({
 	  } else{
 		  return count + ' unread notifications';
 	  }
+  },
+  unread_notifications: function() {
+    return Session.get('notifications').length > 0;
   }
 });
 

@@ -3,7 +3,7 @@
 	    <div class="col-md-8 col-md-offset-2 notifications">
 			<div class="alert alert-info navbar clearfix" style="position: relative;">
 				<h3 class="notification-head">{{notification_count}}</h3>
-				<button type="button" class="mark-as-read btn btn-default btn-sm">Mark all as read</button>
+				{{#if unread_notifications}}<button type="button" class="mark-as-read btn btn-default btn-sm">Mark all as read</button>{{/if}}
 			</div>
 			{{#if loggedin}}
 				<div>
