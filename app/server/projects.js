@@ -6,6 +6,10 @@ Meteor.publish('tags', function() {
 	return Meteor.tags.find();
 });
 
+Meteor.publish('offers', function() {
+	return Offers.find({});
+});
+
 var validateTags = function(tags) {
 	var re = /^[a-z0-9\-\+]+$/i;
 	return _.map(tags, function(tag) {
@@ -83,6 +87,13 @@ Meteor.methods({
 		Projects.update({_id: id}, {$inc: {views: 1}});
 	},
 	sendOfferOfHelp: function(options) {
+		var p = options.properties;
+		Offers.insert({
+			userId: p.offeringUser,
+			projectId: p.projectId,
+			madeOn: new Date(),
+			message: p.message
+		})
 		var notification = createNotification(options);
 	}
 });

@@ -38,6 +38,12 @@ Template.showProject.helpers({
     },
     editing: function() {
         return Session.get('editing');
+    },
+    hasOffered: function() {
+        if (Meteor.user()) {
+            var o = Offers.findOne({ userId: Meteor.userId() });
+            return !!o;
+        }
     }
 });
 
