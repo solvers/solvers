@@ -6,7 +6,7 @@ Template.showProject.events({
       $('#owner-alert').show();
       return;
     }
-    var username = roles.username(Meteor.user());
+    var username = roles.findFullName(Meteor.user());
     var properties = {
       message: $('#offer-help-textarea').val(),
       offeringUser: Meteor.userId(),

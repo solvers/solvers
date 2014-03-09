@@ -36,8 +36,7 @@
                     {{> progress}}
                 {{/if}}
                 <div id="project_description_p">{{#pagedown}}{{description}}{{/pagedown}}</div>
-                <h4 class="contact">Contact</h4>
-                <p><span id="project_contact_name">{{contact_name}}</span> (<span id="project_contact_email">{{contact_email}}</span>)</p>
+                <p>Posted by <span id="project_contact_name">{{owner}}</span></p>
 
                 <h4 class="tags">Tags</h4>
                 <ul class="tags clearfix">
@@ -49,6 +48,16 @@
             {{#if mayUpdateProject}}
                 {{> task_controls}}
             {{/if}}
+            </div>
+        </div>
+        <div class="row offer-skills-row">
+            <div class="well well-lg offer-skills">
+                <h2>Want to help?</h3>
+                {{#if currentUser}}
+                <button class="btn btn-success btn-lg offer-help-btn">Offer your skills</button>
+                {{else}}
+                <button class="btn btn-success btn-lg open-signup">Sign in/up to offer your skills</button>
+                {{/if}}
             </div>
         </div>
         {{>comments}}

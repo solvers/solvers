@@ -12,3 +12,5 @@ Notifications = new Meteor.Collection('notifications');
 Settings = new Meteor.Collection('settings');
 
 Tasks = new Meteor.Collection('tasks');
+
+Offers = new Meteor.Collection('offers');

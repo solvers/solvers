@@ -4,24 +4,27 @@
             <div class="comment">
                 <div id="comment_{{_id}}">
                     <strong><a href="/profile/{{owner}}">{{user}}</a></strong> <h5 class="date">{{formatLongDate postedDate}}</h5>{{#markdown}}{{body}}{{/markdown}}
-                    <button class="btn btn-default btn-xs pull-right" rel="tooltip" title="reply to comment"><i class="fa fa-reply"></i></button>
+                    <div class="commentButtons">
+                        {{#if mayUpdate}}
+                        <button class="btn btn-xs white pull-right editComment">
+                            <span class="glyphicon glyphicon-edit"></span>
+                        </button>
+                        <button class="btn btn-xs white pull-right deleteComment">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                        {{/if}}
+                    </div>
                 </div>
                 {{#if mayUpdate}}
-                    <button class="btn btn-xs white pull-right editComment">
-                        <span class="glyphicon glyphicon-edit"></span>
-                    </button>
-                    <button class="btn btn-xs white pull-right deleteComment">
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </button>
-                    <div class="edit-comment" id="edit_comment_{{_id}}">
-                        <div class="form">
-                            <div class="form-group">
-                                <textarea class="form-control" rows="3" id="comment_body_{{_id}}">{{body}}</textarea>
-                            </div>
+                <div class="edit-comment" id="edit_comment_{{_id}}">
+                    <div class="form">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3" id="comment_body_{{_id}}">{{body}}</textarea>
                         </div>
-                        <button class="btn btn-sm saveComment">Save</button>
-                        <button class="btn btn-sm cancelEditComment">Cancel</button>
                     </div>
+                    <button class="btn btn-sm saveComment">Save</button>
+                    <button class="btn btn-sm cancelEditComment">Cancel</button>
+                </div>
                 {{/if}}
             </div>
         {{/each}}
