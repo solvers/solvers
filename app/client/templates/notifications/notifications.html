@@ -1,11 +1,11 @@
 <template name="notifications">
 	<div class="container">
+			{{#if loggedin}}
 	    <div class="col-md-8 col-md-offset-2 notifications">
 			<div class="alert alert-info navbar clearfix" style="position: relative;">
 				<h3 class="notification-head">{{notification_count}}</h3>
 				{{#if unread_notifications}}<button type="button" class="mark-as-read btn btn-default btn-sm">Mark all as read</button>{{/if}}
 			</div>
-			{{#if loggedin}}
 				<div>
 					<ul>
 					{{#each notifications}}
@@ -13,10 +13,9 @@
 				    {{/each}}
 					</ul>
 				</div>
-			{{else}}
-			user not logged in
-			<div class="alert alert-info">You need to be logged in to see notifications.</div>
-			{{/if}}
 		</div>
+		{{else}}
+		<div class="alert alert-info">You need to be logged in to see notifications.</div>
+		{{/if}}
 	</div>
 </template>
