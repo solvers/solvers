@@ -12,8 +12,9 @@ Meteor.publish("userData", function() {
 Meteor.methods({
     photoForUser: function(user) {
         user = Meteor.users.findOne({_id: user._id});
-        if (user.emails) {
-            var url = Gravatar.imageUrl(roles.getEmail()) + '?s=300';
+        var email = roles.getEmail(user);
+        if (email) {
+            var url = Gravatar.imageUrl(email) + '?s=300';
             if (url)
                 return url;
         }
