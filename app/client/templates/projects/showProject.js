@@ -41,7 +41,7 @@ Template.showProject.helpers({
     },
     hasOffered: function() {
         if (Meteor.user()) {
-            var o = Offers.findOne({ userId: Meteor.userId() });
+            var o = Offers.findOne({ userId: Meteor.userId(), projectId: this._id });
             return !!o;
         }
     }
