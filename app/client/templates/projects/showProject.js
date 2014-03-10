@@ -26,6 +26,9 @@ Template.showProject.helpers({
             return '';
         return moment(date).format('MMM Do YYYY HH:mm');
     },
+    ownerName: function() {
+        return roles.findFullName(Meteor.users.findOne(this.owner));
+    },
     comments: function() {
         var comments = Comments.find({parent: this._id});
         return comments;

@@ -36,7 +36,7 @@
                     {{> progress}}
                 {{/if}}
                 <div id="project_description_p">{{#pagedown}}{{description}}{{/pagedown}}</div>
-                <p>Posted by <span id="project_contact_name">{{owner}}</span></p>
+                <p>Posted by <span id="project_contact_name"><a href="{{pathFor 'profile'}}/{{owner}}">{{ownerName}}</a></span></p>
 
                 <h4 class="tags">Tags</h4>
                 <ul class="tags clearfix">
