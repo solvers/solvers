@@ -5,8 +5,8 @@ roles = (function() {
 		"davedx@gmail.com": true /* Dave Clayton */
 	};
 
-	var getEmail = function(user) {
-		var user = user || Meteor.user();
+	var getEmail = function(u) {
+		var user = u || Meteor.user();
 		// first try email from regular signup
 		if(user && user.emails)
 			return user.emails[0].address;
@@ -40,8 +40,8 @@ roles = (function() {
 			//console.error("Could not find user full name for: ", user);
 			return "Unknown";
 		},
-		getEmail: function() {
-			return getEmail(false);
+		getEmail: function(user) {
+			return getEmail(user);
 		}
 	}
 })();
