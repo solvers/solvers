@@ -16,12 +16,7 @@
     <div class="col-md-6 offer-head"><p><strong><a href="{{pathFor 'profile'}}/{{userId}}"><img src="{{photoForUser userId}}"></img>{{userName}}</a> offered to help on {{formatDate madeOn}}</strong></p></div>
     <div class="col-md-6 offer-head">
       <div class="pull-right">
-        {{#if decisionMade}}
-          <p>You {{decision}}ed this offer on {{formatDate madeOn}}</p>
-        {{else}}
-          <button class="btn btn-xs btn-success offer-respond-btn">Accept</button>
-          <button class="btn btn-xs btn-danger offer-respond-btn">Reject</button>
-        {{/if}}
+          <p>Email this solver: {{userEmail}}</p>
       </div>
     </div>
     <p>Message:</p>

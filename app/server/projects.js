@@ -88,9 +88,11 @@ Meteor.methods({
 	},
 	sendOfferOfHelp: function(options) {
 		var p = options.properties;
+		var u = Meteor.users.findOne({ _id: p.offeringUser });
 		Offers.insert({
 			userId: p.offeringUser,
 			userName: p.offeringUserName,
+			userEmail: roles.getEmail(u),
 			projectId: p.projectId,
 			madeOn: new Date(),
 			message: p.message,
