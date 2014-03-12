@@ -7,6 +7,7 @@ Template.showProject.events({
       return;
     }
     var username = roles.findFullName(Meteor.user());
+    console.log(username)
     var properties = {
       message: $('#offer-help-textarea').val(),
       offeringUser: Meteor.userId(),

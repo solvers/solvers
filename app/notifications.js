@@ -32,14 +32,12 @@ getNotificationContents = function(notification, context){
 
     case 'newOffer':
       var projectURL = Router.routes['showProject'].url({_id: p.projectId});
-      var offeringUserEmail = roles.getEmail();
       var n = {
         subject: 'Offer of help on your project "'+p.projectName+'"',
         text: p.offeringUserName+' has offered to help with your project "'+p.projectName+'": '+projectURL,
-        html: '<p><strong><a href="'+Router.routes['userCard'].url({_id: p.offeringUser})+'">'+p.offeringUser+'</a> has offered to help with your project "<a href="'+projectURL+'" class="action-link">'+p.projectName+'</a>"</strong></p>'
+        html: '<p><strong><a href="'+Router.routes['userCard'].url({_id: p.offeringUser})+'">'+p.offeringUserName+'</a> has offered to help with your project "<a href="'+projectURL+'" class="action-link">'+p.projectName+'</a>"</strong></p>'
       }
       n.html = n.html + "<p class='snippet'>" + p.message + "</p>"
-      n.html = n.html + "<p>You can contact the user directly by email: <a href='mailto:" + offeringUserEmail + "'>" + offeringUserEmail + ".</p>"
       break;
 
     case 'newProject':
