@@ -23,3 +23,5 @@ Template.offer_item.helpers({
     });
   }
 });
+
+Template.offer_item.events({});

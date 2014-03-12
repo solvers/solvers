@@ -93,7 +93,8 @@ Meteor.methods({
 			userName: p.offeringUserName,
 			projectId: p.projectId,
 			madeOn: new Date(),
-			message: p.message
+			message: p.message,
+			accepted: false
 		})
 		var notification = createNotification(options);
 	}

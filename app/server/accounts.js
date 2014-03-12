@@ -13,9 +13,11 @@ Meteor.methods({
     photoForUser: function(user, size) {
         size = size ? size : 300;
         user = Meteor.users.findOne({_id: user._id});
-        var url = Gravatar.imageUrl(roles.getEmail()) + '?s=' + size;
-        if (url) {
-          return url;
+        var email = roles.getEmail(user);
+        if (email) {
+            var url = Gravatar.imageUrl(email) + '?s=300';
+            if (url)
+                return url;
         }
         else {
             throw new Meteor.Error(500, "could not create Gravatar address", "no user email(s) found");   

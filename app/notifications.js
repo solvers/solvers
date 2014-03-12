@@ -33,7 +33,6 @@ getNotificationContents = function(notification, context){
     case 'newOffer':
       var projectURL = Router.routes['showProject'].url({_id: p.projectId});
       var offeringUserEmail = roles.getEmail();
-      console.log(offeringUserEmail);
       var n = {
         subject: 'Offer of help on your project "'+p.projectName+'"',
         text: p.offeringUserName+' has offered to help with your project "'+p.projectName+'": '+projectURL,
@@ -57,7 +56,8 @@ getNotificationContents = function(notification, context){
 
   // if context is email, append unsubscribe link to all outgoing notifications
   if(context == 'email'){
-    n.to = userToNotify.emails[0].address;
+    var email = roles.getEmail(userToNotify);
+    n.to = email;
     n.text = n.text + '\n\n Unsubscribe from all notifications: '+getUnsubscribeLink(userToNotify);
     n.html = n.html + '<br/><br/><a href="'+getUnsubscribeLink(userToNotify)+'">Unsubscribe from all notifications</a>';
   }
