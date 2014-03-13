@@ -10,10 +10,12 @@ Meteor.publish("userData", function() {
 });
 
 Meteor.methods({
-    photoForUser: function(user) {
+    photoForUser: function(user, size) {
+        size = size ? size : 300;
         user = Meteor.users.findOne({_id: user._id});
-        if (user.emails) {
-            var url = Gravatar.imageUrl(user.emails[0].address) + '?s=300';
+        var email = roles.getEmail(user);
+        if (email) {
+            var url = Gravatar.imageUrl(email) + '?s=300';
             if (url)
                 return url;
         }

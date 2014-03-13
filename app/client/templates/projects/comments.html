@@ -1,0 +1,47 @@
+<template name="comments">
+        <h4>Comments and questions</h4>
+        {{#each comments}}
+            <div class="comment">
+                <div id="comment_{{_id}}">
+                    <strong><a href="/profile/{{owner}}">{{user}}</a></strong> <h5 class="date">{{formatLongDate postedDate}}</h5>{{#markdown}}{{body}}{{/markdown}}
+                    <div class="commentButtons">
+                        {{#if mayUpdate}}
+                        <button class="btn btn-xs white pull-right editComment">
+                            <span class="glyphicon glyphicon-edit"></span>
+                        </button>
+                        <button class="btn btn-xs white pull-right deleteComment">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                        {{/if}}
+                    </div>
+                </div>
+                {{#if mayUpdate}}
+                <div class="edit-comment" id="edit_comment_{{_id}}">
+                    <div class="form">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3" id="comment_body_{{_id}}">{{body}}</textarea>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm saveComment">Save</button>
+                    <button class="btn btn-sm cancelEditComment">Cancel</button>
+                </div>
+                {{/if}}
+            </div>
+        {{/each}}
+        {{#if currentUser}}
+        <form>
+            <div class="form">
+                <div id="comment_error" class="alert alert-danger"></div>
+                <div class="form-group">
+                    <span class="help-block">Post your comment. You may use <a href="http://daringfireball.net/projects/markdown/basics">Markdown</a> to format it.</span>
+                    <textarea id="comment_body" placeholder=""></textarea>
+                </div>
+                <button class="btn btn-primary" id="addNewComment">Post comment</button>
+            </fieldset>
+        </form>
+        {{else}}
+        <div class="alert alert-dismissable alert-info">
+            <p><a href="" class="open-signup" data-toggle="dropdown">Sign in/up</a> to post comments.</p>
+        </div>
+        {{/if}}
+</template>

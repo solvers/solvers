@@ -1,6 +1,6 @@
 <template name="progress">
 	<div class="row">
-		<div class="col-md-6 project-status">
+		<div class="col-md-12 project-status">
 			<div class="progress-title">Project status:
 				{{projectStatus}}
 			</div>
@@ -10,7 +10,7 @@
 </template>
 <template name="progress_editable">
 	<div class="row">
-		<div class="col-md-6 project-status">
+		<div class="col-md-12 project-status">
 			<div class="progress-title">Project status:
 				<div class="btn-group">
 				  <button type="button" class="btn btn-default btn-xs dropdown-toggle project-status" data-toggle="dropdown">
@@ -28,26 +28,10 @@
 	</div>
 </template>
 <template name="progress_bar">
-	<div class="col-md-6">
-		<div class="progress">
-			{{#if statusIsReady}}
-			<div class="progress-bar solved-bar solved-bar-first">
+	<div class="col-md-12">
+		<div class="progress progress-striped">
+			<div class="progress-bar progress-bar-success" style="width: {{statusCompletion}}%;">
 			</div>
-			{{/if}}
-			{{#if statusIsTasks}}
-			<div class="progress-bar solved-bar solved-bar-first">
-			</div>
-			<div class="progress-bar solved-bar">
-			</div>
-			{{/if}}
-			{{#if statusIsSolved}}
-			<div class="progress-bar solved-bar solved-bar-first">
-			</div>
-			<div class="progress-bar solved-bar">
-			</div>
-			<div class="progress-bar solved-bar solved-bar-last">
-			</div>
-			{{/if}}
 		</div>
 	</div>
 </template>

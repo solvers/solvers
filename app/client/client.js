@@ -39,6 +39,7 @@ Accounts.ui.config({
 
 Deps.autorun(function () {
 	if (Meteor.users) {
-	  	Session.set('usercount', Meteor.users.find().count());
+		Meteor.subscribe('notifications');
+		Session.set('usercount', Meteor.users.find().count());
 	}
 });

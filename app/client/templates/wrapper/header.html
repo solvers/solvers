@@ -32,6 +32,15 @@
                     {{loginButtons}}
                     {{#if currentUser}}
                     <li>
+                        <a id="gotoNotifications" href="{{pathFor 'notifications'}}" rel="tooltip" data-placement="bottom" title="view notifications">
+                            <div class="notification-icon">
+                                <span class="glyphicon glyphicon-envelope"></span>
+                                {{#if notificationCount}}
+                                <span class="badge badge-success">{{notificationCount}}</span>
+                                {{/if}}
+                            </div>
+                        </a>
+                    <li>
                         <a id="editProfile" href="{{pathFor 'profile'}}" rel="tooltip" data-placement="bottom" title="edit profile">
                             <span class="icon-bar glyphicon white glyphicon-user"></span>
                         </a>
