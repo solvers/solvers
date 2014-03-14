@@ -19,6 +19,9 @@ Template.home.helpers({
 	username: function(id) {
 		var user = Meteor.users.findOne({_id: id});
 		return roles.findFullName(user);
+	},
+	isSolved: function(status) {
+		return status === "solved";
 	}
 });
 

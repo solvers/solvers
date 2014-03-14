@@ -22,7 +22,7 @@ roles = (function() {
 
 	return {
 		isAdmin: function() {
-			var email = getEmail(true);
+			var email = getEmail();
 			return admins[email] === true;
 		},
 		findFullName: function (user) {

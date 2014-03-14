@@ -14,14 +14,20 @@
         {{/if}}
         <ul class="projects">
         {{#each projects}}
-            <li class="clearfix"><a class="showProject" data-id="{{_id}}" href="{{pathFor 'showProject'}}">{{name}} - {{role}}</a>
+            <li class="clearfix">
+            <div>
+                <a class="showProject" data-id="{{_id}}" href="{{pathFor 'showProject'}}">{{name}} - {{role}}</a>{{#if isSolved status}}<span class="label label-success">Solved!</span>{{/if}}
                 {{#if mayUpdate}}
                 <button class="btn btn-xs white pull-right deleteProject">
                     <span class="glyphicon glyphicon-trash"></span>
                 </button>
                 {{/if}}
-                <h5 class="date pull-right">{{formatDate postedDate}}
-                by <a class="projectOwner" href="/profile/{{owner}}">{{username owner}}</h5>
+            </div>
+                {{renderSmallTags}}
+            <div>
+                <a class="projectOwner" href="/profile/{{owner}}">{{username owner}}</a></h5> 
+                 <span class="date">on {{formatDate postedDate}}</span>
+            </div>
             </li>
         {{/each}}
         </ul>
