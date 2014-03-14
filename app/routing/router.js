@@ -7,7 +7,16 @@ Router.map(function () {
   this.route('home', {
     path: '/',
     controller: HomeController,
-    after: function() { GAnalytics.pageview('/'); }
+    after: function() { GAnalytics.pageview('/'); },
+    before: function() {
+      this.subscribe('notifications').wait();
+    }
+  });
+
+  // Notifications
+  this.route('notifications', {
+    path: '/notifications',
+    after: function() { GAnalytics.pageview('/notifications'); }
   });
 
   // Projects by tag
@@ -33,6 +42,7 @@ Router.map(function () {
         this.subscribe('projects').wait();
         this.subscribe('comments').wait();
         this.subscribe('tasks').wait();
+        this.subscribe('offers').wait();
       },
     data:
       function() {
@@ -61,6 +71,9 @@ Router.map(function () {
     function() {
       this.subscribe('projects').wait();
       this.subscribe('comments').wait();
+      this.subscribe('settings').wait();
+      this.subscribe('tasks').wait();
+      this.subscribe('offers').wait();
       Session.set('profileUser', Meteor.userId());
     }
     ],
@@ -77,6 +90,8 @@ Router.map(function () {
     function() {
       this.subscribe('projects').wait();
       this.subscribe('comments').wait();
+      this.subscribe('tasks').wait();
+      this.subscribe('offers').wait();
       Session.set('profileUser', this.params._id);
     }
     ],
@@ -90,8 +105,11 @@ Router.map(function () {
   this.route('stats', {
     path:'/stats',
     waitOn: function() {
-      return [this.subscribe('projects'),
-      this.subscribe('comments')];
+      return [
+      this.subscribe('projects'),
+      this.subscribe('comments'),
+      this.subscribe('tasks'),
+      this.subscribe('offers')];
     },
     after: function() { GAnalytics.pageview('/stats'); }
   });

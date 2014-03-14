@@ -1,4 +1,11 @@
 <template name="header">
+    {{#unless no_hn_mail}}
+    <div class="hn" id="hn_mail">
+        <div class="container">
+            Hi Hacker News! Please subscribe to our newsletter: <input id="mailing_email" type="text" placeholder="name@domain.com"> <button id="mailing_btn" class="btn btn-xs">Add me!</button> <button id="close_mailing_btn" class="btn btn-xs">Close</button>
+        </div>
+    </div>
+    {{/unless}}
     <div class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -24,6 +31,15 @@
                     {{> adminButtons}}
                     {{loginButtons}}
                     {{#if currentUser}}
+                    <li>
+                        <a id="gotoNotifications" href="{{pathFor 'notifications'}}" rel="tooltip" data-placement="bottom" title="view notifications">
+                            <div class="notification-icon">
+                                <span class="glyphicon glyphicon-envelope"></span>
+                                {{#if notificationCount}}
+                                <span class="badge badge-success">{{notificationCount}}</span>
+                                {{/if}}
+                            </div>
+                        </a>
                     <li>
                         <a id="editProfile" href="{{pathFor 'profile'}}" rel="tooltip" data-placement="bottom" title="edit profile">
                             <span class="icon-bar glyphicon white glyphicon-user"></span>

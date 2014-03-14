@@ -6,6 +6,10 @@ Meteor.publish('tags', function() {
 	return Meteor.tags.find();
 });
 
+Meteor.publish('offers', function() {
+	return Offers.find({});
+});
+
 var validateTags = function(tags) {
 	var re = /^[a-z0-9\-\+]+$/i;
 	return _.map(tags, function(tag) {
@@ -27,8 +31,6 @@ Meteor.methods({
 		check(project.name, String);
 		check(project.role, String);
 		check(project.description, String);
-		check(project.contact_name, String);
-		check(project.contact_email, String);
 
 		// validate tags
 		project.tags = validateTags(project.tags);
@@ -38,8 +40,7 @@ Meteor.methods({
 			postedDate: new Date(),
 			role: project.role,
 			description: project.description,
-			contact_name: project.contact_name,
-			contact_email: project.contact_email,
+			status: "ready",
 			owner: this.userId
 		});
 		if(project.tags.length > 0) {
@@ -72,12 +73,6 @@ Meteor.methods({
 		if(project.description) {
 			Projects.update(project._id, {$set: {description: project.description}});
 		}
-		if(project.contact_name) {
-			Projects.update(project._id, {$set: {contact_name: project.contact_name}});
-		}
-		if(project.contact_email) {
-			Projects.update(project._id, {$set: {contact_email: project.contact_email}});
-		}
 	},
 	deleteProject: function(id) {
 		if(!this.userId)
@@ -90,5 +85,19 @@ Meteor.methods({
 	},
 	addView: function(id) {
 		Projects.update({_id: id}, {$inc: {views: 1}});
+	},
+	sendOfferOfHelp: function(options) {
+		var p = options.properties;
+		var u = Meteor.users.findOne({ _id: p.offeringUser });
+		Offers.insert({
+			userId: p.offeringUser,
+			userName: p.offeringUserName,
+			userEmail: roles.getEmail(u),
+			projectId: p.projectId,
+			madeOn: new Date(),
+			message: p.message,
+			accepted: false
+		})
+		var notification = createNotification(options);
 	}
 });

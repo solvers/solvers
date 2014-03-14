@@ -42,6 +42,14 @@ Template.profile.helpers({
   },
   twitterHandle: function() {
     return Meteor.user().profile.twitterHandle;
+  },
+  sendEmailsChecked: function() {
+    var sendEmail = Settings.findOne(
+      {userId: Meteor.userId(),
+        setting: 'sendEmail'});
+    if (sendEmail) {
+      return sendEmail.value ? 'checked' : '';
+    }
   }
 });
 
@@ -126,5 +134,8 @@ Template.profile.events({
     } else {
       return $('.errors').text('First name is required.');
     }
+  },
+  'click #setEmailNotification': function(event) {
+    Meteor.call('setEmailNotification', event.target.checked);
   }
 });

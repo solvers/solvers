@@ -22,6 +22,9 @@
         <ul id="project_tabs" class="nav nav-tabs">
           <li class="active"><a href="#project_tab">Project</a></li>
           <li><a href="#tasks_tab">Tasks</a></li>
+          {{#if mayUpdateProject}}
+          <li><a href="#offers_tab">Offers</a></li>
+          {{/if}}
         </ul>
         {{#if solved}}
             <div class="alert alert-success">
@@ -36,15 +39,12 @@
                     {{> progress}}
                 {{/if}}
                 <div id="project_description_p">{{#pagedown}}{{description}}{{/pagedown}}</div>
-                <h4 class="contact">Contact</h4>
-                <p><span id="project_contact_name">{{contact_name}}</span> (<span id="project_contact_email">{{contact_email}}</span>)</p>
+                <p>Posted by <span id="project_contact_name"><a href="{{pathFor 'profile'}}/{{owner}}">{{ownerName}}</a></span></p>
 
                 <h4 class="tags">Tags</h4>
                 <ul class="tags clearfix">
                     {{renderTags mayUpdate}}
                 </ul>
-
-                <a class="btn-back btn btn-info" href="{{pathFor 'home'}}">Back</a>
             </div>
             <div class="tab-pane" id="tasks_tab">
             {{> tasks}}
@@ -52,44 +52,28 @@
                 {{> task_controls}}
             {{/if}}
             </div>
-
-
-                <h4>Comments and questions</h4>
-                {{#each comments}}
-                    <div class="comment">
-                        <div id="comment_{{_id}}">
-                            <strong><a href="/profile/{{owner}}">{{user}}</a></strong> <h5 class="date">{{formatLongDate postedDate}}</h5>{{#markdown}}{{body}}{{/markdown}}
-                        </div>
-                        {{#if mayUpdate}}
-                            <button class="btn btn-xs white pull-right editComment">
-                                <span class="glyphicon glyphicon-edit"></span>
-                            </button>
-                            <button class="btn btn-xs white pull-right deleteComment">
-                                <span class="glyphicon glyphicon-trash"></span>
-                            </button>
-                            <div class="edit-comment" id="edit_comment_{{_id}}">
-                                <div class="form">
-                                    <div class="form-group">
-                                        <textarea class="form-control" rows="3" id="comment_body_{{_id}}">{{body}}</textarea>
-                                    </div>
-                                </div>
-                                <button class="btn btn-sm saveComment">Save</button>
-                                <button class="btn btn-sm cancelEditComment">Cancel</button>
-                            </div>
-                        {{/if}}
-                    </div>
-                {{/each}}
-                <form>
-                    <div class="form">
-                        <div id="comment_error" class="alert alert-danger"></div>
-                        <div class="form-group">
-                            <span class="help-block">Post your comment. You may use <a href="http://daringfireball.net/projects/markdown/basics">Markdown</a> to format it.</span>
-                            <textarea id="comment_body" placeholder=""></textarea>
-                        </div>
-                        <button class="btn btn-primary" id="addNewComment">Post comment</button>
-                    </div>
-                </form>
+            {{#if mayUpdateProject}}
+                <div class="tab-pane" id="offers_tab">
+                {{> offers}}
+                </div>
+            {{/if}}
         </div>
+        <div class="row offer-skills-row">
+            <div class="well well-lg offer-skills">
+                {{#if hasOffered}}
+                    <h2>Thanks for offering to help :)</h2>
+                {{else}}
+                    <h2>Want to help?</h3>
+                    {{#if currentUser}}
+                    <button class="btn btn-success btn-lg offer-help-btn">Offer your skills</button>
+                    {{else}}
+                    <button class="btn btn-success btn-lg open-signup">Sign in/up to offer your skills</button>
+                    {{/if}}
+                {{/if}}
+            </div>
+        </div>
+        {{>comments}}
     {{/if}}
     </div>
+    {{>offer-help-modal}}
 </template>

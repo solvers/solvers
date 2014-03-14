@@ -1,0 +1,7 @@
+<template name="listOfSmallTags">
+<div class="pull-right">
+  {{#each listOfSmallTags.tags}}
+      <a href="/projects/tag/{{tagName}}"><span class="label label-info">{{tagName}}</span></a>
+  {{/each}}
+</div>
+</template>

@@ -54,7 +54,7 @@ a {
   }
   .search-group {
     input {
-      margin: 4px 40px;
+      margin: 4px;
       width: 550px;
     }
     .dropdown-menu {
@@ -184,4 +184,123 @@ html {
 .form-horizontal .form-group {
   margin-right: 0;
   margin-left: 0;
+}
+
+.hn {
+  background-color: #ff6600;
+  .container {
+    padding-left: 43px;
+  }
+}
+
+#description {
+  height:400px; 
+  overflow: hidden;
+  border: 1px solid #ccc;
+}
+
+.table {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-horizontal .form-group {
+margin-right: 0;
+margin-left: 0;
+}
+
+.badge-success {
+  background-color: #468847;
+  color: white;
+}
+.badge-success:hover {
+  background-color: #356635;
+  colour: white;
+}
+
+// Notifications
+.notification-icon {
+  color: white;
+}
+
+.notifications {
+  ul {
+    padding-left: 0;
+    margin-top: 20px;
+    height:100%;
+    overflow:auto;
+    li {
+      margin-left :0;
+      padding:10px;
+      border-bottom:1px solid #666;
+      font-size:13px;
+      background:white;
+      .notification-timestamp{
+        color:#555;
+        font-size:12px;
+      }
+      &.read{
+        color:#555;
+        background:#f3f3f3;
+      }
+    }
+  }
+  p, .checkbox {
+    padding-left: 0;
+  }
+  .mark-read-checkbox {
+    margin-right: 7px;
+    padding-top: 3px;
+  }
+  .read {
+    a {
+      color: #666;
+    }
+    color: #666;
+    background-color: #444;
+  }
+  .notification-timestamp {
+    color: #bbb;
+    font-style: bold;
+  }
+  .snippet {
+    padding-left: 20px;
+    font-style: italic;
+  }
+  .notification-head {
+    float: left;
+    width: 100%;
+    margin-right: 90px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .mark-as-read {
+    position: absolute;
+    right: 15px;
+    top: 11px;
+    margin-left: 5px;
+  }
+}
+
+.offer-skills-row {
+  margin: 15px 0 10px 0;
+  .offer-skills {
+    text-align: center;
+  }
+}
+#offer-help-modal {
+  #offer-help-textarea {
+    width: 100%;
+    min-height: 100px;
+    resize: none;
+    outline: none;
+  }
+  .modal-footer {
+    margin-top: 0;
+  }
+  #owner-alert {
+    margin-top: 21;
+    margin-bottom: 0;
+  }
 }

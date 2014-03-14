@@ -23,8 +23,6 @@ describe('A user should be able to post a project when authenticated', function(
 				$('#name').val(name);
 				$('#role').val(role);
 				$('#wmd-input').val(description);
-				$('#contact_name').val(contact_name);
-				$('#contact_email').val(contact_email);
 				$('#tags').val(tags);
 				var addNewProjectBtn = $('#addNewProject');
 				click(addNewProjectBtn[0]);
@@ -33,10 +31,8 @@ describe('A user should be able to post a project when authenticated', function(
 					assert('Project role is "Expert DNA Programmer"', $('#project_role').text() === role);
 					assert('Project name is "Killer Bees Mutagen"', $('#project_name').text() === name);
 					assert('Project description is correct', $('#project_description_p').text() === description + "\n");
-					assert('Project contact name is correct', $('#project_contact_name').text() === contact_name);
-					assert('Project contact email is correct', $('#project_contact_email').text() === contact_email);
 					done();
-				}, 100);
+				}, 200);
 
 			}, 10);
 
