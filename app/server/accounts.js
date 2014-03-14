@@ -5,7 +5,8 @@ Meteor.publish("userData", function() {
                 'services.github.username': 1,
                 'services.google.name': 1,
                 'firstName': 1,
-                'lastName': 1}
+                'lastName': 1,
+                'createdAt': 1}
       });
 });
 
