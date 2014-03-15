@@ -7,7 +7,12 @@ Template.comments.helpers({
   },
   mayUpdate: function() {
     return roles.isAdmin() || this.owner === Meteor.userId();
-  }
+  },
+  formatLongDate: function(date) {
+    if(!date)
+        return '';
+    return moment(date).format('MMM Do YYYY HH:mm');
+  },
 });
 
 Template.comments.events({

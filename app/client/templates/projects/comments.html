@@ -3,7 +3,8 @@
         {{#each comments}}
             <div class="comment">
                 <div id="comment_{{_id}}">
-                    <strong><a href="/profile/{{owner}}">{{user}}</a></strong> <h5 class="date">{{formatLongDate postedDate}}</h5>{{#markdown}}{{body}}{{/markdown}}
+                    <strong><a href="/profile/{{owner}}">{{user}}</a></strong> <span class="date">on {{formatLongDate postedDate}}</span>
+                    {{#markdown}}{{body}}{{/markdown}}
                     <div class="commentButtons">
                         {{#if mayUpdate}}
                         <button class="btn btn-xs white pull-right editComment">
