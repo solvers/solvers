@@ -1,4 +1,3 @@
-
 Template.profile.rendered = function() {
   return $('#bio').keydown(function(event) {
     if (event.keyCode === 13) {
@@ -124,7 +123,7 @@ Template.profile.events({
   'blur #twitterHandle': function(event) {
     return Meteor.users.update(Meteor.userId(), {
       $set: {
-        'profile.twitterHandle': $(event.target).val()
+        'profile.twitterHandle': $(event.target).val().replace("@","");
       }
     });
   },
