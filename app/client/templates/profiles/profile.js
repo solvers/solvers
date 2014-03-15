@@ -123,7 +123,7 @@ Template.profile.events({
   'blur #twitterHandle': function(event) {
     return Meteor.users.update(Meteor.userId(), {
       $set: {
-        'profile.twitterHandle': $(event.target).val().replace("@","");
+        'profile.twitterHandle': $(event.target).val().replace("@","")
       }
     });
   },
