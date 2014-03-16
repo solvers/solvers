@@ -5,8 +5,11 @@ Solvers - improve our world.
 
 [![Stories in Ready](https://badge.waffle.io/solvers/solvers.png?label=ready)](https://waffle.io/solvers/solvers)
 [![Build Status](https://travis-ci.org/solvers/solvers.png?branch=master)](https://travis-ci.org/solvers/solvers)
+[![Gitter chat](https://badges.gitter.im/solvers/solvers.png)](https://gitter.im/solvers/solvers)
 
-A Meteor experiment to connect developers and other skilled people with science projects in need of expertise.
+[Solvers.io](http://solvers.io) is a community of people who want to improve our world. We connect projects that tackle important problems with the people who have the skills to help.
+
+Chat to us in our [Gitter room](https://gitter.im/solvers/solvers)
 
 Testing
 ==
