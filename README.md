@@ -5,6 +5,7 @@ Solvers - improve our world.
 
 [![Stories in Ready](https://badge.waffle.io/solvers/solvers.png?label=ready)](https://waffle.io/solvers/solvers)
 [![Build Status](https://travis-ci.org/solvers/solvers.png?branch=master)](https://travis-ci.org/solvers/solvers)
+[![Code Climate](https://codeclimate.com/github/solvers/solvers.png)](https://codeclimate.com/github/solvers/solvers)
 [![Gitter chat](https://badges.gitter.im/solvers/solvers.png)](https://gitter.im/solvers/solvers)
 
 [Solvers.io](http://solvers.io) is a community of people who want to improve our world. We connect projects that tackle important problems with the people who have the skills to help.
