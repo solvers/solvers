@@ -3,10 +3,12 @@
 	{{#if loading}}
 		{{>spinner}}
 	{{else}}
-	    <h3 id="fullName">{{fullname}}</h3>
-	    {{#if profile.username}}
-				<h3>({{profile.username}})</h3>
-			{{/if}}
+	    <h3 id="fullName">{{fullname}}
+	    	{{#if profile.username}}
+			<small>({{profile.username}})</small>
+		{{/if}}
+	    </h3>
+	    
 	    <h4>{{subhead}}</h4>
 	    <div class='row'>
 			<div class="col-md-4">
