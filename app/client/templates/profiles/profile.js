@@ -1,4 +1,3 @@
-
 Template.profile.rendered = function() {
   return $('#bio').keydown(function(event) {
     if (event.keyCode === 13) {
@@ -42,6 +41,14 @@ Template.profile.helpers({
   },
   twitterHandle: function() {
     return Meteor.user().profile.twitterHandle;
+  },
+  sendEmailsChecked: function() {
+    var sendEmail = Settings.findOne(
+      {userId: Meteor.userId(),
+        setting: 'sendEmail'});
+    if (sendEmail) {
+      return sendEmail.value ? 'checked' : '';
+    }
   }
 });
 
@@ -116,7 +123,7 @@ Template.profile.events({
   'blur #twitterHandle': function(event) {
     return Meteor.users.update(Meteor.userId(), {
       $set: {
-        'profile.twitterHandle': $(event.target).val()
+        'profile.twitterHandle': $(event.target).val().replace("@","")
       }
     });
   },
@@ -126,5 +133,8 @@ Template.profile.events({
     } else {
       return $('.errors').text('First name is required.');
     }
+  },
+  'click #setEmailNotification': function(event) {
+    Meteor.call('setEmailNotification', event.target.checked);
   }
 });

@@ -18,8 +18,6 @@ Template.editProject.events({
             name: $('#name').val(),
             role: $('#role').val(),
             description: $('#wmd-input').val(),
-            contact_name: $('#contact_name').val(),
-            contact_email: $('#contact_email').val(),
             tags: tags
         });
         Session.set('editing', false);

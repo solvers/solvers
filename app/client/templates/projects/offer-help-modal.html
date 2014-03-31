@@ -1,0 +1,24 @@
+<template name="offer-help-modal">
+	<!-- Modal -->
+	<div class="modal fade" id="offer-help-modal" tabindex="-1" role="dialog" aria-labelledby="offer-help-modal" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h3 class="modal-title" id="offer-help-modal-title">Offer your skills</h3>
+	      </div>
+	      <div class="modal-body">
+			<p>Tell the project owner what help you're offering.</p>
+			<p>If you haven't yet filled out <a href="/profile">your user profile</a>, you should do that first.</p>
+	        <textarea id="offer-help-textarea"></textarea>
+			<div class="alert alert-warning" id="owner-alert" style="display: none;">
+			    <strong>Not so fast!</strong> You can't volunteer on your own project.
+			</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary" id="offer-send">Send</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</template>

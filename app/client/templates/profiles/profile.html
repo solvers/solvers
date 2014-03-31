@@ -44,7 +44,11 @@
             <label>Twitter handle</label>
             <input class="form-control" type="text" id="twitterHandle" placeholder="Twitter Handle (optional)" value="{{twitterHandle}}"></input>
           </div>
-          <a class='btn btn-primary'><i class='icon-ok'></i>Done</a>
+          <div class="checkbox">
+            <label>
+              <input id="setEmailNotification" type="checkbox" {{sendEmailsChecked}}> Send emails for notifications.
+            </label>
+          </div>
         </div>
 
         <div class="col col-lg-6">

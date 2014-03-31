@@ -15,13 +15,17 @@ Template.progress_editable.helpers({
 });
 
 Template.progress_bar.helpers({
-    statusIsReady: function() {
-        return this.status === 'ready';
-    },
-    statusIsTasks: function() {
-        return this.status === 'tasks';
-    },
-    statusIsSolved: function() {
-        return this.status === 'solved';
+    statusCompletion: function() {
+        switch (this.status) {
+            case 'ready':
+                return 33;
+                break;
+            case 'tasks':
+                return 66;
+                break;
+            case 'solved':
+                return 100;
+                break;
+        }
     }
 });
