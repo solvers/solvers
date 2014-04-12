@@ -46,7 +46,9 @@ Router.map(function () {
       },
     data:
       function() {
-        return Projects.findOne({_id: this.params._id});
+        project = Projects.findOne({_id: this.params._id});
+        Session.set('project', project);
+        return project;
       },
     waitOn: function() {
       return Meteor.subscribe('projects');
