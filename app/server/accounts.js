@@ -23,6 +23,20 @@ Meteor.methods({
         else {
             throw new Meteor.Error(500, "could not create Gravatar address", "no user email(s) found");   
         }
+    },
+    changeEmail: function(user_id, email) {
+        var user = Meteor.users.findOne({_id: user_id});
+        var current_email = null;
+        if (user.emails != null) {
+            current_email = user.emails[0].address;
+        } 
+
+        if (current_email !== email) {
+           Meteor.users.update(user_id, {
+            $set: {'emails': [{address: email, verified: false}]}
+           })
+        }
+        return user
     }
 });
 
